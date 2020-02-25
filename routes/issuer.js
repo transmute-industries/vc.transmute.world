@@ -4,7 +4,9 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    res.send('issuer');
+    res.status(200).json({
+      issuer: true,
+    });
   } catch (e) {
     next(e);
   }

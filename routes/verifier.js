@@ -4,7 +4,9 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    res.send('verifier');
+    res.status(200).json({
+      verifier: true,
+    });
   } catch (e) {
     next(e);
   }
