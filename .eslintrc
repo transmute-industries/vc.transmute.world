@@ -1,0 +1,3 @@
+{
+  "extends": ["@transmute/eslint-config/eslint.config.node.json"]
+}
