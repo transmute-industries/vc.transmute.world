@@ -1,5 +1,6 @@
 const express = require('express');
 const uuid = require('uuid/v4');
+const config = require('../config');
 
 const router = express.Router();
 
@@ -16,7 +17,6 @@ router.get('/', async (req, res, next) => {
 router.post('/credential', async (req, res, next) => {
   try {
     const id = uuid();
-    const { issuanceDate } = req.body;
     const now = new Date().toISOString();
     const types = req.body.types || [];
     const vc = {
@@ -26,8 +26,8 @@ router.post('/credential', async (req, res, next) => {
       ],
       id: `http://example.com/credentials/${id}`,
       type: ['VerifiableCredential', ...types],
-      // issuer: 'https://example.edu/issuers/565049',
-      issuanceDate: issuanceDate || now,
+      issuer: config.issuer,
+      issuanceDate: now,
       // credentialSubject: {
       //   id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
       //   alumniOf: {

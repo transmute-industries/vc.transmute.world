@@ -1,5 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
+const config = require('../config');
 
 describe('Issuer Credential API', () => {
   describe('GET /', () => {
@@ -16,7 +17,6 @@ describe('Issuer Credential API', () => {
       const res = await request(app)
         .post('/api/issuer/credential')
         .send({
-          issuer: 'did:example:76e12ec712ebc6f1c221ebfeb1f',
           subject: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
           expirationDate: '2011-01-01T19:23:24Z',
           claims: {
@@ -34,6 +34,7 @@ describe('Issuer Credential API', () => {
       expect(vc.id).toContain('http://example.com/credentials/');
       expect(vc.type).toEqual(['VerifiableCredential']);
       expect(vc.issuanceDate).toBeDefined();
+      expect(vc.issuer).toBe(config.issuer);
     });
 
     it('should include the types provided if provided', async () => {
@@ -50,19 +51,6 @@ describe('Issuer Credential API', () => {
         'VerifiableCredential',
         'UniversityDegreeCredential',
       ]);
-    });
-
-    it('should include the issuanceDate provided if provided', async () => {
-      const res = await request(app)
-        .post('/api/issuer/credential')
-        .send({
-          issuanceDate: '2010-01-01T19:23:24Z',
-        })
-        .set('Accept', 'application/json');
-      expect(res).toBeDefined();
-      expect(res.body).toBeDefined();
-      const vc = res.body;
-      expect(vc.issuanceDate).toEqual('2010-01-01T19:23:24Z');
     });
   });
 });
