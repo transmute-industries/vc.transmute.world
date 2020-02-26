@@ -16,9 +16,7 @@ describe('Issuer Credential API', () => {
     it('should return a verifiable credential', async () => {
       const res = await request(app)
         .post('/api/issuer/credential')
-        .send({
-          subject: 'did:example:me',
-        })
+        .send()
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
@@ -31,9 +29,7 @@ describe('Issuer Credential API', () => {
       expect(vc.type).toEqual(['VerifiableCredential']);
       expect(vc.issuanceDate).toBeDefined();
       expect(vc.issuer).toBe(config.issuer);
-      expect(vc.credentialSubject).toEqual({
-        id: 'did:example:me',
-      });
+      expect(vc.credentialSubject).toEqual({});
     });
 
     it('should include the types provided if provided', async () => {
@@ -50,6 +46,21 @@ describe('Issuer Credential API', () => {
         'VerifiableCredential',
         'UniversityDegreeCredential',
       ]);
+    });
+
+    it('should include the subject provided if provided', async () => {
+      const res = await request(app)
+        .post('/api/issuer/credential')
+        .send({
+          subject: 'did:example:me',
+        })
+        .set('Accept', 'application/json');
+      expect(res).toBeDefined();
+      expect(res.body).toBeDefined();
+      const vc = res.body;
+      expect(vc.credentialSubject).toEqual({
+        id: 'did:example:me',
+      });
     });
 
     it('should include the claims provided if provided', async () => {
