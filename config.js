@@ -1,3 +1,5 @@
+// WARNING This config file is for demo purposes
+// It should NOT be public in a prod environment (contains the privateKey)
 const config = {
   // Needs to be the same as keyPairInfo.controller
   issuer: 'https://example.com/transmute',
