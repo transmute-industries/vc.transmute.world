@@ -117,6 +117,7 @@ describe('Issuer Credential API', () => {
       expect(res.body).toBeDefined();
       vc = res.body;
       expect(vc.credentialSubject).toEqual({
+        id: 'did:example:subject',
         name: 'Jayden Doe',
       });
     });
