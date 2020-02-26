@@ -1,8 +1,16 @@
 const request = require('supertest');
+const vcjs = require('vc-js');
+const jsonld = require('jsonld');
+const {
+  Ed25519KeyPair,
+  suites: { Ed25519Signature2018 },
+} = require('jsonld-signatures');
 const app = require('../app');
 const config = require('../config');
 
 describe('Issuer Credential API', () => {
+  let vc;
+
   describe('GET /', () => {
     it('should return a valid json', async () => {
       const res = await request(app).get('/api/issuer');
@@ -20,7 +28,7 @@ describe('Issuer Credential API', () => {
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
-      const vc = res.body;
+      vc = res.body;
       expect(vc['@context']).toEqual([
         'https://www.w3.org/2018/credentials/v1',
         'https://www.w3.org/2018/credentials/examples/v1',
@@ -35,6 +43,36 @@ describe('Issuer Credential API', () => {
       expect(vc.proof).toBeDefined();
     });
 
+    it('should have a verifiable linked data proof', async () => {
+      const keyPair = await Ed25519KeyPair.from(config.keyPairInfo);
+      const suite = new Ed25519Signature2018({
+        verificationMethod: keyPair.id,
+        key: keyPair,
+      });
+      const documentLoader = async url => {
+        if (url === config.keyPairInfo.controller) {
+          return {
+            contextUrl: null,
+            documentUrl: url,
+            document: {
+              [keyPair.controller]: {
+                '@context': 'https://w3id.org/security/v2',
+                id: keyPair.controller,
+                assertionMethod: [keyPair.id],
+              },
+            },
+          };
+        }
+        return jsonld.documentLoaders.node()(url);
+      };
+      const result = await vcjs.verify({
+        credential: vc,
+        suite,
+        documentLoader,
+      });
+      expect(result.verified).toBeTruthy();
+    });
+
     it('should include the types provided if provided', async () => {
       const res = await request(app)
         .post('/api/issuer/credential')
@@ -44,7 +82,7 @@ describe('Issuer Credential API', () => {
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
-      const vc = res.body;
+      vc = res.body;
       expect(vc.type).toEqual([
         'VerifiableCredential',
         'UniversityDegreeCredential',
@@ -60,7 +98,7 @@ describe('Issuer Credential API', () => {
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
-      const vc = res.body;
+      vc = res.body;
       expect(vc.credentialSubject).toEqual({
         id: 'did:example:me',
       });
@@ -77,7 +115,7 @@ describe('Issuer Credential API', () => {
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
-      const vc = res.body;
+      vc = res.body;
       expect(vc.credentialSubject).toEqual({
         name: 'Jayden Doe',
       });

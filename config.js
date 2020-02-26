@@ -1,5 +1,5 @@
 const config = {
-  issuer: 'did:example:transmute',
+  issuer: 'https://example.com/i/carol',
   // To generate a new key, see: https://github.com/digitalbazaar/vc-js#generating-keys-and-suites
   keyPairInfo: {
     passphrase: null,
