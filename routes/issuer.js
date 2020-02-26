@@ -1,6 +1,11 @@
 const express = require('express');
 const uuid = require('uuid/v4');
-const config = require('../config');
+const vc = require('vc-js');
+const {
+  Ed25519KeyPair,
+  suites: { Ed25519Signature2018 },
+} = require('jsonld-signatures');
+const { issuer, keyPairInfo } = require('../config');
 
 const router = express.Router();
 
@@ -21,29 +26,31 @@ router.post('/credential', async (req, res, next) => {
     const now = new Date().toISOString();
     const { subject } = req.body;
     const claims = req.body.claims || {};
-    const vc = {
+    const unsignedCredential = {
       '@context': [
         'https://www.w3.org/2018/credentials/v1',
         'https://www.w3.org/2018/credentials/examples/v1',
       ],
       id: `http://example.com/credentials/${id}`,
       type: ['VerifiableCredential', ...types],
-      issuer: config.issuer,
+      issuer,
       issuanceDate: now,
       credentialSubject: {
-        id: subject,
+        id: subject || 'did:example:subject',
         ...claims,
       },
-      // proof: {
-      //   type: 'RsaSignature2018',
-      //   created: '2017-06-18T21:19:10Z',
-      //   proofPurpose: 'assertionMethod',
-      //   verificationMethod: 'https://example.edu/issuers/keys/1',
-      //   jws:
-      //     'eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5XsITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUcX16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtjPAYuNzVBAh4vGHSrQyHUdBBPM',
-      // },
     };
-    res.status(200).json(vc);
+
+    const keyPair = await Ed25519KeyPair.from(keyPairInfo);
+    const suite = new Ed25519Signature2018({
+      verificationMethod: keyPair.id,
+      key: keyPair,
+    });
+    const signedVC = await vc.issue({
+      credential: unsignedCredential,
+      suite,
+    });
+    res.status(200).json(signedVC);
   } catch (e) {
     next(e);
   }

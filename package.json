@@ -18,7 +18,9 @@
   "homepage": "https://github.com/transmute-industries/issuer-verifier-vc-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "uuid": "^7.0.0"
+    "jsonld-signatures": "^5.0.0",
+    "uuid": "^7.0.0",
+    "vc-js": "^0.4.1"
   },
   "devDependencies": {
     "@transmute/eslint-config": "^0.1.0",

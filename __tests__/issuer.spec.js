@@ -29,7 +29,10 @@ describe('Issuer Credential API', () => {
       expect(vc.type).toEqual(['VerifiableCredential']);
       expect(vc.issuanceDate).toBeDefined();
       expect(vc.issuer).toBe(config.issuer);
-      expect(vc.credentialSubject).toEqual({});
+      expect(vc.credentialSubject).toEqual({
+        id: 'did:example:subject',
+      });
+      expect(vc.proof).toBeDefined();
     });
 
     it('should include the types provided if provided', async () => {
