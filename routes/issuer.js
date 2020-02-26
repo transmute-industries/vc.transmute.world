@@ -17,8 +17,10 @@ router.get('/', async (req, res, next) => {
 router.post('/credential', async (req, res, next) => {
   try {
     const id = uuid();
-    const now = new Date().toISOString();
     const types = req.body.types || [];
+    const now = new Date().toISOString();
+    const { subject } = req.body;
+    const claims = req.body.claims || {};
     const vc = {
       '@context': [
         'https://www.w3.org/2018/credentials/v1',
@@ -28,22 +30,10 @@ router.post('/credential', async (req, res, next) => {
       type: ['VerifiableCredential', ...types],
       issuer: config.issuer,
       issuanceDate: now,
-      // credentialSubject: {
-      //   id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
-      //   alumniOf: {
-      //     id: 'did:example:c276e12ec21ebfeb1f712ebc6f1',
-      //     name: [
-      //       {
-      //         value: 'Example University',
-      //         lang: 'en',
-      //       },
-      //       {
-      //         value: "Exemple d'Université",
-      //         lang: 'fr',
-      //       },
-      //     ],
-      //   },
-      // },
+      credentialSubject: {
+        id: subject,
+        ...claims,
+      },
       // proof: {
       //   type: 'RsaSignature2018',
       //   created: '2017-06-18T21:19:10Z',

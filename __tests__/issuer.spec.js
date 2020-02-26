@@ -17,11 +17,7 @@ describe('Issuer Credential API', () => {
       const res = await request(app)
         .post('/api/issuer/credential')
         .send({
-          subject: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
-          expirationDate: '2011-01-01T19:23:24Z',
-          claims: {
-            name: 'Jayden Doe',
-          },
+          subject: 'did:example:me',
         })
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
@@ -35,6 +31,9 @@ describe('Issuer Credential API', () => {
       expect(vc.type).toEqual(['VerifiableCredential']);
       expect(vc.issuanceDate).toBeDefined();
       expect(vc.issuer).toBe(config.issuer);
+      expect(vc.credentialSubject).toEqual({
+        id: 'did:example:me',
+      });
     });
 
     it('should include the types provided if provided', async () => {
@@ -51,6 +50,23 @@ describe('Issuer Credential API', () => {
         'VerifiableCredential',
         'UniversityDegreeCredential',
       ]);
+    });
+
+    it('should include the claims provided if provided', async () => {
+      const res = await request(app)
+        .post('/api/issuer/credential')
+        .send({
+          claims: {
+            name: 'Jayden Doe',
+          },
+        })
+        .set('Accept', 'application/json');
+      expect(res).toBeDefined();
+      expect(res.body).toBeDefined();
+      const vc = res.body;
+      expect(vc.credentialSubject).toEqual({
+        name: 'Jayden Doe',
+      });
     });
   });
 });
