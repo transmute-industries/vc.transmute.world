@@ -1,5 +1,6 @@
 const config = {
   issuer: 'did:example:transmute',
+  // To generate a new key, see: https://github.com/digitalbazaar/vc-js#generating-keys-and-suites
   keyPairInfo: {
     passphrase: null,
     id: 'https://example.edu/issuers/keys/1',
