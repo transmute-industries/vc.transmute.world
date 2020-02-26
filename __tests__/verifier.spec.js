@@ -57,5 +57,19 @@ describe('Verifier Credential API', () => {
       expect(res.body).toBeDefined();
       expect(res.body.verified).toBeFalsy();
     });
+
+    it('should return false if issuer changed', async () => {
+      const res = await request(app)
+        .post('/api/verifier/verifications')
+        .send({
+          ...vc,
+          // Wrong issuer
+          issuer: 'https://example.com/dmv',
+        })
+        .set('Accept', 'application/json');
+      expect(res).toBeDefined();
+      expect(res.body).toBeDefined();
+      expect(res.body.verified).toBeFalsy();
+    });
   });
 });
