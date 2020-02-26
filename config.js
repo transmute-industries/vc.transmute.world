@@ -1,10 +1,11 @@
 const config = {
-  issuer: 'https://example.com/i/carol',
+  // Needs to be the same as keyPairInfo.controller
+  issuer: 'https://example.com/transmute',
   // To generate a new key, see: https://github.com/digitalbazaar/vc-js#generating-keys-and-suites
   keyPairInfo: {
     passphrase: null,
-    id: 'https://example.edu/issuers/keys/1',
-    controller: 'https://example.com/i/carol',
+    id: 'https://example.com/transmute/keys/1',
+    controller: 'https://example.com/transmute',
     type: 'Ed25519VerificationKey2018',
     privateKeyBase58:
       '2vTiMjLEFZjEXBomWDigpYAF1g28Ke3FV8T3rXdEnWGcJzfhdZbQZKmt26ii68NzNbtpyDHZHFNVVJqafhFqpHZ6',
