@@ -39,7 +39,23 @@ describe('Verifier Credential API', () => {
       expect(res).toBeDefined();
       expect(res.body).toBeDefined();
       expect(res.body.verified).toBeFalsy();
-      expect(res.body.error.errors[0].message).toBe('Invalid signature.');
+    });
+
+    it('should return false if the set of claims changed', async () => {
+      const res = await request(app)
+        .post('/api/verifier/verifications')
+        .send({
+          ...vc,
+          credentialSubject: {
+            ...vc.credentialSubject,
+            // False claim
+            name: 'Homer Simpson',
+          },
+        })
+        .set('Accept', 'application/json');
+      expect(res).toBeDefined();
+      expect(res.body).toBeDefined();
+      expect(res.body.verified).toBeFalsy();
     });
   });
 });
