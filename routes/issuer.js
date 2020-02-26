@@ -9,16 +9,6 @@ const { issuer, keyPairInfo } = require('../config');
 
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
-  try {
-    res.status(200).json({
-      issuer: true,
-    });
-  } catch (e) {
-    next(e);
-  }
-});
-
 router.post('/credential', async (req, res, next) => {
   try {
     const id = uuid();

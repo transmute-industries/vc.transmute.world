@@ -11,15 +11,6 @@ const config = require('../config');
 describe('Issuer Credential API', () => {
   let vc;
 
-  describe('GET /', () => {
-    it('should return a valid json', async () => {
-      const res = await request(app).get('/api/issuer');
-      expect(res).toBeDefined();
-      expect(res.body).toBeDefined();
-      expect(res.body.issuer).toBeTruthy();
-    });
-  });
-
   describe('POST /credential', () => {
     it('should return a verifiable credential', async () => {
       const res = await request(app)
