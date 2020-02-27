@@ -1,6 +1,6 @@
 # Issuer Verifier VC API
 
-# LINK: https://issuer-verifier-vc-api.transmute.world/
+## LINK: https://issuer-verifier-vc-api.transmute.world/
 
 This repo contains Transmute's implementation of:
 - https://github.com/w3c-ccg/vc-issuer-http-api
