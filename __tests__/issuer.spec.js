@@ -14,7 +14,7 @@ describe('Issuer Credential API', () => {
   describe('POST /credential', () => {
     it('should return a verifiable credential', async () => {
       const res = await request(app)
-        .post('/api/issuer/credential')
+        .post('/issuer/credential')
         .send()
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
@@ -66,7 +66,7 @@ describe('Issuer Credential API', () => {
 
     it('should include the types provided if provided', async () => {
       const res = await request(app)
-        .post('/api/issuer/credential')
+        .post('/issuer/credential')
         .send({
           types: ['UniversityDegreeCredential'],
         })
@@ -82,7 +82,7 @@ describe('Issuer Credential API', () => {
 
     it('should include the subject provided if provided', async () => {
       const res = await request(app)
-        .post('/api/issuer/credential')
+        .post('/issuer/credential')
         .send({
           subject: 'did:example:me',
         })
@@ -97,7 +97,7 @@ describe('Issuer Credential API', () => {
 
     it('should include the claims provided if provided', async () => {
       const res = await request(app)
-        .post('/api/issuer/credential')
+        .post('/issuer/credential')
         .send({
           claims: {
             name: 'Jayden Doe',
