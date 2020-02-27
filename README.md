@@ -12,3 +12,10 @@ This repo contains Transmute's implementation of:
 npm install
 npm test
 ```
+
+## CI/CD
+
+We use Github actions for CI/CD:
+- Run lint and tests
+- Deploy to Docker hub
+- Deploy to Google cloud run
