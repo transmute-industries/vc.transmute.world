@@ -17,7 +17,7 @@ npm test
 
 ## CI/CD
 
-We use Github actions for CI/CD:
+We use Github actions for CI/CD. See https://github.com/transmute-industries/issuer-verifier-vc-api/tree/master/.github/workflows
 - Run lint and tests
 - Deploy to Docker hub
 - Deploy to Google cloud run
