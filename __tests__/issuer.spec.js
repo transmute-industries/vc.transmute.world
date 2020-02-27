@@ -14,7 +14,7 @@ describe('Issuer Credential API', () => {
   describe('POST /credential', () => {
     it('should return a verifiable credential', async () => {
       const res = await request(app)
-        .post('/api/issuer/credential')
+        .post('/issuer/credential')
         .send()
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
