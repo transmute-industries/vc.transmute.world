@@ -1,20 +1,23 @@
 # Issuer Verifier VC API
 
+## LINK: https://issuer-verifier-vc-api.transmute.world/
+
 This repo contains Transmute's implementation of:
 - https://github.com/w3c-ccg/vc-issuer-http-api
 - https://github.com/w3c-ccg/vc-verifier-http-api
 
-https://issuer-verifier-vc-api.transmute.world/
 
 WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
 
 ## Examples
 
-Getting a credential:
+### Getting a credential:
 
-```
+```bash
 ➜ curl -X POST -H 'Content-type: application/json' --data '{ "types": ["UniversityDegreeCredential"], "subject": "did:example:me", "claims": { "alumniOf": { "id": "did:example:university", "name": "Example University" } } }' https://issuer-verifier-vc-api.transmute.world/issuer/credential | jq "."
+```
 
+```json
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -44,11 +47,13 @@ Getting a credential:
 }
 ```
 
-Verifying a credential:
+### Verifying a credential:
 
-```
+```bash
 ➜ curl -X POST -H 'Content-type: application/json' --data '{ "@context": [ "https://www.w3.org/2018/credentials/v1", "https://www.w3.org/2018/credentials/examples/v1" ], "id": "http://example.com/credentials/ac32eb19-858d-47d2-83d5-f4f070deff6e", "type": [ "VerifiableCredential", "UniversityDegreeCredential" ], "issuer": "https://example.com/transmute", "issuanceDate": "2020-02-27T07:54:38.750Z", "credentialSubject": { "id": "did:example:me", "alumniOf": { "id": "did:example:university", "name": "Example University" } }, "proof": { "type": "Ed25519Signature2018", "created": "2020-02-27T07:54:38Z", "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..cwVp_MHPJb-edHCDuLlwFjlfw-V0Ipd4fsvf_FxNdNvpFQdLJ0lN1NHTdV5ypXQEpey8srDLtdjBV2BwN3isDg", "proofPurpose": "assertionMethod", "verificationMethod": "https://example.com/transmute/keys/1" } }' https://issuer-verifier-vc-api.transmute.world/verifier/verifications | jq "."
+```
 
+```json
 {
   "verified": true,
   "results": [
@@ -94,9 +99,13 @@ Dockerhub: https://hub.docker.com/r/transmute/issuer-verifier-vc-api
 
 Run latest image:
 ```
+docker pull transmute/issuer-verifier-vc-api:latest
 docker run --rm -p 8080:8080 -d transmute/issuer-verifier-vc-api:latest
 ```
 
+Visit http://localhost:8080
+
+or run
 ```
 curl -X POST localhost:8080/issuer/credential | jq "."
 ```

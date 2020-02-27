@@ -9,7 +9,8 @@ const swaggerDoc = swaggerJSDoc({
     info: {
       title: 'Issuer Verifier VC API',
       version: '0.0.1',
-      description: 'Issuer Verifier VC API',
+      description:
+        "Transmute's implementation of the Issuer/Verfier Verifiable Credential API",
     },
   },
   apis: ['./routes/*'],
