@@ -19,8 +19,7 @@ name: Build and Deploy to Cloud Run
 on:
   push:
     branches:
-    - test-google-cloud-run-deploy
-    # - master
+    - master
 
 # Environment variables available to all jobs and steps in this workflow
 env:
