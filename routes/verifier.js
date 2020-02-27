@@ -9,6 +9,25 @@ const config = require('../config');
 
 const router = express.Router();
 
+/**
+ * @swagger
+ *
+ * paths:
+ *   "/verifier/verifications":
+ *     post:
+ *       tags: [Verifier]
+ *       produces:
+ *       - application/json
+ *       parameters:
+ *       - in: body
+ *         name: body
+ *         description: The verifiable credential
+ *         schema:
+ *           type: object
+ *       responses:
+ *         '200':
+ *           description: Success
+ */
 router.post('/verifications', async (req, res, next) => {
   try {
     const keyPair = await Ed25519KeyPair.from(config.keyPairInfo);
