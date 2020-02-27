@@ -4,7 +4,8 @@
   "description": "Transmute's implementation of the Credential Issuer and Verifier API",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
