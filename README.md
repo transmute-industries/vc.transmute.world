@@ -76,7 +76,9 @@ Verifying a credential:
 
 ```
 npm install
+npm run lint
 npm test
+npm start
 ```
 
 ## CI/CD
