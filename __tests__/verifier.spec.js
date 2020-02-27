@@ -6,7 +6,7 @@ describe('Verifier Credential API', () => {
 
   beforeAll(async () => {
     const res = await request(app)
-      .post('/api/issuer/credential')
+      .post('/issuer/credential')
       .send()
       .set('Accept', 'application/json');
     vc = res.body;
@@ -15,7 +15,7 @@ describe('Verifier Credential API', () => {
   describe('POST /verifications', () => {
     it('should return true if credential is valid', async () => {
       const res = await request(app)
-        .post('/api/verifier/verifications')
+        .post('/verifier/verifications')
         .send(vc)
         .set('Accept', 'application/json');
       expect(res).toBeDefined();
@@ -25,7 +25,7 @@ describe('Verifier Credential API', () => {
 
     it('should return false if signature is invalid', async () => {
       const res = await request(app)
-        .post('/api/verifier/verifications')
+        .post('/verifier/verifications')
         .send({
           ...vc,
           proof: {
@@ -43,7 +43,7 @@ describe('Verifier Credential API', () => {
 
     it('should return false if the set of claims changed', async () => {
       const res = await request(app)
-        .post('/api/verifier/verifications')
+        .post('/verifier/verifications')
         .send({
           ...vc,
           credentialSubject: {
@@ -60,7 +60,7 @@ describe('Verifier Credential API', () => {
 
     it('should return false if issuer changed', async () => {
       const res = await request(app)
-        .post('/api/verifier/verifications')
+        .post('/verifier/verifications')
         .send({
           ...vc,
           // Wrong issuer
