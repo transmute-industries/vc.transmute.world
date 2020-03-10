@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8085
+EXPOSE 8080
 
 CMD [ "node", "./src/serve.js" ]

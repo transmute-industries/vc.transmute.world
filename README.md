@@ -48,12 +48,12 @@ Dockerhub: https://hub.docker.com/r/transmute/issuer-verifier-vc-api
 Run latest image:
 ```
 docker pull transmute/issuer-verifier-vc-api:latest
-docker run --rm -p 8085:8085 -d transmute/issuer-verifier-vc-api:latest
+docker run --rm -p 8080:8080 -d transmute/issuer-verifier-vc-api:latest
 ```
 
-Visit http://localhost:8085
+Visit http://localhost:8080
 
 or run
 ```
-curl -X POST localhost:8085/issuer/credential | jq "."
+curl -X POST localhost:8080/issuer/credential | jq "."
 ```
