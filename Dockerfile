@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:12
 
 WORKDIR /usr/api
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8085
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "./src/serve.js" ]
