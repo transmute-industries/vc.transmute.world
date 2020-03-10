@@ -19,9 +19,9 @@ const getFastify = opts => {
   app.register(fastifySwagger, {
     swagger: {
       info: {
-        title: 'VC HTTP',
+        title: 'Transmute VC API',
         description: 'W3C CCG Issuer & Verifier API',
-        version: '0.0.1',
+        version: '0.0.0',
       },
       basePath: '',
     },

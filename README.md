@@ -5,7 +5,7 @@
 ## Issue 
 
 ```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  https://vc.transmute.world/api/v1/issuer/issue | jq "."
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  https://vc.transmute.world/api/v0/issuer/issue | jq "."
 ```
 
 See [bindingModel](./test/vc.bindingModel.json)
@@ -13,7 +13,7 @@ See [bindingModel](./test/vc.bindingModel.json)
 ## Verify
 
 ```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  https://vc.transmute.world/api/v1/verifier/verify | jq "."
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  https://vc.transmute.world/api/v0/verifier/verify | jq "."
 ```
 
 See [vc](./test/vc.json)
@@ -46,6 +46,8 @@ We use Github actions for CI/CD. See https://github.com/transmute-industries/iss
 
 ```
 gcloud beta run domain-mappings create --service issuer-verifier-vc-api --domain vc.transmute.industries
+
+gcloud beta run domain-mappings describe --domain vc.transmute.world
 ```
 
 ## Docker
@@ -63,7 +65,7 @@ Visit http://localhost:8080
 ## Issue 
 
 ```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  http://localhost:8080/api/v1/issuer/issue | jq "."
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  http://localhost:8080/api/v0/issuer/issue | jq "."
 ```
 
 See [bindingModel](./test/vc.bindingModel.json)
@@ -71,7 +73,7 @@ See [bindingModel](./test/vc.bindingModel.json)
 ## Verify
 
 ```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  http://localhost:8080/api/v1/verifier/verify | jq "."
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  http://localhost:8080/api/v0/verifier/verify | jq "."
 ```
 
 See [vc](./test/vc.json)

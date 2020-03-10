@@ -1,7 +1,7 @@
 const request = require('supertest');
 
-const { getFastify } = require('../src/factory');
-const config = require('../src/config');
+const { getFastify } = require('../../../factory');
+const config = require('../../../config');
 
 const opts = {
   logger: false,
@@ -10,11 +10,11 @@ const opts = {
 
 const { fastify } = getFastify(opts);
 
-const bindingModel = require('./vc.bindingModel.json');
+const vc = require('../../../__fixtures__/vc.json');
 
 let tester;
 
-describe('issuer', () => {
+describe('verifier', () => {
   beforeAll(async () => {
     await fastify.ready();
     const port = fastify.svcs.config.fastify_base_url.split(':').pop();
@@ -30,14 +30,15 @@ describe('issuer', () => {
     await fastify.close();
   });
 
-  describe('issue', () => {
-    it('should return a vc with proof', async () => {
+  describe('verify', () => {
+    it('should return a verification result', async () => {
       const res = await tester
-        .post('/api/v1/issuer/issue')
+        .post('/api/v0/verifier/verify')
         .set('Accept', 'application/json')
-        .send(bindingModel);
+        .send(vc);
       expect(res.status).toBe(200);
-      expect(res.body.proof).toBeDefined();
+      expect(res.body.verified).toBe(true);
+      expect(res.body.results).toBeDefined();
     });
   });
 });

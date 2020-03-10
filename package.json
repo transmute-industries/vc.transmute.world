@@ -2,10 +2,9 @@
   "name": "issuer-verifier-vc-api",
   "version": "0.0.1",
   "description": "Transmute's implementation of the Credential Issuer and Verifier API",
-  "main": "index.js",
   "scripts": {
     "test": "jest --runInBand",
-    "start": "node index.js",
+    "start": "node ./src/serve.js",
     "lint": "eslint --fix ."
   },
   "repository": {
