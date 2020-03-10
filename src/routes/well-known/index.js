@@ -1,5 +1,5 @@
 module.exports = (fastify, opts, done) => {
-  const { did_document } = fastify.svcs;
+  const { didDocument } = fastify.svcs;
 
   fastify.get(
     '/did.json',
@@ -10,7 +10,7 @@ module.exports = (fastify, opts, done) => {
       },
     },
     async (request, reply) => {
-      return reply.code(200).send(did_document);
+      return reply.code(200).send(didDocument);
     }
   );
 

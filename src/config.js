@@ -6,8 +6,8 @@ dotenv.config({
 });
 
 const config = {
-    fastify_logger: process.env.FASTIFY_LOGGER === 'true',
-    fastify_base_url: process.env.FASTIFY_BASE_URL
+  fastify_logger: process.env.FASTIFY_LOGGER === 'true',
+  fastify_base_url: process.env.FASTIFY_BASE_URL,
 };
 
 module.exports = config;

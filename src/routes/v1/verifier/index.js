@@ -10,7 +10,7 @@ module.exports = (fastify, opts, done) => {
       },
     },
     async (request, reply) => {
-      const vc = await verifier.verify(request.body)
+      const vc = await verifier.verify(request.body);
       return reply.code(200).send(vc);
     }
   );

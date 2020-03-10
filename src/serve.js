@@ -9,6 +9,7 @@ const opts = {
 
 const { fastify } = getFastify(opts);
 
+// eslint-disable-next-line
 console.log(`serving: ${config.fastify_base_url}\n`);
 
 fastify.listen(
@@ -16,7 +17,7 @@ fastify.listen(
   '0.0.0.0',
   (err, address) => {
     if (err) {
-      console.error(err);
+      fastify.log.error(err);
     }
     fastify.log.info(`server listening on ${address}`);
   }

@@ -12,7 +12,7 @@ const getFastify = opts => {
   app.register(require('./services'), {
     config: {
       ...opts.config,
-    }
+    },
   });
 
   // Swagger must be registered before the routes
@@ -20,8 +20,7 @@ const getFastify = opts => {
     swagger: {
       info: {
         title: 'VC HTTP',
-        description:
-          'W3C CCG Issuer & Verifier API',
+        description: 'W3C CCG Issuer & Verifier API',
         version: '0.0.1',
       },
       basePath: '',
