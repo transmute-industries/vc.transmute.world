@@ -2,13 +2,15 @@
 
 ## https://vc.transmute.world/api/docs
 
+WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
+
 ## Issue 
 
 ```
 curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  https://vc.transmute.world/api/v0/issuer/issue | jq "."
 ```
 
-See [bindingModel](./test/vc.bindingModel.json)
+See [bindingModel](./src/__fixtures__/vc.bindingModel.json)
 
 ## Verify
 
@@ -16,15 +18,11 @@ See [bindingModel](./test/vc.bindingModel.json)
 curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  https://vc.transmute.world/api/v0/verifier/verify | jq "."
 ```
 
-See [vc](./test/vc.json)
+See [vc](./src/__fixtures__/vc.json)
 
 This repo contains Transmute's implementation of:
 - https://github.com/w3c-ccg/vc-issuer-http-api
 - https://github.com/w3c-ccg/vc-verifier-http-api
-
-
-WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
-
 
 ## Getting started
 
