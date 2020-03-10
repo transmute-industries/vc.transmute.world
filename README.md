@@ -1,6 +1,22 @@
-# Issuer Verifier VC API
+# Transmute VC API
 
-## LINK: https://issuer-verifier-vc-api.transmute.world/
+## https://vc.transmute.world/api/docs
+
+## Issue 
+
+```
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  https://vc.transmute.world/api/v1/issuer/issue | jq "."
+```
+
+See [bindingModel](./test/vc.bindingModel.json)
+
+## Verify
+
+```
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  https://vc.transmute.world/api/v1/verifier/verify | jq "."
+```
+
+See [vc](./test/vc.json)
 
 This repo contains Transmute's implementation of:
 - https://github.com/w3c-ccg/vc-issuer-http-api
@@ -8,21 +24,6 @@ This repo contains Transmute's implementation of:
 
 
 WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
-
-#### Issue 
-
-```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  http://localhost:4000/api/v1/issuer/issue | jq "."
-```
-
-See [bindingModel](./test/vc.bindingModel.json)
-
-#### Verify
-```
-curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  http://localhost:4000/api/v1/verifier/verify | jq "."
-```
-
-See [vc](./test/vc.json)
 
 
 ## Getting started
@@ -41,6 +42,12 @@ We use Github actions for CI/CD. See https://github.com/transmute-industries/iss
 - Deploy to Docker hub
 - Deploy to Google cloud run
 
+### Setting A Custom Domain for Google Cloud Run
+
+```
+gcloud beta run domain-mappings create --service issuer-verifier-vc-api --domain vc.transmute.industries
+```
+
 ## Docker
 
 Dockerhub: https://hub.docker.com/r/transmute/issuer-verifier-vc-api
@@ -53,7 +60,18 @@ docker run --rm -p 8080:8080 -d transmute/issuer-verifier-vc-api:latest
 
 Visit http://localhost:8080
 
-or run
+## Issue 
+
 ```
-curl -X POST localhost:8080/issuer/credential | jq "."
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.bindingModel.json  http://localhost:8080/api/v1/issuer/issue | jq "."
 ```
+
+See [bindingModel](./test/vc.bindingModel.json)
+
+## Verify
+
+```
+curl -s -X POST -H 'Content-type: application/json' -d @./test/vc.json  http://localhost:8080/api/v1/verifier/verify | jq "."
+```
+
+See [vc](./test/vc.json)

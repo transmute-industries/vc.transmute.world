@@ -8,7 +8,7 @@
     "VerifiableCredential",
     "UniversityDegreeCredential"
   ],
-  "issuer": "did:web:chapi.did.ai",
+  "issuer": "did:web:vc.transmute.world",
   "issuanceDate": "2020-03-10T04:24:12.164Z",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -22,6 +22,6 @@
     "created": "2020-03-10T05:02:01Z",
     "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..FC6Vyl0I0VGlL-fp48VQIg-qEXRcKid5RIXfo4_QhoD-Hs0tHUHlpWg6UNzyxbcq9WNBn1-UeLXWVcwgQBuaAQ",
     "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
   }
 }

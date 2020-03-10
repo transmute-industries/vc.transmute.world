@@ -1,32 +1,32 @@
 {
-    "@context": "https://chapi.did.ai/contexts/did-web.jsonld",
-    "id": "did:web:chapi.did.ai",
-    "publicKey": [
-        {
-          "id": "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-          "type": "Ed25519VerificationKey2018",
-          "controller": "did:web:chapi.did.ai",
-          "publicKeyBase58": "DqS5F3GVe3rCxucgi4JBNagjv4dKoHc8TDLDw9kR58Pz"
-        }
-      ],
-      "authentication": [
-        "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
-      ],
-      "assertionMethod": [
-        "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
-      ],
-      "capabilityDelegation": [
-        "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
-      ],
-      "capabilityInvocation": [
-        "did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
-      ],
-      "keyAgreement": [
-        {
-          "id": "did:web:chapi.did.ai#zC5iai1sL93gQxn8LKh1i42fTbpfar65dVx4NYznYfG3Y5",
-          "type": "X25519KeyAgreementKey2019",
-          "controller": "did:web:chapi.did.ai",
-          "publicKeyBase58": "6DrzegWwfw8Xg5MsHX95sVnJaPmtXP214B5X9hkG9oRs"
-        }
-      ]
+  "@context": "https://w3id.org/did/v0.11",
+  "id": "did:web:vc.transmute.world",
+  "publicKey": [
+    {
+      "id": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+      "type": "Ed25519VerificationKey2018",
+      "controller": "did:web:vc.transmute.world",
+      "publicKeyBase58": "DqS5F3GVe3rCxucgi4JBNagjv4dKoHc8TDLDw9kR58Pz"
+    }
+  ],
+  "authentication": [
+    "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+  ],
+  "assertionMethod": [
+    "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+  ],
+  "capabilityDelegation": [
+    "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+  ],
+  "capabilityInvocation": [
+    "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+  ],
+  "keyAgreement": [
+    {
+      "id": "did:web:vc.transmute.world#zC5iai1sL93gQxn8LKh1i42fTbpfar65dVx4NYznYfG3Y5",
+      "type": "X25519KeyAgreementKey2019",
+      "controller": "did:web:vc.transmute.world",
+      "publicKeyBase58": "6DrzegWwfw8Xg5MsHX95sVnJaPmtXP214B5X9hkG9oRs"
+    }
+  ]
 }

@@ -9,8 +9,8 @@ const privateKey = require('./privateKey.json');
 
 const key = new Ed25519KeyPair({
   ...privateKey,
-  id: 'did:web:chapi.did.ai#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
-  controller: 'did:web:chapi.did.ai',
+  id: 'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
+  controller: 'did:web:vc.transmute.world',
 });
 
 const suite = new Ed25519Signature2018({
