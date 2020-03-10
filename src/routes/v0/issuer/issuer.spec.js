@@ -14,6 +14,9 @@ const bindingModel = require('../../../__fixtures__/vc.bindingModel.json');
 
 let tester;
 
+
+jest.setTimeout(10 * 1000);
+
 describe('issuer', () => {
   beforeAll(async () => {
     await fastify.ready();

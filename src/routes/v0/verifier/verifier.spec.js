@@ -14,6 +14,8 @@ const vc = require('../../../__fixtures__/vc.json');
 
 let tester;
 
+jest.setTimeout(10 * 1000);
+
 describe('verifier', () => {
   beforeAll(async () => {
     await fastify.ready();
