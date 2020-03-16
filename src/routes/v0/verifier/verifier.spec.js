@@ -10,7 +10,7 @@ const opts = {
 
 const { fastify } = getFastify(opts);
 
-const vc = require('../../../__fixtures__/vc.json');
+const vc = require('../../../__fixtures__/edu/vc.json');
 
 let tester;
 

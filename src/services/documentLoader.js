@@ -9,6 +9,7 @@ const getJson = async url =>
     method: 'get',
   }).then(data => data.json());
 module.exports = async url => {
+  // console.log(url)
   if (url.startsWith('did:')) {
     if (url.startsWith('did:web:')) {
       const domain = url

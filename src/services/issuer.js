@@ -2,6 +2,8 @@ const { Ed25519KeyPair } = require('crypto-ld');
 const vcjs = require('vc-js');
 const jsigs = require('jsonld-signatures');
 
+const documentLoader = require('./documentLoader')
+
 const { Ed25519Signature2018 } = jsigs.suites;
 // const { keyToDidDoc } = didMethodKey.driver();
 
@@ -27,7 +29,7 @@ module.exports = options => {
           issuer: key.controller,
         },
         suite,
-        // documentLoader
+        documentLoader
       });
       return vc;
     },

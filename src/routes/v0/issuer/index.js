@@ -10,8 +10,14 @@ module.exports = (fastify, opts, done) => {
       },
     },
     async (request, reply) => {
-      const vc = await issuer.issue(request.body);
-      return reply.code(200).send(vc);
+      try {
+        const vc = await issuer.issue(request.body);
+        return reply.code(200).send(vc);
+      } catch (e) {
+        console.log(e)
+        return reply.code(500).send({ message: e.message });
+      }
+
     }
   );
 
