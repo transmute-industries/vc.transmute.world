@@ -1,5 +1,5 @@
 module.exports = (fastify, opts, done) => {
-  const { issuer, verifier } = fastify.svcs;
+  const { agent } = fastify.svcs;
 
   fastify.post(
     '/credentials',
@@ -11,8 +11,28 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const vc = await issuer.issue(request.body);
+        const vc = await agent.createVerifiableCredential(request.body);
         return reply.code(200).send(vc);
+      } catch (e) {
+        console.log(e)
+        return reply.code(500).send({ message: e.message });
+      }
+
+    }
+  );
+
+  fastify.post(
+    '/presentations',
+    {
+      schema: {
+        tags: ['VC Data Model'],
+        summary: 'Verifiable Presentation',
+      },
+    },
+    async (request, reply) => {
+      try {
+        const vp = await agent.createVerifiablePresentation(request.body);
+        return reply.code(200).send(vp);
       } catch (e) {
         console.log(e)
         return reply.code(500).send({ message: e.message });
@@ -31,21 +51,11 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        await verifier.verify(request.body);
-        return reply.code(200).send({
-          "checks": [
-            "proof"
-          ]
-        });
+        const verification = await agent.createVerification(request.body);
+        return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
-          "checks": [
-            {
-              "check": "proof",
-              "error": "The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.",
-              "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k"
-            }
-          ]
+          message: e.message
         })
       }
     }

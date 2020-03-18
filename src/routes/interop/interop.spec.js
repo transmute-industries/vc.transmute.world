@@ -35,14 +35,14 @@ afterAll(async () => {
 let vc;
 
 describe('interop', () => {
-    Object.keys(fixtures).forEach((k) => {
-        describe(k, () => {
+    Object.keys(fixtures).forEach((useCase) => {
+        describe(useCase, () => {
             describe('POST /credentials/issueCredential', () => {
                 it('should issue a VC and return it in the response body', async () => {
                     const res = await tester
                         .post('/credentials/issueCredential')
                         .set('Accept', 'application/json')
-                        .send(fixtures[k]);
+                        .send(fixtures[useCase].vcBindingModel);
                     expect(res.status).toBe(200);
                     expect(res.body.proof).toBeDefined();
                     vc = res.body;

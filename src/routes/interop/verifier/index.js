@@ -1,5 +1,5 @@
 module.exports = (fastify, opts, done) => {
-  const { verifier } = fastify.svcs;
+  const { agent } = fastify.svcs;
 
   fastify.post(
     '/verifications',
@@ -11,12 +11,8 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        await verifier.verify(request.body);
-        return reply.code(200).send({
-          "checks": [
-            "proof"
-          ]
-        });
+        const verification = await agent.createVerification(request.body);
+        return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
           "checks": [
