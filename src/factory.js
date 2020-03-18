@@ -20,7 +20,7 @@ const getFastify = opts => {
     swagger: {
       info: {
         title: 'Transmute VC API',
-        description: 'W3C CCG Issuer & Verifier API',
+        description: 'An HTTP API for the Verifiable Credentials Data Model.',
         version: '0.0.0',
       },
       basePath: '',

@@ -2,10 +2,10 @@ module.exports = (fastify, opts, done) => {
   const { issuer } = fastify.svcs;
 
   fastify.post(
-    '/issue',
+    '/credentials/issueCredential',
     {
       schema: {
-        tags: ['Issuer'],
+        tags: ['CCG Issuer'],
         summary: 'Verifiable Credential',
       },
     },
