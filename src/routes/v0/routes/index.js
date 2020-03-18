@@ -15,11 +15,11 @@ module.exports = (fastify, opts, done) => {
               type: 'object',
               properties: {
                 issuer: { type: 'string' },
-                issuanceDate: { type: 'string' }
-              }
-            }
-          }
-        }
+                issuanceDate: { type: 'string' },
+              },
+            },
+          },
+        },
       },
     },
     async (request, reply) => {
@@ -27,10 +27,8 @@ module.exports = (fastify, opts, done) => {
         const vc = await agent.createVerifiableCredential(request.body);
         return reply.code(200).send(vc);
       } catch (e) {
-        console.log(e)
         return reply.code(500).send({ message: e.message });
       }
-
     }
   );
 
@@ -48,9 +46,9 @@ module.exports = (fastify, opts, done) => {
               type: 'object',
               properties: {
                 proofPurpose: { type: 'string' },
-              }
-            }
-          }
+              },
+            },
+          },
         },
       },
     },
@@ -59,10 +57,8 @@ module.exports = (fastify, opts, done) => {
         const vp = await agent.createVerifiablePresentation(request.body);
         return reply.code(200).send(vp);
       } catch (e) {
-        console.log(e)
         return reply.code(500).send({ message: e.message });
       }
-
     }
   );
 
@@ -80,8 +76,8 @@ module.exports = (fastify, opts, done) => {
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
-          message: e.message
-        })
+          message: e.message,
+        });
       }
     }
   );
