@@ -11,7 +11,7 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const vc = await agent.createVerifiableCredential(request.body);
+        const vc = await agent.createVerifiableCredential({ credential: request.body });
         return reply.code(200).send(vc);
       } catch (e) {
         console.log(e)

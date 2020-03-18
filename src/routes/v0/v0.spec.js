@@ -44,7 +44,7 @@ describe('v0', () => {
                     const res = await tester
                         .post('/vc-data-model/credentials')
                         .set('Accept', 'application/json')
-                        .send(fixtures[useCase].vcBindingModel);
+                        .send({ credential: fixtures[useCase].vcBindingModel });
                     expect(res.status).toBe(200);
                     expect(res.body.proof).toBeDefined();
                     vc = res.body;
@@ -57,7 +57,7 @@ describe('v0', () => {
                     const res = await tester
                         .post('/vc-data-model/presentations')
                         .set('Accept', 'application/json')
-                        .send(fixtures[useCase].vpBindingModel);
+                        .send({ presentation: fixtures[useCase].vpBindingModel });
                     expect(res.status).toBe(200);
                     expect(res.body.proof).toBeDefined();
                     vp = res.body;

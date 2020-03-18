@@ -7,6 +7,19 @@ module.exports = (fastify, opts, done) => {
       schema: {
         tags: ['VC Data Model'],
         summary: 'Verifiable Credential',
+        body: {
+          type: 'object',
+          properties: {
+            credential: { type: 'object' },
+            options: {
+              type: 'object',
+              properties: {
+                issuer: { type: 'string' },
+                issuanceDate: { type: 'string' }
+              }
+            }
+          }
+        }
       },
     },
     async (request, reply) => {
@@ -27,6 +40,18 @@ module.exports = (fastify, opts, done) => {
       schema: {
         tags: ['VC Data Model'],
         summary: 'Verifiable Presentation',
+        body: {
+          type: 'object',
+          properties: {
+            presentation: { type: 'object' },
+            options: {
+              type: 'object',
+              properties: {
+                proofPurpose: { type: 'string' },
+              }
+            }
+          }
+        },
       },
     },
     async (request, reply) => {

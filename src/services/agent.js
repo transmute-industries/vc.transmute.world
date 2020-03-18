@@ -5,73 +5,96 @@ const jsigs = require('jsonld-signatures');
 const documentLoader = require('./documentLoader')
 
 const { Ed25519Signature2018 } = jsigs.suites;
-const { AssertionProofPurpose } = jsigs.purposes;
+const { AssertionProofPurpose, AuthenticationProofPurpose } = jsigs.purposes;
+
+let purposeMap = {
+    assertionMethod: AssertionProofPurpose,
+    authentication: AuthenticationProofPurpose
+}
 
 const privateKey = require('./privateKey.json');
 
-const key = new Ed25519KeyPair({
-    ...privateKey,
-    id: 'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
-    controller: 'did:web:vc.transmute.world',
-});
+
+
+
+let key;
 
 // eslint-disable-next-line
-module.exports = options => {
+module.exports = opts => {
     return {
-        createVerifiableCredential: async credentialBindingModel => {
-            const vc = await vcjs.issue({
+        createVerifiableCredential: async ({ credential, options = {
+            issuer: 'did:web:vc.transmute.world',
+            issuanceDate: "2019-12-11T03:50:55Z",
+            proofPurpose: 'assertionMethod',
+            verificationMethod: 'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
+        } }) => {
+            key = new Ed25519KeyPair({
+                ...privateKey,
+                id: options.verificationMethod,
+                controller: options.verificationMethod.split('#')[0],
+            });
+            return await vcjs.issue({
                 credential: {
-                    ...credentialBindingModel,
-                    issuer: key.controller,
+                    ...credential,
+                    issuer: options.issuer,
                 },
                 suite: new Ed25519Signature2018({
                     key,
-                    date: "2019-12-11T03:50:55Z"
+                    date: options.issuanceDate
                 }),
                 documentLoader
             });
-            return vc;
         },
-        createVerifiablePresentation: async presentationBindingModel => {
-            const vpWithProof = await jsigs.sign(
-                { ...presentationBindingModel },
+        createVerifiablePresentation: async ({ presentation, options = {
+            proofPurpose: 'assertionMethod',
+            verificationMethod: 'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
+        } }) => {
+            key = new Ed25519KeyPair({
+                ...privateKey,
+                id: options.verificationMethod,
+                controller: options.verificationMethod.split('#')[0],
+            });
+            let purpose = new purposeMap[options.proofPurpose](options)
+            return jsigs.sign(
+                { ...presentation },
                 {
                     documentLoader,
                     suite: new Ed25519Signature2018({
                         key,
-                        date: "2019-12-11T03:50:55Z"
+                        date: options.issuanceDate
                     }),
-                    purpose: new AssertionProofPurpose(),
+                    purpose,
                     compactProof: false
                 }
             );
-            return vpWithProof;
         },
         createVerification: async vcOrVp => {
-            // console.log(vcOrVp)
             let flag = false;
 
             if (vcOrVp.type === 'VerifiablePresentation') {
-                await Promise.all(vcOrVp.verifiableCredential.map(async (vc) => {
-                    const result = await vcjs.verify({
-                        credential: vc,
-                        documentLoader,
-                        suite: new Ed25519Signature2018({
-                            key
-                        }),
-                    });
-                    if (!result.verified) {
-                        flag = true;
-                    }
-                }))
 
+                if (vcOrVp.verifiableCredential) {
+                    await Promise.all(vcOrVp.verifiableCredential.map(async (vc) => {
+                        const result = await vcjs.verify({
+                            credential: vc,
+                            documentLoader,
+                            suite: new Ed25519Signature2018({
+
+                            }),
+                        });
+                        if (!result.verified) {
+                            flag = true;
+                        }
+                    }))
+                }
                 if (vcOrVp.proof) {
+                    let purpose = new purposeMap[vcOrVp.proof.proofPurpose](vcOrVp.proof)
                     const result = await jsigs.verify(vcOrVp, {
                         documentLoader,
                         suite: new Ed25519Signature2018({
-                            key
+
                         }),
-                        purpose: new AssertionProofPurpose()
+                        purpose,
                     });
                     if (!result.verified) {
                         flag = true;
@@ -91,7 +114,7 @@ module.exports = options => {
                 credential: vcOrVp,
                 documentLoader,
                 suite: new Ed25519Signature2018({
-                    key
+
                 }),
             });
             if (result.verified) {
