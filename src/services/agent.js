@@ -75,10 +75,10 @@ module.exports = opts => {
     },
     createVerification: async vcOrVp => {
       let flag = false;
+      const results = [];
 
       if (vcOrVp.type === 'VerifiablePresentation') {
         if (vcOrVp.verifiableCredential) {
-
           if (Array.isArray(vcOrVp.verifiableCredential)) {
             await Promise.all(
               vcOrVp.verifiableCredential.map(async vc => {
@@ -87,6 +87,7 @@ module.exports = opts => {
                   documentLoader,
                   suite: new Ed25519Signature2018({}),
                 });
+                results.push(result);
                 if (!result.verified) {
                   flag = true;
                 }
@@ -98,6 +99,7 @@ module.exports = opts => {
               documentLoader,
               suite: new Ed25519Signature2018({}),
             });
+            results.push(result);
             if (!result.verified) {
               flag = true;
             }
@@ -112,14 +114,13 @@ module.exports = opts => {
             suite: new Ed25519Signature2018({}),
             purpose,
           });
+          results.push(result);
           if (!result.verified) {
             flag = true;
           }
         }
         if (flag) {
-          throw new Error(
-            JSON.stringify(result)
-          );
+          throw new Error(JSON.stringify(results));
         }
         return {
           checks: ['proof'],
@@ -130,16 +131,13 @@ module.exports = opts => {
         documentLoader,
         suite: new Ed25519Signature2018({}),
       });
+      results.push(result);
       if (result.verified) {
         return {
           checks: ['proof'],
         };
       }
-
-      console.log(result.error)
-      throw new Error(
-        JSON.stringify(result)
-      );
+      throw new Error(JSON.stringify(results));
     },
   };
 };
