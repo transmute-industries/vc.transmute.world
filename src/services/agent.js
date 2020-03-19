@@ -118,7 +118,7 @@ module.exports = opts => {
         }
         if (flag) {
           throw new Error(
-            'VerifiablePresentation contained one or more invalid proofs.'
+            JSON.stringify(result)
           );
         }
         return {
@@ -135,8 +135,10 @@ module.exports = opts => {
           checks: ['proof'],
         };
       }
+
+      console.log(result.error)
       throw new Error(
-        'VerifiableCredential contained one or more invalid proofs.'
+        JSON.stringify(result)
       );
     },
   };

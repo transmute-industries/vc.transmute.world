@@ -76,7 +76,7 @@ module.exports = (fastify, opts, done) => {
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
-          message: e.message,
+          message: JSON.parse(e.message),
         });
       }
     }
