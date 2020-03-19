@@ -78,18 +78,30 @@ module.exports = opts => {
 
       if (vcOrVp.type === 'VerifiablePresentation') {
         if (vcOrVp.verifiableCredential) {
-          await Promise.all(
-            vcOrVp.verifiableCredential.map(async vc => {
-              const result = await vcjs.verify({
-                credential: vc,
-                documentLoader,
-                suite: new Ed25519Signature2018({}),
-              });
-              if (!result.verified) {
-                flag = true;
-              }
-            })
-          );
+
+          if (Array.isArray(vcOrVp.verifiableCredential)) {
+            await Promise.all(
+              vcOrVp.verifiableCredential.map(async vc => {
+                const result = await vcjs.verify({
+                  credential: vc,
+                  documentLoader,
+                  suite: new Ed25519Signature2018({}),
+                });
+                if (!result.verified) {
+                  flag = true;
+                }
+              })
+            );
+          } else {
+            const result = await vcjs.verify({
+              credential: vcOrVp.verifiableCredential,
+              documentLoader,
+              suite: new Ed25519Signature2018({}),
+            });
+            if (!result.verified) {
+              flag = true;
+            }
+          }
         }
         if (vcOrVp.proof) {
           const purpose = new purposeMap[vcOrVp.proof.proofPurpose](
