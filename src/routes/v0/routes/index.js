@@ -68,6 +68,9 @@ module.exports = (fastify, opts, done) => {
       schema: {
         tags: ['VC Data Model'],
         summary: 'Verification Result',
+        body: {
+          type: 'object',
+        },
       },
     },
     async (request, reply) => {
