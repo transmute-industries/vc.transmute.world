@@ -14,7 +14,7 @@ module.exports = (fastify, opts, done) => {
             options: {
               type: 'object',
               properties: {
-                issuer: { type: 'string' },
+                // issuer: { type: 'string' },
                 issuanceDate: { type: 'string' },
               },
             },
@@ -78,6 +78,7 @@ module.exports = (fastify, opts, done) => {
         const verification = await agent.createVerification(request.body);
         return reply.code(200).send(verification);
       } catch (e) {
+        // console.log(e.message)
         return reply.code(400).send({
           message: JSON.parse(e.message),
         });

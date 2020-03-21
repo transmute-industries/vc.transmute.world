@@ -204,8 +204,8 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..4c8ctI2tfNGioglxziLMQ6zhd8kekZRUbFkDy1lDOxBbRhGOj0fNvsJ7F5Y9py_48Ihynb2UYqyaGfvns4F0Dg",
+    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
     "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..4c8ctI2tfNGioglxziLMQ6zhd8kekZRUbFkDy1lDOxBbRhGOj0fNvsJ7F5Y9py_48Ihynb2UYqyaGfvns4F0Dg"
   }
 }

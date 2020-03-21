@@ -7,6 +7,9 @@ module.exports = (fastify, opts, done) => {
       schema: {
         tags: ['CCG Verifier'],
         summary: 'Verification Result',
+        body: {
+          type: 'object',
+        },
       },
     },
     async (request, reply) => {
@@ -15,6 +18,7 @@ module.exports = (fastify, opts, done) => {
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
+          errors: JSON.parse(e.message),
           checks: [
             {
               check: 'proof',

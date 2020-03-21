@@ -1,20 +1,16 @@
-const { Ed25519KeyPair } = require('crypto-ld');
+
 const vcjs = require('vc-js');
 const jsigs = require('jsonld-signatures');
 
 const documentLoader = require('./documentLoader');
+const { getSuite } = require('./suiteManager')
 
-const { Ed25519Signature2018 } = jsigs.suites;
 const { AssertionProofPurpose, AuthenticationProofPurpose } = jsigs.purposes;
 
 const purposeMap = {
   assertionMethod: AssertionProofPurpose,
   authentication: AuthenticationProofPurpose,
 };
-
-const privateKey = require('./privateKey.json');
-
-let key;
 
 // eslint-disable-next-line
 module.exports = opts => {
@@ -29,20 +25,14 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
-      key = new Ed25519KeyPair({
-        ...privateKey,
-        id: options.verificationMethod,
-        controller: options.verificationMethod.split('#')[0],
-      });
+      const suite = getSuite(options)
       return vcjs.issue({
         credential: {
           ...credential,
           issuer: options.issuer,
         },
-        suite: new Ed25519Signature2018({
-          key,
-          date: options.issuanceDate,
-        }),
+        suite,
+        compactProof: false,
         documentLoader,
       });
     },
@@ -54,20 +44,13 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
-      key = new Ed25519KeyPair({
-        ...privateKey,
-        id: options.verificationMethod,
-        controller: options.verificationMethod.split('#')[0],
-      });
+      const suite = getSuite(options)
       const purpose = new purposeMap[options.proofPurpose](options);
       return jsigs.sign(
         { ...presentation },
         {
           documentLoader,
-          suite: new Ed25519Signature2018({
-            key,
-            date: options.issuanceDate,
-          }),
+          suite,
           purpose,
           compactProof: false,
         }
@@ -82,10 +65,14 @@ module.exports = opts => {
           if (Array.isArray(vcOrVp.verifiableCredential)) {
             await Promise.all(
               vcOrVp.verifiableCredential.map(async vc => {
+                const suite = getSuite(vc.proof)
+                const purpose = new purposeMap[vc.proof.proofPurpose](vc.proof);
                 const result = await vcjs.verify({
                   credential: vc,
                   documentLoader,
-                  suite: new Ed25519Signature2018({}),
+                  compactProof: false,
+                  purpose,
+                  suite,
                 });
                 results.push(result);
                 if (!result.verified) {
@@ -94,10 +81,14 @@ module.exports = opts => {
               })
             );
           } else {
+            const suite = getSuite(vcOrVp.verifiableCredential.proof)
+            const purpose = new purposeMap[vcOrVp.verifiableCredential.proof.proofPurpose](vcOrVp.verifiableCredential.proof);
             const result = await vcjs.verify({
               credential: vcOrVp.verifiableCredential,
               documentLoader,
-              suite: new Ed25519Signature2018({}),
+              purpose,
+              compactProof: false,
+              suite,
             });
             results.push(result);
             if (!result.verified) {
@@ -109,9 +100,11 @@ module.exports = opts => {
           const purpose = new purposeMap[vcOrVp.proof.proofPurpose](
             vcOrVp.proof
           );
+          const suite = getSuite(vcOrVp.proof)
           const result = await jsigs.verify(vcOrVp, {
             documentLoader,
-            suite: new Ed25519Signature2018({}),
+            suite,
+            compactProof: false,
             purpose,
           });
           results.push(result);
@@ -126,10 +119,14 @@ module.exports = opts => {
           checks: ['proof'],
         };
       }
+      const suite = getSuite(vcOrVp.proof)
+      const purpose = new purposeMap[vcOrVp.proof.proofPurpose](vcOrVp.proof);
       const result = await vcjs.verify({
         credential: vcOrVp,
         documentLoader,
-        suite: new Ed25519Signature2018({}),
+        compactProof: false,
+        purpose,
+        suite,
       });
       results.push(result);
       if (result.verified) {

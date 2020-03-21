@@ -8,8 +8,23 @@ const getJson = async url =>
     },
     method: 'get',
   }).then(data => data.json());
+
+const localOverrides = {
+  // eslint-disable-next-line
+  "did:web:vc.transmute.world": require('./did.json')
+};
+
 module.exports = async url => {
   // console.log(url)
+
+  if (localOverrides[url.split('#'[0])]) {
+    return {
+      contextUrl: null, // this is for a context via a link header
+      document: localOverrides[url.split('#'[0])], // this is the actual document that was loaded
+      documentUrl: url, // this is the actual context URL after redirects
+    };
+  }
+
   if (url.startsWith('did:')) {
     if (url.startsWith('did:web:')) {
       const domain = url
