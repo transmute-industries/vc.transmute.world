@@ -1,9 +1,8 @@
-
 const vcjs = require('vc-js');
 const jsigs = require('jsonld-signatures');
 
 const documentLoader = require('./documentLoader');
-const { getSuite } = require('./suiteManager')
+const { getSuite } = require('./suiteManager');
 
 const { AssertionProofPurpose, AuthenticationProofPurpose } = jsigs.purposes;
 
@@ -25,7 +24,7 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
-      const suite = getSuite(options)
+      const suite = getSuite(options);
       return vcjs.issue({
         credential: {
           ...credential,
@@ -44,7 +43,7 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
-      const suite = getSuite(options)
+      const suite = getSuite(options);
       const purpose = new purposeMap[options.proofPurpose](options);
       return jsigs.sign(
         { ...presentation },
@@ -65,7 +64,7 @@ module.exports = opts => {
           if (Array.isArray(vcOrVp.verifiableCredential)) {
             await Promise.all(
               vcOrVp.verifiableCredential.map(async vc => {
-                const suite = getSuite(vc.proof)
+                const suite = getSuite(vc.proof);
                 const purpose = new purposeMap[vc.proof.proofPurpose](vc.proof);
                 const result = await vcjs.verify({
                   credential: vc,
@@ -81,8 +80,10 @@ module.exports = opts => {
               })
             );
           } else {
-            const suite = getSuite(vcOrVp.verifiableCredential.proof)
-            const purpose = new purposeMap[vcOrVp.verifiableCredential.proof.proofPurpose](vcOrVp.verifiableCredential.proof);
+            const suite = getSuite(vcOrVp.verifiableCredential.proof);
+            const purpose = new purposeMap[
+              vcOrVp.verifiableCredential.proof.proofPurpose
+            ](vcOrVp.verifiableCredential.proof);
             const result = await vcjs.verify({
               credential: vcOrVp.verifiableCredential,
               documentLoader,
@@ -100,7 +101,7 @@ module.exports = opts => {
           const purpose = new purposeMap[vcOrVp.proof.proofPurpose](
             vcOrVp.proof
           );
-          const suite = getSuite(vcOrVp.proof)
+          const suite = getSuite(vcOrVp.proof);
           const result = await jsigs.verify(vcOrVp, {
             documentLoader,
             suite,
@@ -119,7 +120,7 @@ module.exports = opts => {
           checks: ['proof'],
         };
       }
-      const suite = getSuite(vcOrVp.proof)
+      const suite = getSuite(vcOrVp.proof);
       const purpose = new purposeMap[vcOrVp.proof.proofPurpose](vcOrVp.proof);
       const result = await vcjs.verify({
         credential: vcOrVp,
