@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const request = require('supertest');
 
 const { getFastify } = require('../../factory');
@@ -48,7 +51,7 @@ describe('issuer and verify all keys', () => {
               verificationMethod: publicKey.id,
             },
           });
-
+        fs.writeFileSync(path.resolve(__dirname, `../../__fixtures__/edu/examples/vc.${publicKey.id}.json`), JSON.stringify(res.body, null, 2))
         expect(res.status).toBe(200);
         expect(res.body.proof).toBeDefined();
         res = await tester
