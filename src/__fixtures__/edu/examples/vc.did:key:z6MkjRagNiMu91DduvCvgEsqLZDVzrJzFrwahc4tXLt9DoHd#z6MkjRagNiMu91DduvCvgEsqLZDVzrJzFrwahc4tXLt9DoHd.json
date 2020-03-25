@@ -20,10 +20,10 @@
     }
   },
   "proof": {
-    "type": "JsonWebSignature2020",
-    "created": "2020-03-25T22:24:53Z",
-    "verificationMethod": "did:web:vc.transmute.world#8wgRfY3sWmzoeAL-78-oALNvNj67ZlQxd1ss_NX1hZY",
+    "type": "Ed25519Signature2018",
+    "created": "2020-03-25T22:24:57Z",
+    "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzM4NCJ9..NmPHDUd7RrdVLhVx1ddIem83MixYVY9C783NIqAKB3ZcjbZDKxUaTZyJuAsNjtKu6MSrY5BlNHfMTFe8OOHFC6tTv3OR1kQkwXXKneN2fg244YzOM-yHI_wxeV46sajb"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Z_7y6NqfSRFDd9a4wI_dbsFvRmSdKbFW1TnraRX4NOvMCejqjzsEuNKh0dcGIn7kYjfF0pcrWgacXYW6gmE9Cw"
   }
 }
