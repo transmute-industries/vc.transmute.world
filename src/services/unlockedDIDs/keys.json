@@ -1,0 +1,84 @@
+{
+    "VavvyY4bpvog491pNR-_T_S6ugDamEpys46oVLxfn1M": {
+        "type": "mnemonic",
+        "encoding": "bip39",
+        "mnemonic": "trial tell level catalog evil atom panel essay jewel card garlic balance",
+        "tags": [
+            "BIP39 Mnemonic",
+            "#VavvyY4bpvog491pNR-_T_S6ugDamEpys46oVLxfn1M",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#VavvyY4bpvog491pNR-_T_S6ugDamEpys46oVLxfn1M"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "VavvyY4bpvog491pNR-_T_S6ugDamEpys46oVLxfn1M"
+    },
+    "636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc": {
+        "type": "assymetric",
+        "encoding": "jwk",
+        "publicKey": "{\"kty\":\"EC\",\"crv\":\"secp256k1\",\"x\":\"qL-z32z8dJycwHgX1th6QTcF9xuveMBrI3Udi4zDQbw\",\"y\":\"gnUxO29W9_Wglh1aPhQSTaJkv4hJZtfYVEnLP130cLc\",\"kid\":\"636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc\"}",
+        "privateKey": "{\"kty\":\"EC\",\"crv\":\"secp256k1\",\"d\":\"nw77p9FkUk7iwHABaI5aAD4zVwdXbZhM4Dhewwx0eL8\",\"x\":\"qL-z32z8dJycwHgX1th6QTcF9xuveMBrI3Udi4zDQbw\",\"y\":\"gnUxO29W9_Wglh1aPhQSTaJkv4hJZtfYVEnLP130cLc\",\"kid\":\"636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc\"}",
+        "didPublicKeyEncoding": "publicKeyJwk",
+        "tags": [
+            "EcdsaSecp256k1VerificationKey2019",
+            "#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc"
+    },
+    "sVmzOBuwV7GATCEXT2lo6i_PloGfxhINx_YTchHv5UE": {
+        "type": "assymetric",
+        "encoding": "hex",
+        "publicKey": "03a8bfb3df6cfc749c9cc07817d6d87a413705f71baf78c06b23751d8b8cc341bc",
+        "privateKey": "9f0efba7d164524ee2c07001688e5a003e335707576d984ce0385ec30c7478bf",
+        "didPublicKeyEncoding": "publicKeyHex",
+        "tags": [
+            "EcdsaSecp256k1VerificationKey2019",
+            "#primary",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "sVmzOBuwV7GATCEXT2lo6i_PloGfxhINx_YTchHv5UE"
+    },
+    "q2aTJJ3UV12-mF7qssTA_Sj5rwMiVmsvTZQBWJKGQGI": {
+        "type": "assymetric",
+        "encoding": "hex",
+        "publicKey": "031c7290fca628a3f88e0f959f8a7f61cca3c43423aab722c231b5259d46c5111c",
+        "privateKey": "d08519c4eb2b2e4939a7d2cc162518c2504ca5c3bb2f535aeade7dfb36046127",
+        "didPublicKeyEncoding": "publicKeyHex",
+        "tags": [
+            "EcdsaSecp256k1VerificationKey2019",
+            "#recovery",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "q2aTJJ3UV12-mF7qssTA_Sj5rwMiVmsvTZQBWJKGQGI"
+    },
+    "xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo": {
+        "type": "assymetric",
+        "encoding": "base58",
+        "didPublicKeyEncoding": "publicKeyBase58",
+        "publicKey": "kw41Mbj9jVnNDrrQPMEK6iZzG5cjSjkxmr9u2V6igxL",
+        "privateKey": "CGBNshpXSvtfLLmqzCciiAFrU31VBfDxMDQZqBcKUwYgmSsuozbroEGZTCZWsns95UKUXFdbxrPicaLWAyZPF2U",
+        "tags": [
+            "Ed25519VerificationKey2018",
+            "#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+    },
+    "m1mt_AnGT5--U1Vc2WN5xDgxc_zjcbLXuQsNej-2rQU": {
+        "type": "assymetric",
+        "encoding": "base58",
+        "didPublicKeyEncoding": "publicKeyBase58",
+        "publicKey": "B84BJgNaP8RbkpatC6Q4KhbQbqsM6Y5rpdL24mYCdv4n",
+        "privateKey": "4pPYPDt3AUzDHtkiF6sCzXmBfXxjj3FcVWm14JzWVZFz",
+        "tags": [
+            "X25519KeyAgreementKey2019",
+            "#keyAgreement",
+            "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#keyAgreement"
+        ],
+        "notes": "generated in element-lib.",
+        "kid": "m1mt_AnGT5--U1Vc2WN5xDgxc_zjcbLXuQsNej-2rQU"
+    }
+}

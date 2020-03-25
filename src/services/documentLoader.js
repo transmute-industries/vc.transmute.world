@@ -1,5 +1,7 @@
 const jsonld = require('jsonld');
 const fetch = require('node-fetch');
+const unlockedDIDs = require('./unlockedDIDs')
+
 
 const getJson = async url =>
   fetch(url, {
@@ -9,9 +11,10 @@ const getJson = async url =>
     method: 'get',
   }).then(data => data.json());
 
+
 const localOverrides = {
   // eslint-disable-next-line
-  "did:web:vc.transmute.world": require('./did.json')
+  ...unlockedDIDs
 };
 
 module.exports = async url => {
@@ -20,7 +23,7 @@ module.exports = async url => {
   if (localOverrides[url.split('#'[0])]) {
     return {
       contextUrl: null, // this is for a context via a link header
-      document: localOverrides[url.split('#'[0])], // this is the actual document that was loaded
+      document: localOverrides[url.split('#')[0]], // this is the actual document that was loaded
       documentUrl: url, // this is the actual context URL after redirects
     };
   }
