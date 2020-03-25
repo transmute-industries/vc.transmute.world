@@ -60,6 +60,10 @@ describe('Issue and Verify All DIDs', () => {
                   verificationMethod: publicKey.id,
                 },
               });
+            if (res.status !== 200) {
+              // eslint-disable-next-line
+              console.error(res.status)
+            }
             // eslint-disable-next-line
             fs.writeFileSync(
               path.resolve(

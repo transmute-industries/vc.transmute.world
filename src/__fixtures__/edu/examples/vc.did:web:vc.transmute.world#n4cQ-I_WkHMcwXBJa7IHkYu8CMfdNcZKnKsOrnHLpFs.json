@@ -21,9 +21,9 @@
   },
   "proof": {
     "type": "JsonWebSignature2020",
-    "created": "2020-03-25T22:04:35Z",
+    "created": "2020-03-25T22:12:45Z",
     "verificationMethod": "did:web:vc.transmute.world#n4cQ-I_WkHMcwXBJa7IHkYu8CMfdNcZKnKsOrnHLpFs",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJQUzI1NiJ9..kzJHeF7z5y0yfcGyMrFcGFUPbmY2jMRPn2XhBHRbHfCGlLyPSJ9zAuJu6iXF32s8jK0SeFbXgXPlDyQhE21wd5mggPdWvEzvgpSRr_jq5UvshvYXfZWYY0hwRxklBlxR-Dq4CsUB5gPSesDS1zUnMRJXGKmLMBN8esT6Oo0Gz-JiSSRKVGRNtm-boclx1ydWrehormOxzaQ8OLWbAiT3LltJc7GTrpRPKHuNlCQCsrsgoQcWMIEAugSETVWU-sXmo4BDOT4IGNA2X40AOH-1yKDQhL3yXdHGUqqKI_IVT2gRrmsDPzwnrYmbUL7TRnchMLedasn2FF0xwOBq_kFRGg"
+    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJQUzI1NiJ9..FbNHNPdD6ih70SXzQQrE9V1vcEigdIbMkFMUYSjSHo1AvvUDD6JFQ5NqdtSXYs9QSMuL_kjRde-avbBybq5hfxTms6KjbHQvA3fZFzdpSB2fJ7sDOAkp8mmT2aHOOaOiXGf2eNjye8ITt3BS3AWEl3NZnGnDt2p7tDf607ELU0MzSrm5_ZuzDvWxp-aLiPxGn-r4yHnNDrUTWI0JxBbmmzRoT9JKNgh8MUrMWvDmI6eLieYioU8rbgKdiq7aDeOz3xAfcf_cZr71RWNbZBsQ3vWpc9zv83mksVlXvFzI_6-mnJeENWFrIygd0GdDMWb4cwJVXd_oYuYlU-1wyWbnAA"
   }
 }
