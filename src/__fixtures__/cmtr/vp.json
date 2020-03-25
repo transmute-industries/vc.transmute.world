@@ -217,9 +217,9 @@
   ],
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-03-25T21:41:59Z",
+    "created": "2020-03-25T22:00:54Z",
     "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..drkYkJ2xp00tdwM6p9Nl89baOtZDYD2HlSFoAf5cD1C9N-d1mWlr7wdKlVwMhNujv3AjSvgw5szDUUSQyiPLDQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..M1Ys2TqydJ2jh1zACdE6IC637okIdsM9SoYBW-X6KxblK7PFo25MW5E9Xg0Cfpt4EReRMj7Nl102RaBXMYURCQ"
   }
 }
