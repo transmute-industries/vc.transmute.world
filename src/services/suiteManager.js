@@ -7,23 +7,24 @@ const { Ed25519KeyPair } = require('crypto-ld');
 
 const { Ed25519Signature2018 } = jsigs.suites;
 
-const unlockedDIDs = require('./unlockedDIDs')
-
+const unlockedDIDs = require('./unlockedDIDs');
 
 const getUnclockedVerificationMethod = verificationMethod => {
   let unlockedVerificationMethod;
-  Object.values(unlockedDIDs).forEach((didDocument) => {
-    didDocument.publicKey.forEach((publicKey) => {
+  Object.values(unlockedDIDs).forEach(didDocument => {
+    didDocument.publicKey.forEach(publicKey => {
       if (publicKey.id === verificationMethod) {
         unlockedVerificationMethod = publicKey;
       }
-    })
-  })
+    });
+  });
   return unlockedVerificationMethod;
 };
 
 const getKey = verificationMethod => {
-  const verificationMethodPublicKey = getUnclockedVerificationMethod(verificationMethod);
+  const verificationMethodPublicKey = getUnclockedVerificationMethod(
+    verificationMethod
+  );
   switch (verificationMethodPublicKey.type) {
     case 'Ed25519VerificationKey2018':
       return new Ed25519KeyPair({
@@ -31,7 +32,7 @@ const getKey = verificationMethod => {
       });
     case 'JwsVerificationKey2020': {
       return new JsonWebKeyLinkedDataKeyClass2020({
-        ...verificationMethodPublicKey
+        ...verificationMethodPublicKey,
       });
     }
     default:
@@ -40,7 +41,9 @@ const getKey = verificationMethod => {
 };
 
 const getSuite = options => {
-  const verificationMethod = getUnclockedVerificationMethod(options.verificationMethod);
+  const verificationMethod = getUnclockedVerificationMethod(
+    options.verificationMethod
+  );
   const key = getKey(options.verificationMethod);
 
   switch (verificationMethod.type) {

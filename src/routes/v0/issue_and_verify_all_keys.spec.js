@@ -36,11 +36,15 @@ afterAll(async () => {
   await fastify.close();
 });
 
-describe("Issue and Verify All DIDs", () => {
-  Object.values(unlockedDIDs).forEach((didDocument) => {
+describe('Issue and Verify All DIDs', () => {
+  Object.values(unlockedDIDs).forEach(didDocument => {
     describe(didDocument.id, () => {
       didDocument.publicKey.forEach(publicKey => {
-        if (['Ed25519VerificationKey2018', 'JwsVerificationKey2020'].indexOf(publicKey.type) === -1) {
+        if (
+          ['Ed25519VerificationKey2018', 'JwsVerificationKey2020'].indexOf(
+            publicKey.type
+          ) === -1
+        ) {
           return;
         }
         describe(publicKey.id, () => {
@@ -56,7 +60,14 @@ describe("Issue and Verify All DIDs", () => {
                   verificationMethod: publicKey.id,
                 },
               });
-            fs.writeFileSync(path.resolve(__dirname, `../../__fixtures__/edu/examples/vc.${publicKey.id}.json`), JSON.stringify(res.body, null, 2))
+            // eslint-disable-next-line
+            fs.writeFileSync(
+              path.resolve(
+                __dirname,
+                `../../__fixtures__/edu/examples/vc.${publicKey.id}.json`
+              ),
+              JSON.stringify(res.body, null, 2)
+            );
             expect(res.status).toBe(200);
             expect(res.body.proof).toBeDefined();
             res = await tester
@@ -69,5 +80,5 @@ describe("Issue and Verify All DIDs", () => {
         });
       });
     });
-  })
-})
+  });
+});
