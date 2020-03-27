@@ -58,7 +58,7 @@ describe('interop', () => {
           expect(res.body.checks).toEqual(['proof']);
         });
 
-        it('should return a verification result in the response body', async () => {
+        it('should return a vc verification result in the response body', async () => {
           const res = await tester
             .post('/verifier/credentials')
             .set('Accept', 'application/json')
@@ -67,7 +67,7 @@ describe('interop', () => {
           expect(res.body.checks).toEqual(['proof']);
         });
 
-        it('should return a verification result in the response body', async () => {
+        it('should return a vp verification result in the response body', async () => {
           const res = await tester
             .post('/verifier/presentations')
             .set('Accept', 'application/json')

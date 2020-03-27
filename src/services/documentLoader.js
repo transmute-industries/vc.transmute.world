@@ -1,7 +1,6 @@
 const jsonld = require('jsonld');
 const fetch = require('node-fetch');
-const unlockedDIDs = require('./unlockedDIDs')
-
+const unlockedDIDs = require('./unlockedDIDs');
 
 const getJson = async url =>
   fetch(url, {
@@ -10,7 +9,6 @@ const getJson = async url =>
     },
     method: 'get',
   }).then(data => data.json());
-
 
 const localOverrides = {
   // eslint-disable-next-line
