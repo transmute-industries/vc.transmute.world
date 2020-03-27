@@ -21,9 +21,9 @@
   },
   "proof": {
     "type": "JsonWebSignature2020",
-    "created": "2020-03-27T21:04:11Z",
+    "created": "2020-03-27T21:48:17Z",
     "verificationMethod": "did:web:vc.transmute.world#_TKzHv2jFIyvdTGF1Dsgwngfdg3SH6TpDv0Ta1aOEkw",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NiJ9..VLwWY_0u-j1CGab2bA6QWtCwjhYr7BmAaOQ_97mqIrsEn5ca2p90q4O6xFOvUOPY44sXTmtF_9GQrzRfk-WVZQ"
+    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NiJ9..fITNgPQgnfHMKLNYUC_nX44E2JOG7p1t_N6zbryhErf3bDR8f9rsFmgt65JWN3o4Fdt9x7tJOXJIFRM-140QCQ"
   }
 }

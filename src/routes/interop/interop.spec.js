@@ -41,8 +41,14 @@ describe('interop', () => {
           const res = await tester
             .post('/credentials/issueCredential')
             .set('Accept', 'application/json')
-            // eslint-disable-next-line
-            .send(fixtures[useCase].vcBindingModel);
+            .send({
+              // eslint-disable-next-line
+              credential: fixtures[useCase].vcBindingModel,
+              options: {
+                assertionMethod:
+                  'did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo',
+              },
+            });
           expect(res.status).toBe(200);
           expect(res.body.proof).toBeDefined();
           vc = res.body;
@@ -62,7 +68,12 @@ describe('interop', () => {
           const res = await tester
             .post('/verifier/credentials')
             .set('Accept', 'application/json')
-            .send(vc);
+            .send({
+              verifiableCredential: vc,
+              options: {
+                checks: ['proof'],
+              },
+            });
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
@@ -71,7 +82,12 @@ describe('interop', () => {
           const res = await tester
             .post('/verifier/presentations')
             .set('Accept', 'application/json')
-            .send(vc);
+            .send({
+              verifiablePresentation: vc,
+              options: {
+                checks: ['proof'],
+              },
+            });
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });

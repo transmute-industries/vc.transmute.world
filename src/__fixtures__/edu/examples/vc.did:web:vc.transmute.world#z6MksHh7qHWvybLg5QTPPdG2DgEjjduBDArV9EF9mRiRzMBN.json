@@ -21,9 +21,9 @@
   },
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-03-27T21:03:59Z",
+    "created": "2020-03-27T21:48:06Z",
     "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..tFKeDGLzchiN30MDWuuc-6kc2RWsbeLRzMOtPkHY3R9JzVmVyeII4Gcw9cLdazEHiQBMCFUS9NhhGCKh5hp-CA"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..9YHzoZOcJm8UrV0Vcbyn4FmouZrbE8Q_hiaLCA3x0wtJRNQOEX9BlsdyapNHXpTLWLYsphzLzIxbY9p2Ry_oCg"
   }
 }

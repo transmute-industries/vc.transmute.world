@@ -46,7 +46,10 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const verification = await agent.createVerification(request.body);
+        const { verifiableCredential } = request.body;
+        const verification = await agent.createVerification(
+          verifiableCredential
+        );
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
@@ -78,7 +81,10 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const verification = await agent.createVerification(request.body);
+        const { verifiablePresentation } = request.body;
+        const verification = await agent.createVerification(
+          verifiablePresentation
+        );
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
