@@ -41,6 +41,13 @@ module.exports = (fastify, opts, done) => {
         summary: 'Verification Result',
         body: {
           type: 'object',
+          properties: {
+            verifiableCredential: { type: 'object' },
+            options: {
+              type: 'object',
+              example: { "checks": ["proof"] }
+            },
+          },
         },
       },
     },
@@ -76,6 +83,13 @@ module.exports = (fastify, opts, done) => {
         summary: 'Verification Result',
         body: {
           type: 'object',
+          properties: {
+            verifiablePresentation: { type: "object" },
+            options: {
+              type: 'object',
+              example: { "checks": ["proof"] }
+            },
+          }
         },
       },
     },

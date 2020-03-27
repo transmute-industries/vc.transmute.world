@@ -7,6 +7,16 @@ module.exports = (fastify, opts, done) => {
       schema: {
         tags: ['CCG Issuer'],
         summary: 'Verifiable Credential',
+        body: {
+          type: 'object',
+          properties: {
+            credential: { type: 'object' },
+            options: {
+              type: 'object'
+            },
+          }
+
+        },
       },
     },
     async (request, reply) => {

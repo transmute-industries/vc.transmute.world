@@ -45,8 +45,9 @@ describe('interop', () => {
               // eslint-disable-next-line
               credential: fixtures[useCase].vcBindingModel,
               options: {
-                assertionMethod:
-                  'did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo',
+                proofPurpose: 'assertionMethod',
+                issuer: "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
+                verificationMethod: "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
               },
             });
           expect(res.status).toBe(200);
