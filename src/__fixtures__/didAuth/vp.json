@@ -4,11 +4,11 @@
   "holder": "did:example:credential-subject-123",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-03-25T22:25:00Z",
+    "created": "2020-03-27T21:04:36Z",
     "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
     "proofPurpose": "authentication",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..FShO7eDTwtOI0WBmgQBim1W7CS25AXcran8vCz8ZmegJDkebwctxxEmtVMT3xuC92SYyIBEkC74xGqIFx4y_Dg"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..CKQ7GbBrxZCBRBjk1RLmIaEJ1pGXgu5mXQGiA7LUzrynvdgdEweDKOKUKb5Ua7kRwvrA2pcfJiG97_0U_-XWCA"
   }
 }

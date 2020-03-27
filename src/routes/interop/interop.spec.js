@@ -57,6 +57,24 @@ describe('interop', () => {
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
+
+        it('should return a verification result in the response body', async () => {
+          const res = await tester
+            .post('/verifier/credentials')
+            .set('Accept', 'application/json')
+            .send(vc);
+          expect(res.status).toBe(200);
+          expect(res.body.checks).toEqual(['proof']);
+        });
+
+        it('should return a verification result in the response body', async () => {
+          const res = await tester
+            .post('/verifier/presentations')
+            .set('Accept', 'application/json')
+            .send(vc);
+          expect(res.status).toBe(200);
+          expect(res.body.checks).toEqual(['proof']);
+        });
       });
     });
   });
