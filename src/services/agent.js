@@ -24,6 +24,11 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
+      // hack around static interp api
+      if (options.assertionMethod) {
+        // eslint-disable-next-line
+        options.verificationMethod = options.assertionMethod;
+      }
       const suite = getSuite(options);
       return vcjs.issue({
         credential: {

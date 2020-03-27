@@ -12,10 +12,9 @@ module.exports = (fastify, opts, done) => {
           properties: {
             credential: { type: 'object' },
             options: {
-              type: 'object'
+              type: 'object',
             },
-          }
-
+          },
         },
       },
     },
