@@ -47,7 +47,7 @@ describe('DIDAuth', () => {
             domain: 'issuer.example.com',
             challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
             verificationMethod:
-              'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
+              'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
           },
         });
 
@@ -67,7 +67,13 @@ describe('DIDAuth', () => {
       const res = await tester
         .post('/vc-data-model/verifications')
         .set('Accept', 'application/json')
-        .send(vp);
+        .send({
+          verifiablePresentation: vp,
+          options: {
+            "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+            "domain": "issuer.example.com",
+          }
+        });
       expect(res.status).toBe(200);
       expect(res.body.checks).toEqual(['proof']);
     });

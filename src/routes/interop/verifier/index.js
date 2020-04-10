@@ -19,15 +19,6 @@ module.exports = (fastify, opts, done) => {
       } catch (e) {
         return reply.code(400).send({
           errors: JSON.parse(e.message),
-          checks: [
-            {
-              check: 'proof',
-              error:
-                'The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.',
-              verificationMethod:
-                'did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k',
-            },
-          ],
         });
       }
     }
@@ -53,23 +44,13 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const { verifiableCredential } = request.body;
         const verification = await agent.createVerification(
-          verifiableCredential
+          request.body
         );
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
-          errors: JSON.parse(e.message),
-          checks: [
-            {
-              check: 'proof',
-              error:
-                'The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.',
-              verificationMethod:
-                'did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k',
-            },
-          ],
+          errors: JSON.parse(e.message)
         });
       }
     }
@@ -95,23 +76,13 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       try {
-        const { verifiablePresentation } = request.body;
         const verification = await agent.createVerification(
-          verifiablePresentation
+          request.body
         );
         return reply.code(200).send(verification);
       } catch (e) {
         return reply.code(400).send({
           errors: JSON.parse(e.message),
-          checks: [
-            {
-              check: 'proof',
-              error:
-                'The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.',
-              verificationMethod:
-                'did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k',
-            },
-          ],
         });
       }
     }
