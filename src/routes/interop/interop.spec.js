@@ -31,8 +31,6 @@ afterAll(async () => {
   await fastify.close();
 });
 
-let vc;
-
 describe('interop', () => {
   Object.keys(fixtures).forEach(useCase => {
     describe(useCase, () => {
@@ -47,32 +45,43 @@ describe('interop', () => {
               options: {
                 proofPurpose: 'assertionMethod',
                 issuer:
-                  'did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg',
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
                 assertionMethod:
-                  'did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo',
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             });
           expect(res.status).toBe(200);
           expect(res.body.proof).toBeDefined();
-          vc = res.body;
         });
       });
-      describe('POST /verifications', () => {
-        it('should return a verification result in the response body', async () => {
-          const res = await tester
-            .post('/verifications')
-            .set('Accept', 'application/json')
-            .send(vc);
-          expect(res.status).toBe(200);
-          expect(res.body.checks).toEqual(['proof']);
-        });
 
+      describe('POST /vc-data-model/presentations', () => {
+        it('should return a vp in response body', async () => {
+          const res = await tester
+            .post('/vc-data-model/presentations')
+            .set('Accept', 'application/json')
+            .send({
+              presentation: fixtures[useCase].vpBindingModel,
+              options: {
+                proofPurpose: 'authentication',
+                domain: 'issuer.example.com',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+                verificationMethod:
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
+              },
+            });
+          // console.log(JSON.stringify(res.body, null, 2))
+          expect(res.body.proof).toBeDefined()
+        });
+      });
+
+      describe('POST /verifications', () => {
         it('should return a vc verification result in the response body', async () => {
           const res = await tester
             .post('/verifier/credentials')
             .set('Accept', 'application/json')
             .send({
-              verifiableCredential: vc,
+              verifiableCredential: fixtures[useCase].vc,
               options: {
                 checks: ['proof'],
               },
@@ -86,11 +95,14 @@ describe('interop', () => {
             .post('/verifier/presentations')
             .set('Accept', 'application/json')
             .send({
-              verifiablePresentation: vc,
+              verifiablePresentation: fixtures[useCase].vp,
               options: {
+                domain: 'issuer.example.com',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
                 checks: ['proof'],
               },
             });
+          // console.log(res.body)
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });

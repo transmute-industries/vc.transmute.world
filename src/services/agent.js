@@ -63,84 +63,56 @@ module.exports = opts => {
     createVerification: async vcOrVp => {
       let flag = false;
       const results = [];
+      const { verifiableCredential, verifiablePresentation, options } = vcOrVp;
+      try {
+        if (verifiableCredential) {
+          const suite = getSuite(verifiableCredential.proof);
+          const result = await vcjs.verifyCredential({
+            credential: verifiableCredential,
+            suite,
+            documentLoader,
+          });
+          if (!result.verified) {
+            flag = true;
+          }
+        }
+        if (verifiablePresentation) {
+          if (!verifiablePresentation.proof) {
+            const vcs = Array.isArray(verifiablePresentation.verifiableCredential) ? verifiablePresentation.verifiableCredential : [verifiablePresentation.verifiableCredential]
+            vcs.forEach(async (vc) => {
+              const suite = getSuite(vc.proof);
+              const result = await vcjs.verifyCredential({
+                credential: vc,
+                suite,
+                documentLoader,
+              });
+              if (!result.verified) {
+                flag = true;
+              }
+            })
 
-      if (vcOrVp.type === 'VerifiablePresentation') {
-        if (vcOrVp.verifiableCredential) {
-          if (Array.isArray(vcOrVp.verifiableCredential)) {
-            await Promise.all(
-              vcOrVp.verifiableCredential.map(async vc => {
-                const suite = getSuite(vc.proof);
-                const purpose = new purposeMap[vc.proof.proofPurpose](vc.proof);
-                const result = await vcjs.verify({
-                  credential: vc,
-                  documentLoader,
-                  compactProof: false,
-                  purpose,
-                  suite,
-                });
-                results.push(result);
-                if (!result.verified) {
-                  flag = true;
-                }
-              })
-            );
           } else {
-            const suite = getSuite(vcOrVp.verifiableCredential.proof);
-            const purpose = new purposeMap[
-              vcOrVp.verifiableCredential.proof.proofPurpose
-            ](vcOrVp.verifiableCredential.proof);
+            const suite = getSuite(verifiablePresentation.proof);
             const result = await vcjs.verify({
-              credential: vcOrVp.verifiableCredential,
-              documentLoader,
-              purpose,
-              compactProof: false,
+              presentation: verifiablePresentation,
               suite,
+              ...options,
+              documentLoader,
             });
-            results.push(result);
             if (!result.verified) {
               flag = true;
             }
           }
         }
-        if (vcOrVp.proof) {
-          const purpose = new purposeMap[vcOrVp.proof.proofPurpose](
-            vcOrVp.proof
-          );
-          const suite = getSuite(vcOrVp.proof);
-          const result = await jsigs.verify(vcOrVp, {
-            documentLoader,
-            suite,
-            compactProof: false,
-            purpose,
-          });
-          results.push(result);
-          if (!result.verified) {
-            flag = true;
-          }
-        }
-        if (flag) {
-          throw new Error(JSON.stringify(results));
-        }
-        return {
-          checks: ['proof'],
-        };
+      } catch (e) {
+        throw new Error(JSON.stringify(e));
       }
-      const suite = getSuite(vcOrVp.proof);
-      const purpose = new purposeMap[vcOrVp.proof.proofPurpose](vcOrVp.proof);
-      const result = await vcjs.verify({
-        credential: vcOrVp,
-        documentLoader,
-        compactProof: false,
-        purpose,
-        suite,
-      });
-      results.push(result);
-      if (result.verified) {
-        return {
-          checks: ['proof'],
-        };
+      if (flag) {
+        throw new Error(JSON.stringify(results));
       }
-      throw new Error(JSON.stringify(results));
+      return {
+        checks: ['proof'],
+      };
     },
   };
 };

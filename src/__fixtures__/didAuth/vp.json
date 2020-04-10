@@ -1,14 +1,18 @@
 {
-  "@context": "https://www.w3.org/2018/credentials/v1",
-  "type": "VerifiablePresentation",
-  "holder": "did:example:credential-subject-123",
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "type": [
+    "VerifiablePresentation"
+  ],
+  "holder": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-03-27T22:10:54Z",
-    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+    "created": "2020-04-10T22:15:34Z",
+    "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
     "proofPurpose": "authentication",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..mk-go5yi5XYV13LoOHNjXDduEkDCxDtus1elfJhZB3eQochEwNOdZSt85YnE2UG28I0XJ2VKKUkyT03y8IoTBQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..inqaOeTAWR7QDDQkIv8hcQfcwlsVdQEqQWRUKT4mSaYcifZuSJGLfbXYZ95yPjjbgE0_IfZU9kPNnrOnHtuiCw"
   }
 }

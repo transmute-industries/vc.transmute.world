@@ -1,5 +1,9 @@
 {
-    "@context": "https://www.w3.org/2018/credentials/v1",
-    "type": "VerifiablePresentation",
-    "holder": "did:example:credential-subject-123"
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1"
+    ],
+    "type": [
+        "VerifiablePresentation"
+    ],
+    "holder": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
 }

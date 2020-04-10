@@ -28,7 +28,7 @@
     "jsonld-signatures": "^5.0.1",
     "lds-jws2020": "0.0.0",
     "node-fetch": "^2.6.0",
-    "vc-js": "^0.4.1"
+    "vc-js": "^0.5.0"
   },
   "devDependencies": {
     "jest": "^25.1.0",

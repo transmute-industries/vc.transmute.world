@@ -63,7 +63,15 @@ describe('v0', () => {
             .post('/vc-data-model/presentations')
             .set('Accept', 'application/json')
             // eslint-disable-next-line
-            .send({ presentation: fixtures[useCase].vpBindingModel });
+            .send({
+              presentation: fixtures[useCase].vpBindingModel, options: {
+                proofPurpose: 'authentication',
+                domain: 'issuer.example.com',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+                verificationMethod:
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
+              },
+            });
           expect(res.status).toBe(200);
           expect(res.body.proof).toBeDefined();
           vp = res.body;
@@ -80,7 +88,8 @@ describe('v0', () => {
           const res = await tester
             .post('/vc-data-model/verifications')
             .set('Accept', 'application/json')
-            .send(vc);
+            .send({ verifiableCredential: vc });
+
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
@@ -89,7 +98,12 @@ describe('v0', () => {
           const res = await tester
             .post('/vc-data-model/verifications')
             .set('Accept', 'application/json')
-            .send(vp);
+            .send({
+              verifiablePresentation: vp, options: {
+                domain: 'issuer.example.com',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+              }
+            });
 
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
@@ -102,8 +116,8 @@ describe('v0', () => {
           const res = await tester
             .post('/vc-data-model/verifications')
             .set('Accept', 'application/json')
-            .send(vpWithoutProof);
-
+            .send({ verifiablePresentation: vpWithoutProof });
+          // console.log(res.body)
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
