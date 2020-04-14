@@ -1,5 +1,5 @@
 module.exports = (fastify, opts, done) => {
-  const { didDocument } = fastify.svcs;
+  const { didDocument, didConfiguraton } = fastify.svcs;
 
   fastify.get(
     '/did.json',
@@ -11,6 +11,19 @@ module.exports = (fastify, opts, done) => {
     },
     async (request, reply) => {
       return reply.code(200).send(didDocument);
+    }
+  );
+
+  fastify.get(
+    '/did-configuration.json',
+    {
+      schema: {
+        tags: ['DID'],
+        summary: 'DID Configuration',
+      },
+    },
+    async (request, reply) => {
+      return reply.code(200).send(didConfiguraton);
     }
   );
 

@@ -1,7 +1,7 @@
 const fastifyPlugin = require('fastify-plugin');
 
 const didDocument = require('./did.json');
-
+const didConfiguraton = require('./did-configuration.json');
 const agent = require('./agent');
 
 async function servicesConnector(fastify, options) {
@@ -9,6 +9,7 @@ async function servicesConnector(fastify, options) {
     config: options.config,
     agent: agent(),
     didDocument,
+    didConfiguraton,
   });
 }
 
