@@ -95,15 +95,17 @@ describe('v0', () => {
         });
 
         it('should return a verification result in the response body for a VP (with proof)', async () => {
+          const body = {
+            verifiablePresentation: vp, options: {
+              domain: 'issuer.example.com',
+              challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+            }
+          }
+          // console.log(JSON.stringify(body, null, 2))
           const res = await tester
             .post('/vc-data-model/verifications')
             .set('Accept', 'application/json')
-            .send({
-              verifiablePresentation: vp, options: {
-                domain: 'issuer.example.com',
-                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-              }
-            });
+            .send(body);
 
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
