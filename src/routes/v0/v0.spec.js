@@ -64,7 +64,8 @@ describe('v0', () => {
             .set('Accept', 'application/json')
             // eslint-disable-next-line
             .send({
-              presentation: fixtures[useCase].vpBindingModel, options: {
+              presentation: fixtures[useCase].vpBindingModel,
+              options: {
                 proofPurpose: 'authentication',
                 domain: 'issuer.example.com',
                 challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
@@ -96,11 +97,12 @@ describe('v0', () => {
 
         it('should return a verification result in the response body for a VP (with proof)', async () => {
           const body = {
-            verifiablePresentation: vp, options: {
+            verifiablePresentation: vp,
+            options: {
               domain: 'issuer.example.com',
               challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-            }
-          }
+            },
+          };
           // console.log(JSON.stringify(body, null, 2))
           const res = await tester
             .post('/vc-data-model/verifications')

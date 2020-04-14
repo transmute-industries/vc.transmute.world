@@ -71,7 +71,7 @@ describe('interop', () => {
               },
             });
           // console.log(JSON.stringify(res.body, null, 2))
-          expect(res.body.proof).toBeDefined()
+          expect(res.body.proof).toBeDefined();
         });
       });
 

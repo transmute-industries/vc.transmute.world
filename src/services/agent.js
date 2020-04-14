@@ -78,8 +78,12 @@ module.exports = opts => {
         }
         if (verifiablePresentation) {
           if (!verifiablePresentation.proof) {
-            const vcs = Array.isArray(verifiablePresentation.verifiableCredential) ? verifiablePresentation.verifiableCredential : [verifiablePresentation.verifiableCredential]
-            vcs.forEach(async (vc) => {
+            const vcs = Array.isArray(
+              verifiablePresentation.verifiableCredential
+            )
+              ? verifiablePresentation.verifiableCredential
+              : [verifiablePresentation.verifiableCredential];
+            vcs.forEach(async vc => {
               const suite = getSuite(vc.proof);
               const result = await vcjs.verifyCredential({
                 credential: vc,
@@ -89,8 +93,7 @@ module.exports = opts => {
               if (!result.verified) {
                 flag = true;
               }
-            })
-
+            });
           } else {
             const suite = getSuite(verifiablePresentation.proof);
             const result = await vcjs.verify({

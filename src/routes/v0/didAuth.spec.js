@@ -70,9 +70,9 @@ describe('DIDAuth', () => {
         .send({
           verifiablePresentation: vp,
           options: {
-            "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
-            "domain": "issuer.example.com",
-          }
+            challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+            domain: 'issuer.example.com',
+          },
         });
       expect(res.status).toBe(200);
       expect(res.body.checks).toEqual(['proof']);
