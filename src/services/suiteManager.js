@@ -12,7 +12,8 @@ const unlockedDIDs = require('./unlockedDIDs');
 const getUnclockedVerificationMethod = verificationMethod => {
   let unlockedVerificationMethod;
   Object.values(unlockedDIDs).forEach(didDocument => {
-    didDocument.publicKey.forEach(publicKey => {
+    const bucket = didDocument.publicKey || didDocument.assertionMethod;
+    bucket.forEach(publicKey => {
       if (publicKey.id === verificationMethod) {
         unlockedVerificationMethod = publicKey;
       }

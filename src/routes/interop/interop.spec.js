@@ -50,7 +50,7 @@ describe('interop', () => {
                   'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             });
-          expect(res.status).toBe(200);
+          expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
         });
       });
