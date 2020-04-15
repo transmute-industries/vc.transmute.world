@@ -57,10 +57,10 @@ module.exports = (fastify, opts, done) => {
           credential,
           options,
         });
-        return reply.code(200).send(vc);
+        return reply.code(201).send(vc);
       } catch (e) {
         // console.log(e);
-        return reply.code(500).send({ message: e.message });
+        return reply.code(400).send({ message: e.message });
       }
     }
   );

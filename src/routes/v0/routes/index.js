@@ -55,9 +55,9 @@ module.exports = (fastify, opts, done) => {
     async (request, reply) => {
       try {
         const vc = await agent.createVerifiableCredential(request.body);
-        return reply.code(200).send(vc);
+        return reply.code(201).send(vc);
       } catch (e) {
-        return reply.code(500).send({ message: e.message });
+        return reply.code(400).send({ message: e.message });
       }
     }
   );
@@ -136,9 +136,9 @@ module.exports = (fastify, opts, done) => {
     async (request, reply) => {
       try {
         const vp = await agent.createVerifiablePresentation(request.body);
-        return reply.code(200).send(vp);
+        return reply.code(201).send(vp);
       } catch (e) {
-        return reply.code(500).send({ message: e.message });
+        return reply.code(400).send({ message: e.message });
       }
     }
   );
