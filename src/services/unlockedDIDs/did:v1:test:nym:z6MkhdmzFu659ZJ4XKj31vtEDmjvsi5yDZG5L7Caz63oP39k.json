@@ -1,0 +1,43 @@
+{
+    "@context": [
+        "https://w3id.org/did/v0.11",
+        "https://w3id.org/veres-one/v1"
+    ],
+    "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+    "authentication": [
+        {
+            "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkecaLyHuYWkayBDLw5ihndj3T1m6zKTGqau3A51G7RBf3",
+            "type": "Ed25519VerificationKey2018",
+            "controller": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+            "publicKeyBase58": "AKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf",
+            "privateKeyBase58": "2DVPjoWwWRKEGpU2bJY3ZKdghgUFT8EdcJDKyxWPpSAHXNGGdZhRgHVQxebLxA8amn4AFn7P1oRcREStLVHV1zQD"
+        }
+    ],
+    "capabilityInvocation": [
+        {
+            "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+            "type": "Ed25519VerificationKey2018",
+            "controller": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+            "publicKeyBase58": "4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN",
+            "privateKeyBase58": "24Nd9U42cvr8u1DMjheHch2cmBcJvHymazFQprLFczhw6KM6AP66w76mvW7wQatcw7Z63zPrA23jSdC5htpTSc9p"
+        }
+    ],
+    "capabilityDelegation": [
+        {
+            "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6Mkw94ByR26zMSkNdCUi6FNRsWnc2DFEeDXyBGJ5KTzSWyi",
+            "type": "Ed25519VerificationKey2018",
+            "controller": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+            "publicKeyBase58": "Hgo9PAmfeoxHG8Mn2XHXamxnnSwPpkyBHAMNF3VyXJCL",
+            "privateKeyBase58": "463Qjkrt89yPPhxnee5CQc1qfYWKBGZe7f9WfhizgV4ow9f6q42wnX7ntqmMNS2yDDdcnR67G1i9hKwYuZishdvL"
+        }
+    ],
+    "assertionMethod": [
+        {
+            "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY",
+            "type": "Ed25519VerificationKey2018",
+            "controller": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+            "publicKeyBase58": "5TVraf9itbKXrRvt2DSS95Gw4vqU3CHAdetoufdcKazA",
+            "privateKeyBase58": "rJ7NgdjV3L4VDn81pJzfjkeufcFJ2oxGr5QrwF8g1SiVahw8Qm6Kqmyo52QhfDFjkjXuu4aWFLTMoTV8WirevqC"
+        }
+    ]
+}
