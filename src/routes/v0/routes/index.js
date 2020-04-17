@@ -232,7 +232,7 @@ module.exports = (fastify, opts, done) => {
         const verification = await agent.createVerification(request.body);
         return reply.code(200).send(verification);
       } catch (e) {
-        // console.log(e.message)
+        console.error(e);
         return reply.code(400).send({
           message: JSON.parse(e.message),
         });

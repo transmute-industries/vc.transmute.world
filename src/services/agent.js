@@ -72,6 +72,7 @@ module.exports = opts => {
             suite,
             documentLoader,
           });
+          results.push({ result, verifiableCredential });
           if (!result.verified) {
             flag = true;
           }
@@ -90,6 +91,7 @@ module.exports = opts => {
                 suite,
                 documentLoader,
               });
+              results.push({ result, verifiableCredential: vc });
               if (!result.verified) {
                 flag = true;
               }
@@ -102,12 +104,14 @@ module.exports = opts => {
               ...options,
               documentLoader,
             });
+            results.push({ result, verifiablePresentation });
             if (!result.verified) {
               flag = true;
             }
           }
         }
       } catch (e) {
+        console.log(e);
         throw new Error(JSON.stringify(e));
       }
       if (flag) {

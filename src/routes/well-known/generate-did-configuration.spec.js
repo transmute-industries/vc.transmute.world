@@ -24,7 +24,7 @@ describe.skip('generate did configuration', () => {
       const didDocument = unlockedDIDs[did];
       it('using Ed25519VerificationKey2018', async () => {
         let doneEd25519VerificationKey2018 = false;
-        let bucket = didDocument.publicKey || didDocument.assertionMethod;
+        const bucket = didDocument.publicKey || didDocument.assertionMethod;
         return Promise.all(
           bucket.map(async key => {
             if (
@@ -56,7 +56,7 @@ describe.skip('generate did configuration', () => {
       });
       it('using JwsVerificationKey2020', async () => {
         let doneJwsVerificationKey2020 = false;
-        let bucket = didDocument.publicKey || didDocument.assertionMethod;
+        const bucket = didDocument.publicKey || didDocument.assertionMethod;
         return Promise.all(
           bucket.map(async key => {
             if (

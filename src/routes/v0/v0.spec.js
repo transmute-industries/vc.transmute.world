@@ -46,7 +46,7 @@ describe('v0', () => {
             .set('Accept', 'application/json')
             // eslint-disable-next-line
             .send({ credential: fixtures[useCase].vcBindingModel });
-          expect(res.status).toBe(200);
+          expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           vc = res.body;
           // eslint-disable-next-line
@@ -73,7 +73,7 @@ describe('v0', () => {
                   'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             });
-          expect(res.status).toBe(200);
+          expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           vp = res.body;
           // eslint-disable-next-line

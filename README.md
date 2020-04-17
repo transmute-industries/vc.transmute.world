@@ -4,6 +4,9 @@
 
 WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
 
+
+curl -s -X POST -H 'Content-type: application/json' -d @./data/vp.json  http://localhost:8080/vc-data-model/verify/presentations | jq "."
+
 See the Specifications in the W3C CCG:
 
 - https://github.com/w3c-ccg/vc-issuer-http-api

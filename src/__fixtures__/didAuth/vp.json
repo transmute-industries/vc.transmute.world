@@ -8,11 +8,11 @@
   "holder": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-04-14T17:31:50Z",
+    "created": "2020-04-17T00:35:01Z",
     "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
     "proofPurpose": "authentication",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YHZM8n2fE_M3hOZX66YADLcBsaNWaaztViny4WLmj7URnJdt--fehr-T4KXLfBRXLPVCJHOaRhLnqac7XUuFDw"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..4T8hlXQVSZrcWFcGZuCr_P08R2i4q6_z_LFob2_nBRGmHaNfuF6MEjr7Q4kbWXLvZoLA4KJTeVKDli5lwZcCCA"
   }
 }
