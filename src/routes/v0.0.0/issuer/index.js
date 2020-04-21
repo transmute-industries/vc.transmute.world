@@ -5,7 +5,7 @@ module.exports = (fastify, opts, done) => {
     '/credentials/issueCredential',
     {
       schema: {
-        tags: ['CCG Issuer'],
+        tags: ['v0.0.0'],
         summary: 'Verifiable Credential',
         body: {
           type: 'object',

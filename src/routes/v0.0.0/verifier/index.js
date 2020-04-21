@@ -5,7 +5,7 @@ module.exports = (fastify, opts, done) => {
     '/verifier/credentials',
     {
       schema: {
-        tags: ['CCG Verifier'],
+        tags: ['v0.0.0'],
         summary: 'Verification Result',
         body: {
           type: 'object',
@@ -79,7 +79,7 @@ module.exports = (fastify, opts, done) => {
     '/verifier/presentations',
     {
       schema: {
-        tags: ['CCG Verifier'],
+        tags: ['v0.0.0'],
         summary: 'Verification Result',
         body: {
           type: 'object',

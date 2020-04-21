@@ -5,7 +5,7 @@ module.exports = (fastify, opts, done) => {
     '/credentials',
     {
       schema: {
-        tags: ['VC Data Model'],
+        tags: ['vc-data-model'],
         summary: 'Verifiable Credential',
         body: {
           type: 'object',
@@ -66,7 +66,7 @@ module.exports = (fastify, opts, done) => {
     '/presentations',
     {
       schema: {
-        tags: ['VC Data Model'],
+        tags: ['vc-data-model'],
         summary: 'Verifiable Presentation',
         body: {
           type: 'object',
@@ -147,7 +147,7 @@ module.exports = (fastify, opts, done) => {
     '/verifications',
     {
       schema: {
-        tags: ['VC Data Model'],
+        tags: ['vc-data-model'],
         summary: 'Verification Result',
         body: {
           type: 'object',

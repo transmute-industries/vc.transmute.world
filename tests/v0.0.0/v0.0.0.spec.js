@@ -1,9 +1,8 @@
 const request = require('supertest');
 
-const { getFastify } = require('../../factory');
-const config = require('../../config');
-
-const fixtures = require('../../__fixtures__');
+const { getFastify } = require('../../src/factory');
+const config = require('../../src/config');
+const fixtures = require('../__fixtures__');
 
 const opts = {
   logger: false,
@@ -31,13 +30,13 @@ afterAll(async () => {
   await fastify.close();
 });
 
-describe('interop', () => {
+describe('v0.0.0', () => {
   Object.keys(fixtures).forEach(useCase => {
     describe(useCase, () => {
-      describe('POST /credentials/issueCredential', () => {
+      describe('POST /v0.0.0/credentials/issueCredential', () => {
         it('should issue a VC and return it in the response body', async () => {
           const res = await tester
-            .post('/credentials/issueCredential')
+            .post('/v0.0.0/credentials/issueCredential')
             .set('Accept', 'application/json')
             .send({
               // eslint-disable-next-line
@@ -54,31 +53,10 @@ describe('interop', () => {
           expect(res.body.proof).toBeDefined();
         });
       });
-
-      describe('POST /vc-data-model/presentations', () => {
-        it('should return a vp in response body', async () => {
-          const res = await tester
-            .post('/vc-data-model/presentations')
-            .set('Accept', 'application/json')
-            .send({
-              presentation: fixtures[useCase].vpBindingModel,
-              options: {
-                proofPurpose: 'authentication',
-                domain: 'issuer.example.com',
-                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-                verificationMethod:
-                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
-              },
-            });
-          // console.log(JSON.stringify(res.body, null, 2))
-          expect(res.body.proof).toBeDefined();
-        });
-      });
-
-      describe('POST /verifications', () => {
+      describe('POST /v0.0.0/verifier/credentials', () => {
         it('should return a vc verification result in the response body', async () => {
           const res = await tester
-            .post('/verifier/credentials')
+            .post('/v0.0.0/verifier/credentials')
             .set('Accept', 'application/json')
             .send({
               verifiableCredential: fixtures[useCase].vc,
@@ -89,10 +67,12 @@ describe('interop', () => {
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
+      });
 
+      describe('POST /v0.0.0/verifier/presentations', () => {
         it('should return a vp verification result in the response body', async () => {
           const res = await tester
-            .post('/verifier/presentations')
+            .post('/v0.0.0/verifier/presentations')
             .set('Accept', 'application/json')
             .send({
               verifiablePresentation: fixtures[useCase].vp,

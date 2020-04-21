@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const request = require('supertest');
 
-const { getFastify } = require('../../factory');
-const config = require('../../config');
+const { getFastify } = require('../../src/factory');
+const config = require('../../src/config');
 
-const fixtures = require('../../__fixtures__');
+const fixtures = require('../__fixtures__');
 
 const opts = {
   logger: false,
@@ -36,13 +36,13 @@ afterAll(async () => {
 let vc;
 let vp;
 
-describe('v0', () => {
+describe('/v0.1.0', () => {
   Object.keys(fixtures).forEach(useCase => {
     describe(useCase, () => {
-      describe('POST /credentials', () => {
+      describe('POST /v0.1.0/issue/credentials', () => {
         it('should issue a VC and return it in the response body', async () => {
           const res = await tester
-            .post('/vc-data-model/credentials')
+            .post('/v0.1.0/issue/credentials')
             .set('Accept', 'application/json')
             // eslint-disable-next-line
             .send({ credential: fixtures[useCase].vcBindingModel });
@@ -51,16 +51,16 @@ describe('v0', () => {
           vc = res.body;
           // eslint-disable-next-line
           fs.writeFileSync(
-            path.resolve(__dirname, '../../__fixtures__/cmtr/vc.json'),
+            path.resolve(__dirname, '../__fixtures__/vc.json'),
             JSON.stringify(vc, null, 2)
           );
         });
       });
 
-      describe('POST /presentations', () => {
+      describe('POST /v0.1.0/prove/presentations', () => {
         it('should create a VP (with proof) and return it in the response body', async () => {
           const res = await tester
-            .post('/vc-data-model/presentations')
+            .post('/v0.1.0/prove/presentations')
             .set('Accept', 'application/json')
             // eslint-disable-next-line
             .send({
@@ -78,23 +78,24 @@ describe('v0', () => {
           vp = res.body;
           // eslint-disable-next-line
           fs.writeFileSync(
-            path.resolve(__dirname, '../../__fixtures__/cmtr/vp.json'),
+            path.resolve(__dirname, '../__fixtures__/vp.json'),
             JSON.stringify(vp, null, 2)
           );
         });
       });
 
-      describe('POST /verifications', () => {
+      describe('POST /v0.1.0/verify/credentials', () => {
         it('should return a verification result in the response body for a VC', async () => {
           const res = await tester
-            .post('/vc-data-model/verifications')
+            .post('/v0.1.0/verify/credentials')
             .set('Accept', 'application/json')
             .send({ verifiableCredential: vc });
 
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
-
+      });
+      describe('POST /v0.1.0/verify/presentations', () => {
         it('should return a verification result in the response body for a VP (with proof)', async () => {
           const body = {
             verifiablePresentation: vp,
@@ -105,7 +106,7 @@ describe('v0', () => {
           };
           // console.log(JSON.stringify(body, null, 2))
           const res = await tester
-            .post('/vc-data-model/verifications')
+            .post('/v0.1.0/verify/presentations')
             .set('Accept', 'application/json')
             .send(body);
 
@@ -118,7 +119,7 @@ describe('v0', () => {
           const vpWithoutProof = { ...vp };
           delete vpWithoutProof.proof;
           const res = await tester
-            .post('/vc-data-model/verifications')
+            .post('/v0.1.0/verify/presentations')
             .set('Accept', 'application/json')
             .send({ verifiablePresentation: vpWithoutProof });
           // console.log(res.body)

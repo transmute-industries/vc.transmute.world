@@ -11,13 +11,13 @@ const {
 
 const { Ed25519Signature2018 } = jsigs.suites;
 
-const documentLoader = require('../../services/documentLoader');
-const unlockedDIDs = require('../../services/unlockedDIDs');
-const useCase = require('../../__fixtures__/did-configuration');
+const documentLoader = require('../../src/services/documentLoader');
+const unlockedDIDs = require('../../src/services/unlockedDIDs');
+const useCase = require('./index');
 
 const credential = useCase.vcBindingModel;
 let verifiableCredential;
-describe.skip('generate did configuration', () => {
+describe.skip('generate-did-configuration', () => {
   const entries = [];
   Object.keys(unlockedDIDs).forEach(did => {
     describe(`should link ${did} to ${credential.credentialSubject.domain}`, () => {
@@ -93,7 +93,7 @@ describe.skip('generate did configuration', () => {
     });
     it('write configuration', async () => {
       fs.writeFileSync(
-        path.resolve(__dirname, '../../services/did-configuration.json'),
+        path.resolve(__dirname, '../../src/services/did-configuration.json'),
         JSON.stringify(
           {
             '@context':

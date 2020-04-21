@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const request = require('supertest');
 
-const { getFastify } = require('../../factory');
-const config = require('../../config');
+const { getFastify } = require('../../src/factory');
+const config = require('../../src/config');
 
-const fixtures = require('../../__fixtures__/didAuth');
+const fixtures = require('./index');
 
 const opts = {
   logger: false,
@@ -34,7 +34,8 @@ afterAll(async () => {
 });
 
 let vp;
-describe('DIDAuth', () => {
+
+describe('chapi-did-auth', () => {
   describe('POST /presentations', () => {
     it('should create a VP (with proof) and return it in the response body', async () => {
       const res = await tester
@@ -56,7 +57,7 @@ describe('DIDAuth', () => {
       vp = res.body;
       // eslint-disable-next-line
       fs.writeFileSync(
-        path.resolve(__dirname, '../../__fixtures__/didAuth/vp.json'),
+        path.resolve(__dirname, './vp.json'),
         JSON.stringify(vp, null, 2)
       );
     });

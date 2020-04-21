@@ -37,11 +37,11 @@
   ],
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-04-10T21:48:33Z",
+    "created": "2020-04-21T17:39:24Z",
     "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
     "proofPurpose": "authentication",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..eAcSSBMa70n_LX_dCRCV6rqyJPe4R1DizRMunvt75bvLiG50KfUGhIXHor0pP5y4J4YXi0C6VNit-WnB-CPHDQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..usV8vQfHtgzeuIdodIZP46Kp6zRDHhYHKTIXfxj-v95In4rS149q9CEhBdCwFkmA0uJlfyDUtbKdd3xKkp6UBQ"
   }
 }
