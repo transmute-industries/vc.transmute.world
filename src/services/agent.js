@@ -17,7 +17,6 @@ module.exports = opts => {
     createVerifiableCredential: async ({
       credential,
       options = {
-        issuer: 'did:web:vc.transmute.world',
         issuanceDate: '2019-12-11T03:50:55Z',
         proofPurpose: 'assertionMethod',
         verificationMethod:
@@ -33,7 +32,6 @@ module.exports = opts => {
       return vcjs.issue({
         credential: {
           ...credential,
-          issuer: options.issuer,
         },
         suite,
         compactProof: false,

@@ -43,8 +43,6 @@ describe('v0.0.0', () => {
               credential: fixtures[useCase].vcBindingModel,
               options: {
                 proofPurpose: 'assertionMethod',
-                issuer:
-                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
                 assertionMethod:
                   'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
