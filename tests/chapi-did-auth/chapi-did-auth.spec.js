@@ -39,7 +39,7 @@ describe('chapi-did-auth', () => {
   describe('POST /presentations', () => {
     it('should create a VP (with proof) and return it in the response body', async () => {
       const res = await tester
-        .post('/vc-data-model/presentations')
+        .post('/v0.1.0/prove/presentations')
         .set('Accept', 'application/json')
         .send({
           presentation: fixtures.vpBindingModel,
@@ -66,7 +66,7 @@ describe('chapi-did-auth', () => {
   describe('POST /verifications', () => {
     it('should return a verification result in the response body for a VP (with proof)', async () => {
       const res = await tester
-        .post('/vc-data-model/verifications')
+        .post('/v0.1.0/verify/presentations')
         .set('Accept', 'application/json')
         .send({
           verifiablePresentation: vp,
