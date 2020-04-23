@@ -52,11 +52,6 @@ module.exports = (fastify, opts, done) => {
               },
               example: {
                 checks: ['proof'],
-                domain: 'issuer.example.com',
-                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-                proofPurpose: 'authentication',
-                verificationMethod:
-                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             },
           },

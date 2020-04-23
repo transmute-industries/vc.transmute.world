@@ -40,10 +40,9 @@ module.exports = (fastify, opts, done) => {
                 assertionMethod: { type: 'string' },
               },
               example: {
-                issuer: 'did:web:vc.transmute.world',
                 issuanceDate: '2019-12-11T03:50:55Z',
                 assertionMethod:
-                  'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             },
           },
