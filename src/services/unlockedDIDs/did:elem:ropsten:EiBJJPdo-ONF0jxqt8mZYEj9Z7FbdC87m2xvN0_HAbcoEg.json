@@ -5,7 +5,7 @@
     ],
     "publicKey": [
         {
-            "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+            "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
             "usage": "signing",
             "publicKeyJwk": {
                 "crv": "secp256k1",
@@ -23,66 +23,66 @@
                 "kid": "636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc"
             },
             "type": "EcdsaSecp256k1VerificationKey2019",
-            "controller": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+            "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
         },
         {
             "publicKeyHex": "03a8bfb3df6cfc749c9cc07817d6d87a413705f71baf78c06b23751d8b8cc341bc",
             "privateKeyHex": "9f0efba7d164524ee2c07001688e5a003e335707576d984ce0385ec30c7478bf",
             "type": "EcdsaSecp256k1VerificationKey2019",
-            "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
+            "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
             "usage": "signing",
-            "controller": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+            "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
         },
         {
             "publicKeyHex": "031c7290fca628a3f88e0f959f8a7f61cca3c43423aab722c231b5259d46c5111c",
             "privateKeyHex": "d08519c4eb2b2e4939a7d2cc162518c2504ca5c3bb2f535aeade7dfb36046127",
             "type": "EcdsaSecp256k1VerificationKey2019",
-            "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
+            "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
             "usage": "recovery",
-            "controller": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+            "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
         },
         {
             "type": "Ed25519VerificationKey2018",
             "publicKeyBase58": "kw41Mbj9jVnNDrrQPMEK6iZzG5cjSjkxmr9u2V6igxL",
             "privateKeyBase58": "CGBNshpXSvtfLLmqzCciiAFrU31VBfDxMDQZqBcKUwYgmSsuozbroEGZTCZWsns95UKUXFdbxrPicaLWAyZPF2U",
-            "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
+            "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
             "usage": "signing",
-            "controller": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+            "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
         }
     ],
     "capabilityInvocation": [
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
     ],
     "authentication": [
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
     ],
     "capabilityDelegation": [
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
     ],
     "keyAgreement": [
         {
             "type": "X25519KeyAgreementKey2019",
             "publicKeyBase58": "B84BJgNaP8RbkpatC6Q4KhbQbqsM6Y5rpdL24mYCdv4n",
             "privateKeyBase58": "4pPYPDt3AUzDHtkiF6sCzXmBfXxjj3FcVWm14JzWVZFz",
-            "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#keyAgreement",
+            "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#keyAgreement",
             "usage": "signing",
-            "controller": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+            "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
         }
     ],
     "assertionMethod": [
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
-        "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#636uaQJN8FKYI8vD-xIWEPDCsJzBxZfLxho3vzHT7Oc",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#primary",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#recovery",
+        "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
     ],
-    "id": "did:elem:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+    "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
 }

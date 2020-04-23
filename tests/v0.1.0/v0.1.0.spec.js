@@ -41,24 +41,40 @@ describe('/v0.1.0', () => {
     describe(useCase, () => {
       describe('POST /v0.1.0/issue/credentials', () => {
         it('should issue a VC and return it in the response body', async () => {
+          const verificationMethod = 'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo'
+          const bindingModel = {
+            ...fixtures[useCase].vcBindingModel,
+            issuer: verificationMethod.split('#')[0],
+            credentialSubject: {
+              ...fixtures[useCase].vcBindingModel.credentialSubject,
+              id: verificationMethod.split('#')[0]
+            }
+          }
           const res = await tester
             .post('/v0.1.0/issue/credentials')
             .set('Accept', 'application/json')
             // eslint-disable-next-line
-            .send({ credential: fixtures[useCase].vcBindingModel });
+            .send({
+              credential: bindingModel, options: {
+                assertionMethod: verificationMethod
+              }
+            });
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           vc = res.body;
+          // console.log(JSON.stringify(vc, null, 2));
           // eslint-disable-next-line
-          fs.writeFileSync(
-            path.resolve(__dirname, '../__fixtures__/vc.json'),
-            JSON.stringify(vc, null, 2)
-          );
+          // fs.writeFileSync(
+          //   path.resolve(__dirname, '../__fixtures__/vc.json'),
+          //   JSON.stringify(vc, null, 2)
+          // );
         });
       });
 
       describe('POST /v0.1.0/prove/presentations', () => {
         it('should create a VP (with proof) and return it in the response body', async () => {
+          const verificationMethod = 'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo'
+
           const res = await tester
             .post('/v0.1.0/prove/presentations')
             .set('Accept', 'application/json')
@@ -69,18 +85,18 @@ describe('/v0.1.0', () => {
                 proofPurpose: 'authentication',
                 domain: 'issuer.example.com',
                 challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-                verificationMethod:
-                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
+                verificationMethod
               },
             });
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           vp = res.body;
+          // console.log(JSON.stringify(vp, null, 2));
           // eslint-disable-next-line
-          fs.writeFileSync(
-            path.resolve(__dirname, '../__fixtures__/vp.json'),
-            JSON.stringify(vp, null, 2)
-          );
+          // fs.writeFileSync(
+          //   path.resolve(__dirname, '../__fixtures__/vp.json'),
+          //   JSON.stringify(vp, null, 2)
+          // );
         });
       });
 
@@ -98,7 +114,7 @@ describe('/v0.1.0', () => {
       describe('POST /v0.1.0/verify/presentations', () => {
         it('should return a verification result in the response body for a VP (with proof)', async () => {
           const body = {
-            verifiablePresentation: vp,
+            verifiablePresentation: fixtures[useCase].vp,
             options: {
               domain: 'issuer.example.com',
               challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
@@ -110,13 +126,15 @@ describe('/v0.1.0', () => {
             .set('Accept', 'application/json')
             .send(body);
 
+          // console.log(res.body)
+
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });
 
         it('should return a verification result in the response body for a VP (without proof)', async () => {
           // why is this even called verifiable...
-          const vpWithoutProof = { ...vp };
+          const vpWithoutProof = { ...fixtures[useCase].vp };
           delete vpWithoutProof.proof;
           const res = await tester
             .post('/v0.1.0/verify/presentations')

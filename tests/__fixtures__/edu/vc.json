@@ -8,12 +8,10 @@
     "VerifiableCredential",
     "UniversityDegreeCredential"
   ],
-  "issuer": {
-    "id": "did:web:vc.transmute.world"
-  },
+  "issuer": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
   "issuanceDate": "2020-03-10T04:24:12.164Z",
   "credentialSubject": {
-    "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+    "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
     "degree": {
       "type": "BachelorDegree",
       "name": "Bachelor of Science and Arts"
@@ -21,9 +19,9 @@
   },
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2019-12-11T03:50:55Z",
-    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+    "created": "2020-04-23T17:32:33Z",
+    "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Bdk9Hqp3mcDFbPe-n1mK_uY_wAQ2CUMg2da3ihlC4nHtBGiR6jlbqjQUAWQYwkq-OoRgWY6Are-noJVaK2yaBQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LXvT0jxpIL6mj7JB2OX3XYi2KLqVzN1VsiA-pyjN_cl544Hf34febTVspoK_iUt-L3Y46FsWjz8KVsJGjOSUCw"
   }
 }

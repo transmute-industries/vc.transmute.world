@@ -17,10 +17,10 @@
         "VerifiableCredential",
         "UniversityDegreeCredential"
       ],
-      "issuer": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+      "issuer": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
       "issuanceDate": "2020-03-10T04:24:12.164Z",
       "credentialSubject": {
-        "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+        "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
         "degree": {
           "type": "BachelorDegree",
           "name": "Bachelor of Science and Arts"
@@ -28,20 +28,20 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2020-04-10T21:35:35Z",
-        "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+        "created": "2020-04-23T17:32:33Z",
+        "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
         "proofPurpose": "assertionMethod",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..l9d0YHjcFAH2H4dB9xlWFZQLUpixVCWJk0eOt4CXQe1NXKWZwmhmn9OQp6YxX0a2LffegtYESTCJEoGVXLqWAA"
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LXvT0jxpIL6mj7JB2OX3XYi2KLqVzN1VsiA-pyjN_cl544Hf34febTVspoK_iUt-L3Y46FsWjz8KVsJGjOSUCw"
       }
     }
   ],
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-04-23T17:20:56Z",
-    "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+    "created": "2020-04-23T17:40:22Z",
+    "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
     "proofPurpose": "authentication",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..NXBcYQjA4WVI9IoOplqoUskMyG1CPQyFWEUFdr5kHLkw9M-lqTKvjvXaL1JEYejHXrSdFqswEX-6whMfvNSHCQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8Jpe8pq7b_WUVgzkKZijXVPlJ91_mIWJMmFWzUNX-c_CzMhL-I1colNQKH_ckN-R6sWelbFB0VKyMaXH8emSBg"
   }
 }
