@@ -16,7 +16,7 @@ const { fastify } = getFastify(opts);
 
 let tester;
 
-jest.setTimeout(10 * 1000);
+jest.setTimeout(20 * 1000);
 
 beforeAll(async () => {
   await fastify.ready();

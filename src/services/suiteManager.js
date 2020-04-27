@@ -49,11 +49,21 @@ const getSuite = options => {
 
   switch (verificationMethod.type) {
     case 'Ed25519VerificationKey2018':
+      if (options.jws !== undefined) {
+        return new Ed25519Signature2018();
+      }
       return new Ed25519Signature2018({
         key,
         date: options.issuanceDate,
       });
     case 'JwsVerificationKey2020':
+      if (options.jws !== undefined) {
+        return new JsonWebSignature2020({
+          LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
+          linkedDataSigantureType: 'JsonWebSignature2020',
+          linkedDataSignatureVerificationKeyType: 'JwsVerificationKey2020',
+        });
+      }
       return new JsonWebSignature2020({
         LDKeyClass: JsonWebKeyLinkedDataKeyClass2020,
         linkedDataSigantureType: 'JsonWebSignature2020',

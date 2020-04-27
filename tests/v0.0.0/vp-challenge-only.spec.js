@@ -13,7 +13,7 @@ const { fastify } = getFastify(opts);
 
 let tester;
 
-jest.setTimeout(20 * 1000);
+jest.setTimeout(10 * 1000);
 
 beforeAll(async () => {
   await fastify.ready();
@@ -30,8 +30,15 @@ afterAll(async () => {
   await fastify.close();
 });
 
-describe('v0.0.0', () => {
+let vc;
+let vp;
+describe('v0.0.0 vp-challenge-only', () => {
   Object.keys(fixtures).forEach(useCase => {
+    if (
+      fixtures[useCase].vcBindingModel.type[1] !== 'UniversityDegreeCredential'
+    ) {
+      return;
+    }
     describe(useCase, () => {
       describe('POST /v0.0.0/credentials/issueCredential', () => {
         it('should issue a VC and return it in the response body', async () => {
@@ -40,30 +47,52 @@ describe('v0.0.0', () => {
             .set('Accept', 'application/json')
             .send({
               // eslint-disable-next-line
-              credential: { ...fixtures[useCase].vcBindingModel },
+                            credential: {
+                ...fixtures[useCase].vcBindingModel,
+                issuer:
+                  'did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k',
+                credentialSubject: {
+                  ...fixtures[useCase].vcBindingModel.credentialSubject,
+                  id:
+                    'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg',
+                },
+              },
               options: {
                 proofPurpose: 'assertionMethod',
                 assertionMethod:
+                  'did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY',
+              },
+            });
+          expect(res.status).toBe(201);
+          // console.log(JSON.stringify(res.body, null, 2))
+          expect(res.body.proof).toBeDefined();
+          vc = res.body;
+        });
+      });
+      describe('POST /v0.1.0/prove/presentations', () => {
+        it('should issue a VC and return it in the response body', async () => {
+          const res = await tester
+            .post('/v0.1.0/prove/presentations')
+            .set('Accept', 'application/json')
+            .send({
+              presentation: {
+                '@context': ['https://www.w3.org/2018/credentials/v1'],
+                type: ['VerifiablePresentation'],
+                holder:
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
+                verifiableCredential: [vc],
+              },
+              options: {
+                proofPurpose: 'authentication',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+                verificationMethod:
                   'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
               },
             });
           expect(res.status).toBe(201);
+          // console.log(JSON.stringify(res.body, null, 2))
           expect(res.body.proof).toBeDefined();
-        });
-      });
-      describe('POST /v0.0.0/verifier/credentials', () => {
-        it('should return a vc verification result in the response body', async () => {
-          const res = await tester
-            .post('/v0.0.0/verifier/credentials')
-            .set('Accept', 'application/json')
-            .send({
-              verifiableCredential: { ...fixtures[useCase].vc },
-              options: {
-                checks: ['proof'],
-              },
-            });
-          expect(res.status).toBe(200);
-          expect(res.body.checks).toEqual(['proof']);
+          vp = res.body;
         });
       });
 
@@ -73,14 +102,13 @@ describe('v0.0.0', () => {
             .post('/v0.0.0/verifier/presentations')
             .set('Accept', 'application/json')
             .send({
-              verifiablePresentation: { ...fixtures[useCase].vp },
+              verifiablePresentation: vp,
               options: {
-                domain: 'issuer.example.com',
                 challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
                 checks: ['proof'],
               },
             });
-          // console.log(res.body)
+          // console.log(JSON.stringify(res.body, null, 2))
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
         });

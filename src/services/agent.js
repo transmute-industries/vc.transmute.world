@@ -102,12 +102,15 @@ module.exports = opts => {
             });
           } else {
             const suite = getSuite(verifiablePresentation.proof);
-            const result = await vcjs.verify({
+            const params = {
               presentation: verifiablePresentation,
               suite,
-              ...options,
+              challenge: options.challenge,
+              domain: options.domain,
               documentLoader,
-            });
+            };
+            const result = await vcjs.verify(params);
+            // console.log(JSON.stringify(verifiablePresentation, null, 2))
             results.push({ result, verifiablePresentation });
             if (!result.verified) {
               flag = true;
