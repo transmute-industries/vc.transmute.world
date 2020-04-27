@@ -62,6 +62,12 @@ module.exports = opts => {
       let flag = false;
       const results = [];
       const { verifiableCredential, verifiablePresentation, options } = vcOrVp;
+
+      if (!verifiableCredential && !verifiablePresentation) {
+        throw new Error(
+          'verifiableCredential or verifiablePresentation required in post body'
+        );
+      }
       try {
         if (verifiableCredential) {
           const suite = getSuite(verifiableCredential.proof);

@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const request = require('supertest');
 
 const { getFastify } = require('../../src/factory');
@@ -33,35 +33,33 @@ afterAll(async () => {
   await fastify.close();
 });
 
-let vc;
-let vp;
-
 describe('/v0.1.0', () => {
   Object.keys(fixtures).forEach(useCase => {
     describe(useCase, () => {
       describe('POST /v0.1.0/issue/credentials', () => {
         it('should issue a VC and return it in the response body', async () => {
-          const verificationMethod = 'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo'
+          const verificationMethod =
+            'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo';
           const bindingModel = {
             ...fixtures[useCase].vcBindingModel,
             issuer: verificationMethod.split('#')[0],
             credentialSubject: {
               ...fixtures[useCase].vcBindingModel.credentialSubject,
-              id: verificationMethod.split('#')[0]
-            }
-          }
+              id: verificationMethod.split('#')[0],
+            },
+          };
           const res = await tester
             .post('/v0.1.0/issue/credentials')
             .set('Accept', 'application/json')
             // eslint-disable-next-line
             .send({
-              credential: bindingModel, options: {
-                assertionMethod: verificationMethod
-              }
+              credential: bindingModel,
+              options: {
+                assertionMethod: verificationMethod,
+              },
             });
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
-          vc = res.body;
           // console.log(JSON.stringify(vc, null, 2));
           // eslint-disable-next-line
           // fs.writeFileSync(
@@ -73,7 +71,8 @@ describe('/v0.1.0', () => {
 
       describe('POST /v0.1.0/prove/presentations', () => {
         it('should create a VP (with proof) and return it in the response body', async () => {
-          const verificationMethod = 'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo'
+          const verificationMethod =
+            'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo';
 
           const res = await tester
             .post('/v0.1.0/prove/presentations')
@@ -85,12 +84,11 @@ describe('/v0.1.0', () => {
                 proofPurpose: 'authentication',
                 domain: 'issuer.example.com',
                 challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-                verificationMethod
+                verificationMethod,
               },
             });
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
-          vp = res.body;
           // console.log(JSON.stringify(vp, null, 2));
           // eslint-disable-next-line
           // fs.writeFileSync(
@@ -105,7 +103,7 @@ describe('/v0.1.0', () => {
           const res = await tester
             .post('/v0.1.0/verify/credentials')
             .set('Accept', 'application/json')
-            .send({ verifiableCredential: vc });
+            .send({ verifiableCredential: fixtures[useCase].vc });
 
           expect(res.status).toBe(200);
           expect(res.body.checks).toEqual(['proof']);
