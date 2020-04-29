@@ -48,13 +48,13 @@ We use Github actions for CI/CD. See https://github.com/transmute-industries/vc-
 - Deploy to Docker hub
 - Deploy to Google cloud run
 
-### Setting A Custom Domain for Google Cloud Run
+### Github Actions Google Cloud Run CI/CD
 
-```
-gcloud beta run domain-mappings create --service vc-http-api --domain vc.transmute.industries
+- https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/README.md
 
+gcloud beta run services list
+gcloud beta run domain-mappings create --service vc-http-api --domain vc.transmute.world
 gcloud beta run domain-mappings describe --domain vc.transmute.world
-```
 
 ## Docker
 
@@ -86,9 +86,3 @@ See [vc](./test/vc.json)
 
 
 ...
-
-### Github Actions Google Cloud Run CI/CD
-
-- https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/README.md
-
-RUN_PROJECT=vc-transmute-world
