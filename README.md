@@ -83,3 +83,6 @@ curl -s -X POST -H 'Content-type: application/json' -d @./src/__fixtures__/edu/v
 ```
 
 See [vc](./test/vc.json)
+
+
+...
