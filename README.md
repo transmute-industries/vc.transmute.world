@@ -86,3 +86,9 @@ See [vc](./test/vc.json)
 
 
 ...
+
+### Github Actions Google Cloud Run CI/CD
+
+- https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/README.md
+
+RUN_PROJECT=vc-transmute-world
