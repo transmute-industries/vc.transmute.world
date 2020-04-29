@@ -53,8 +53,8 @@ We use Github actions for CI/CD. See https://github.com/transmute-industries/vc-
 - https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/README.md
 
 gcloud beta run services list
-gcloud beta run domain-mappings create --service vc-http-api --domain vc.transmute.world
-gcloud beta run domain-mappings describe --domain vc.transmute.world
+gcloud beta run domain-mappings create --service vc-http-api --domain vc.did.ai
+gcloud beta run domain-mappings describe --domain vc.did.ai
 
 ## Docker
 
