@@ -43,7 +43,7 @@ npm start
 
 ## CI/CD
 
-We use Github actions for CI/CD. See https://github.com/transmute-industries/issuer-verifier-vc-api/tree/master/.github/workflows
+We use Github actions for CI/CD. See https://github.com/transmute-industries/vc-http-api/tree/master/.github/workflows
 - Run lint and tests
 - Deploy to Docker hub
 - Deploy to Google cloud run
@@ -51,19 +51,19 @@ We use Github actions for CI/CD. See https://github.com/transmute-industries/iss
 ### Setting A Custom Domain for Google Cloud Run
 
 ```
-gcloud beta run domain-mappings create --service issuer-verifier-vc-api --domain vc.transmute.industries
+gcloud beta run domain-mappings create --service vc-http-api --domain vc.transmute.industries
 
 gcloud beta run domain-mappings describe --domain vc.transmute.world
 ```
 
 ## Docker
 
-Dockerhub: https://hub.docker.com/r/transmute/issuer-verifier-vc-api
+Dockerhub: https://hub.docker.com/r/transmute/vc-http-api
 
 Run latest image:
 ```
-docker pull transmute/issuer-verifier-vc-api:latest
-docker run --rm -p 8080:8080 -d transmute/issuer-verifier-vc-api:latest
+docker pull transmute/vc-http-api:latest
+docker run --rm -p 8080:8080 -d transmute/vc-http-api:latest
 ```
 
 Visit http://localhost:8080

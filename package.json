@@ -1,5 +1,5 @@
 {
-  "name": "issuer-verifier-vc-api",
+  "name": "vc-http-api",
   "version": "0.0.1",
   "description": "Transmute's implementation of the Credential Issuer and Verifier API",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transmute-industries/issuer-verifier-vc-api.git"
+    "url": "git+https://github.com/transmute-industries/vc-http-api.git"
   },
   "author": "gjgd <guillaume@transmute.industries>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/transmute-industries/issuer-verifier-vc-api/issues"
+    "url": "https://github.com/transmute-industries/vc-http-api/issues"
   },
-  "homepage": "https://github.com/transmute-industries/issuer-verifier-vc-api#readme",
+  "homepage": "https://github.com/transmute-industries/vc-http-api#readme",
   "dependencies": {
     "crypto-ld": "^3.7.0",
     "dotenv": "^8.2.0",

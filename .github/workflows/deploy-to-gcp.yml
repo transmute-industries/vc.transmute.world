@@ -25,7 +25,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
   RUN_REGION: us-central1
-  SERVICE_NAME: issuer-verifier-vc-api
+  SERVICE_NAME: vc-http-api
 
 jobs:
   setup-build-deploy:
