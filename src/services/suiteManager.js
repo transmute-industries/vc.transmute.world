@@ -10,7 +10,6 @@ const { Ed25519Signature2018 } = jsigs.suites;
 
 const unlockedDIDs = require('./unlockedDIDs');
 
-
 const getJson = async url =>
   fetch(url, {
     headers: {
@@ -19,8 +18,7 @@ const getJson = async url =>
     method: 'get',
   }).then(data => data.json());
 
-
-const getUnclockedVerificationMethod = async (verificationMethod) => {
+const getUnclockedVerificationMethod = async verificationMethod => {
   let unlockedVerificationMethod;
   Object.values(unlockedDIDs).forEach(didDocument => {
     const bucket = didDocument.publicKey || didDocument.assertionMethod;
@@ -33,7 +31,7 @@ const getUnclockedVerificationMethod = async (verificationMethod) => {
 
   if (!unlockedVerificationMethod) {
     const baseUrl = 'https://uniresolver.io/1.0/identifiers/';
-    const result = await getJson(baseUrl + url);
+    const result = await getJson(baseUrl + verificationMethod);
     const { didDocument } = result;
     const bucket = didDocument.publicKey || didDocument.assertionMethod;
     bucket.forEach(publicKey => {
@@ -65,7 +63,6 @@ const getKey = async verificationMethod => {
 };
 
 const getSuite = async options => {
-
   const verificationMethod = await getUnclockedVerificationMethod(
     options.verificationMethod
   );
