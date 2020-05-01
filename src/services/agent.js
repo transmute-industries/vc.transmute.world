@@ -28,7 +28,7 @@ module.exports = opts => {
         // eslint-disable-next-line
         options.verificationMethod = options.assertionMethod;
       }
-      const suite = getSuite(options);
+      const suite = await getSuite(options);
       return vcjs.issue({
         credential: {
           ...credential,
@@ -46,7 +46,7 @@ module.exports = opts => {
           'did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN',
       },
     }) => {
-      const suite = getSuite(options);
+      const suite = await getSuite(options);
       const purpose = new purposeMap[options.proofPurpose](options);
       return jsigs.sign(
         { ...presentation },
@@ -70,7 +70,7 @@ module.exports = opts => {
       }
       try {
         if (verifiableCredential) {
-          const suite = getSuite(verifiableCredential.proof);
+          const suite = await getSuite(verifiableCredential.proof);
           const result = await vcjs.verifyCredential({
             credential: verifiableCredential,
             suite,
@@ -89,7 +89,7 @@ module.exports = opts => {
               ? verifiablePresentation.verifiableCredential
               : [verifiablePresentation.verifiableCredential];
             vcs.forEach(async vc => {
-              const suite = getSuite(vc.proof);
+              const suite = await getSuite(vc.proof);
               const result = await vcjs.verifyCredential({
                 credential: vc,
                 suite,
@@ -101,7 +101,7 @@ module.exports = opts => {
               }
             });
           } else {
-            const suite = getSuite(verifiablePresentation.proof);
+            const suite = await getSuite(verifiablePresentation.proof);
             const params = {
               presentation: verifiablePresentation,
               suite,

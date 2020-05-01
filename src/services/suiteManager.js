@@ -2,6 +2,7 @@ const {
   JsonWebSignature2020,
   JsonWebKeyLinkedDataKeyClass2020,
 } = require('lds-jws2020');
+const fetch = require('node-fetch');
 const jsigs = require('jsonld-signatures');
 const { Ed25519KeyPair } = require('crypto-ld');
 
@@ -9,7 +10,17 @@ const { Ed25519Signature2018 } = jsigs.suites;
 
 const unlockedDIDs = require('./unlockedDIDs');
 
-const getUnclockedVerificationMethod = verificationMethod => {
+
+const getJson = async url =>
+  fetch(url, {
+    headers: {
+      Accept: 'application/ld+json',
+    },
+    method: 'get',
+  }).then(data => data.json());
+
+
+const getUnclockedVerificationMethod = async (verificationMethod) => {
   let unlockedVerificationMethod;
   Object.values(unlockedDIDs).forEach(didDocument => {
     const bucket = didDocument.publicKey || didDocument.assertionMethod;
@@ -19,11 +30,23 @@ const getUnclockedVerificationMethod = verificationMethod => {
       }
     });
   });
+
+  if (!unlockedVerificationMethod) {
+    const baseUrl = 'https://uniresolver.io/1.0/identifiers/';
+    const result = await getJson(baseUrl + url);
+    const { didDocument } = result;
+    const bucket = didDocument.publicKey || didDocument.assertionMethod;
+    bucket.forEach(publicKey => {
+      if (publicKey.id === verificationMethod) {
+        unlockedVerificationMethod = publicKey;
+      }
+    });
+  }
   return unlockedVerificationMethod;
 };
 
-const getKey = verificationMethod => {
-  const verificationMethodPublicKey = getUnclockedVerificationMethod(
+const getKey = async verificationMethod => {
+  const verificationMethodPublicKey = await getUnclockedVerificationMethod(
     verificationMethod
   );
   switch (verificationMethodPublicKey.type) {
@@ -41,11 +64,12 @@ const getKey = verificationMethod => {
   }
 };
 
-const getSuite = options => {
-  const verificationMethod = getUnclockedVerificationMethod(
+const getSuite = async options => {
+
+  const verificationMethod = await getUnclockedVerificationMethod(
     options.verificationMethod
   );
-  const key = getKey(options.verificationMethod);
+  const key = await getKey(options.verificationMethod);
 
   switch (verificationMethod.type) {
     case 'Ed25519VerificationKey2018':
