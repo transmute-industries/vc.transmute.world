@@ -63,10 +63,12 @@ const getKey = async verificationMethod => {
 };
 
 const getSuite = async options => {
+
+  const vmFromProof = options.verificationMethod || options.assertionMethod;
   const verificationMethod = await getUnclockedVerificationMethod(
-    options.verificationMethod
+    vmFromProof
   );
-  const key = await getKey(options.verificationMethod);
+  const key = await getKey(vmFromProof);
 
   switch (verificationMethod.type) {
     case 'Ed25519VerificationKey2018':
@@ -93,7 +95,7 @@ const getSuite = async options => {
         date: options.issuanceDate,
       });
     default:
-      throw new Error(`No Suite for: ${options.verificationMethod}`);
+      throw new Error(`No Suite for: ${vmFromProof}`);
   }
 };
 
