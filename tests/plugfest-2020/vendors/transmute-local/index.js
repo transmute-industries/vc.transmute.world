@@ -7,7 +7,8 @@ module.exports = {
   // eslint-disable-next-line max-len
   verify_credential_endpoint: 'http://localhost:8080/v0.1.0/verify/credentials',
   // eslint-disable-next-line max-len
-  verify_presentation_endpoint: 'http://localhost:8080/v0.1.0/verify/presentations',
+  verify_presentation_endpoint:
+    'http://localhost:8080/v0.1.0/verify/presentations',
   credentials: [...credentials],
   verifiable_credentials: [...verifiableCredentials],
   verifiable_presentations: [...verifiablePresentations],

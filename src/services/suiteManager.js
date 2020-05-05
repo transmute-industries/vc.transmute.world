@@ -63,11 +63,8 @@ const getKey = async verificationMethod => {
 };
 
 const getSuite = async options => {
-
   const vmFromProof = options.verificationMethod || options.assertionMethod;
-  const verificationMethod = await getUnclockedVerificationMethod(
-    vmFromProof
-  );
+  const verificationMethod = await getUnclockedVerificationMethod(vmFromProof);
   const key = await getKey(vmFromProof);
 
   switch (verificationMethod.type) {

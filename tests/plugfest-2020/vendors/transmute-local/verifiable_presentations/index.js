@@ -1,7 +1,6 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
+
 const files = fs.readdirSync(__dirname).filter(f => {
   return f.indexOf('.json') !== -1;
 });

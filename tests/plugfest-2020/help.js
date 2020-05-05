@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-unpublished-require
 const uuid = require('uuid-random');
 const request = require('supertest');
 const { getFastify } = require('../../src/factory');

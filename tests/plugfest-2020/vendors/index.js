@@ -1,4 +1,4 @@
-const transmute = require('./transmute');
+const transmute = require('./transmute-local');
 
 const vendors = [transmute];
 
