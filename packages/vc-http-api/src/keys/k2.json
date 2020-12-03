@@ -1,0 +1,7 @@
+{
+  "type": "Ed25519VerificationKey2018",
+  "publicKeyBase58": "kw41Mbj9jVnNDrrQPMEK6iZzG5cjSjkxmr9u2V6igxL",
+  "privateKeyBase58": "CGBNshpXSvtfLLmqzCciiAFrU31VBfDxMDQZqBcKUwYgmSsuozbroEGZTCZWsns95UKUXFdbxrPicaLWAyZPF2U",
+  "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo",
+  "controller": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg"
+}

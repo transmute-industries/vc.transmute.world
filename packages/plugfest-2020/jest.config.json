@@ -5,7 +5,7 @@
       "./node_modules/jest-html-reporter",
       {
         "pageTitle": "Plugfest 2020",
-        "outputPath": "../docs/plugfest-2020.html"
+        "outputPath": "../../docs/plugfest-2020.html"
       }
     ]
   ]

@@ -5,7 +5,7 @@ const verifiable_credentials = require("./verifiable_credentials");
 const verifiable_presentations = require("./verifiable_presentations");
 
 module.exports = {
-  name: "Transmute",
+  name: "Transmute Local",
   // eslint-disable-next-line max-len
   verify_credential_endpoint: "http://localhost:8080/v0.1.0/verify/credentials",
   // eslint-disable-next-line max-len
@@ -16,7 +16,7 @@ module.exports = {
   verifiable_presentations: [...verifiable_presentations],
   issuers: [
     {
-      name: "DID Web Issuer",
+      name: "Issuer 1",
       endpoint: "http://localhost:8080/v0.0.0/credentials/issueCredential",
       options: [
         {
@@ -28,7 +28,7 @@ module.exports = {
       ],
     },
     {
-      name: "DID Issuers",
+      name: "Issuer 2",
       endpoint: "http://localhost:8080/v0.1.0/issue/credentials",
       options: [
         {

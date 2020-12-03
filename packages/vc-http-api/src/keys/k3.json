@@ -1,0 +1,7 @@
+{
+  "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY",
+  "type": "Ed25519VerificationKey2018",
+  "controller": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+  "publicKeyBase58": "5TVraf9itbKXrRvt2DSS95Gw4vqU3CHAdetoufdcKazA",
+  "privateKeyBase58": "rJ7NgdjV3L4VDn81pJzfjkeufcFJ2oxGr5QrwF8g1SiVahw8Qm6Kqmyo52QhfDFjkjXuu4aWFLTMoTV8WirevqC"
+}
