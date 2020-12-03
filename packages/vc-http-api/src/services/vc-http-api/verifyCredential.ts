@@ -6,19 +6,24 @@ export const verifyCredential = async (
   verifiableCredential: any,
   _options: any
 ) => {
-  const result = await vc.verifyCredential({
-    credential: verifiableCredential,
-    suite: new Ed25519Signature2018(),
-    documentLoader,
-  });
+  try {
+    const result = await vc.verifyCredential({
+      credential: verifiableCredential,
+      suite: new Ed25519Signature2018(),
+      documentLoader,
+    });
 
-  if (result.verified) {
-    return {
-      checks: ['proof'],
-      warnings: [],
-      errors: [],
-    };
+    if (result.verified) {
+      return {
+        checks: ['proof'],
+        warnings: [],
+        errors: [],
+      };
+    }
+  } catch (e) {
+    // no op
   }
+
   return {
     checks: ['proof'],
     warnings: [],

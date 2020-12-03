@@ -21,10 +21,7 @@ afterAll(async () => {
 describe('POST /v0.1.0/issue/credentials', () => {
   it('should issue a verifiable credential', async () => {
     const response = await api.post('/v0.1.0/issue/credentials').send({
-      credential: credential,
-      options: {
-        verificationMethod: verifiableCredential.proof.verificationMethod,
-      },
+      credential,
     });
     expect(response.body.proof).toBeDefined();
   });

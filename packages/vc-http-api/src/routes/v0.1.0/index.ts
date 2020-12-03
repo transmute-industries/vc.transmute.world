@@ -38,11 +38,15 @@ export default (server: any, _opts: any, done: any) => {
       },
     },
     async (request: any, reply: any) => {
-      const result = await server.vc.issueCredential(
-        request.body.credential,
-        request.body.options
-      );
-      return reply.send(result);
+      try {
+        const result = await server.vc.issueCredential(
+          request.body.credential,
+          request.body.options
+        );
+        return reply.status(201).send(result);
+      } catch (e) {
+        return reply.status(400).send({ error: true });
+      }
     }
   );
 
@@ -126,6 +130,10 @@ export default (server: any, _opts: any, done: any) => {
         request.body.verifiableCredential,
         request.body.options
       );
+
+      if (result.errors.length) {
+        return reply.status(400).send(result);
+      }
       return reply.send(result);
     }
   );

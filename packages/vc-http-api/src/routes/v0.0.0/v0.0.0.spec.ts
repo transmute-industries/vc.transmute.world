@@ -25,12 +25,8 @@ describe('POST /v0.0.0/credentials/issueCredential', () => {
       .post('/v0.0.0/credentials/issueCredential')
       .send({
         credential,
-        options: {
-          issuanceDate: verifiableCredential.issuanceDate,
-          assertionMethod: verifiableCredential.proof.verificationMethod,
-        },
       });
-    expect(response.body).toEqual(verifiableCredential);
+    expect(response.body.proof).toBeDefined();
   });
 });
 
