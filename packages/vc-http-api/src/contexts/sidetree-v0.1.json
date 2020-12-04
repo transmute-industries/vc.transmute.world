@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "sidetree": "https://docs.element-did.com/contexts/sidetree/sidetree-v0.1#",
+    "usage": "sidetree:usage",
+
+    "publicKeyHex": "sec:publicKeyHex",
+    "publicKeyJwk": "sec:publicKeyJwk",
+    "crv": "sec:crv",
+    "kid": "sec:kid",
+    "kty": "sec:kty",
+    "x": "sec:x",
+    "y": "sec:y"
+  }
+}

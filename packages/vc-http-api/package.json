@@ -1,0 +1,64 @@
+{
+  "name": "vc-http-api",
+  "author": "Orie Steele",
+  "module": "dist/vc-http-api.esm.js",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node run.js",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "lint:fix": "tsdx lint src --fix",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/vc-http-api.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/vc-http-api.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.0",
+    "size-limit": "^4.9.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "4.0.5",
+    "@types/supertest": "^2.0.10",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@transmute/ed25519-signature-2018": "^0.1.1-unstable.12",
+    "@transmute/jsonld-document-loader": "^0.2.0",
+    "@transmute/vc.js": "^0.1.1-unstable.12",
+    "fastify": "^3.9.1",
+    "fastify-cors": "^5.0.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-swagger": "^3.5.0"
+  }
+}

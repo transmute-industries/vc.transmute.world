@@ -1,52 +1,23 @@
 {
-  "name": "vc-http-api",
-  "version": "0.0.1",
-  "description": "Transmute's implementation of the Credential Issuer and Verifier API",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "test": "jest --runInBand",
-    "start": "node ./src/serve.js",
-    "lint": "eslint --fix ."
+    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/master --include-dependencies",
+    "build": "lerna run build --stream",
+    "lint": "lerna run lint --stream",
+    "postinstall": "lerna link && lerna bootstrap",
+    "test": "lerna run test --stream"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/transmute-industries/vc-http-api.git"
-  },
-  "author": "gjgd <guillaume@transmute.industries>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/transmute-industries/vc-http-api/issues"
-  },
-  "homepage": "https://github.com/transmute-industries/vc-http-api#readme",
-  "dependencies": {
-    "crypto-ld": "^3.7.0",
-    "dotenv": "^8.2.0",
-    "fastify": "^2.12.1",
-    "fastify-cors": "^3.0.2",
-    "fastify-plugin": "^1.6.1",
-    "fastify-swagger": "^2.5.0",
-    "jsonld": "^3.0.1",
-    "jsonld-signatures": "^5.0.1",
-    "lds-jws2020": "0.0.0",
-    "moment": "^2.24.0",
-    "node-fetch": "^2.6.0",
-    "vc-js": "^0.5.0"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "lerna run lint --since origin/master"
+    }
   },
   "devDependencies": {
-    "@transmute/eslint-config": "^0.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.8.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-security": "^1.4.0",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1",
-    "supertest": "^4.0.2",
-    "uuid-random": "^1.3.0"
-  },
-  "engines": {
-    "node": "10"
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1"
   }
 }
