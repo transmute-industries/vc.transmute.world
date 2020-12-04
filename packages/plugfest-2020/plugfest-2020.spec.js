@@ -351,7 +351,7 @@ describe("Plugfest 2020", () => {
           });
 
           // eslint-disable-next-line max-len
-          describe.skip("10. The Verifier's Verify Credential HTTP API MUST verify a Verifiable Credential with at least 2 different DID methods set as the issuer property for a credential.", () => {
+          describe("10. The Verifier's Verify Credential HTTP API MUST verify a Verifiable Credential with at least 2 different DID methods set as the issuer property for a credential.", () => {
             it("should pass", async () => {
               const endpoint = vendor.verify_credential_endpoint;
               const unique_issuers = [];
@@ -473,7 +473,7 @@ describe("Plugfest 2020", () => {
           });
 
           // eslint-disable-next-line max-len
-          describe.skip(`2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same.`, () => {
+          describe(`2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same.`, () => {
             it("should pass", async () => {
               const endpoint = vendor.verify_presentation_endpoint;
               // this logic needs to account for object and string variations...
