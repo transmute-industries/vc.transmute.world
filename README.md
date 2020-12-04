@@ -49,21 +49,3 @@ docker run --rm -p 8080:8080 -d transmute/vc-http-api:latest
 ```
 
 Visit http://localhost:8080
-
-## Issue
-
-```
-curl -s -X POST -H 'Content-type: application/json' -d @./src/__fixtures__/edu/vc.bindingModel.json  http://localhost:8080/vc-data-model/credentials | jq "."
-```
-
-See [bindingModel](./test/vc.bindingModel.json)
-
-## Verify
-
-```
-curl -s -X POST -H 'Content-type: application/json' -d @./src/__fixtures__/edu/vc.json  http://localhost:8080/vc-data-model/verifications | jq "."
-```
-
-See [vc](./test/vc.json)
-
-...
