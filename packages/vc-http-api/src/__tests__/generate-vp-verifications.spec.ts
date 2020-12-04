@@ -1,9 +1,8 @@
 import supertest, { SuperTest } from 'supertest';
 
-import { getTestServer } from '../server';
-
 import fs from 'fs';
 import path from 'path';
+import { getTestServer } from '../server';
 
 import { verifiablePresentations } from '../__fixtures__';
 

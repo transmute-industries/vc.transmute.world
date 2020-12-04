@@ -1,12 +1,12 @@
 import supertest, { SuperTest } from 'supertest';
 
-import { getTestServer } from '../server';
-
 import fs from 'fs';
 import path from 'path';
+import { getTestServer } from '../server';
 
 import { verifiableCredentials } from '../__fixtures__';
 import credential from '../data/c.json';
+
 let api: SuperTest<any>;
 let server: any;
 
