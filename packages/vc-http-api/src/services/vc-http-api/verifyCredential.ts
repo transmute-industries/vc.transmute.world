@@ -4,8 +4,10 @@ import { documentLoader } from '../documentLoader';
 
 export const verifyCredential = async (
   verifiableCredential: any,
-  _options: any
+  options: any
 ) => {
+  // eslint-disable-next-line no-console
+  console.warn('not handling options', options);
   try {
     const result = await vc.verifyCredential({
       credential: verifiableCredential,

@@ -29,7 +29,6 @@ describe('POST /v0.1.0/issue/credentials', () => {
 
 describe('POST /v0.1.0/prove/presentations', () => {
   it('should prove a verifiable credential', async () => {
-    const credential: any = { ...verifiableCredential };
     const response = await api.post('/v0.1.0/prove/presentations').send({
       presentation: {
         '@context': ['https://www.w3.org/2018/credentials/v1'],
