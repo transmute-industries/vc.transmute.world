@@ -10,6 +10,8 @@ See the Specifications in the W3C CCG:
 
 ## Getting started
 
+This is a [lerna mono repo](https://github.com/lerna/lerna).
+
 ```
 npm install
 npm run lint
