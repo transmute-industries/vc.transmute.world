@@ -14,6 +14,7 @@ function annotateWithUniqueId(credentials: any[]) {
 
 export const runIssuerTests = (issuerEndpoint: string, credential: any) => {
   beforeAll(() => {
+    // eslint-disable-next-line no-param-reassign
     [credential] = annotateWithUniqueId([credential]);
   });
   describe("1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.", () => {

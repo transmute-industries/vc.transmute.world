@@ -5,7 +5,7 @@ function cloneObj(obj: any) {
 }
 
 export const runVerifierTests = (vendorOptions: any) => {
-  let {
+  const {
     verifyCredentialEndpoint,
     verifiableCredential,
     validRequestBody,
