@@ -1,6 +1,4 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/vc-http-api"],
   "version": "0.0.0"
 }
