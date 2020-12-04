@@ -27,7 +27,7 @@ env:
   RUN_SA_EMAIL: ${{ secrets.RUN_SA_EMAIL}}
   RUN_SA_KEY: ${{ secrets.RUN_SA_KEY}}
   RUN_REGION: us-central1
-  SERVICE_NAME: vc-http-api
+  SERVICE_NAME: vc-transmute-world
 
 jobs:
   setup-build-deploy:
