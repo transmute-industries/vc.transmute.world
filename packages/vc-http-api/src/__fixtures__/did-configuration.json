@@ -1,0 +1,101 @@
+{
+  "@context": "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld",
+  "linked_dids": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld"
+      ],
+      "issuer": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+      "issuanceDate": "2020-12-04T08:33:36-06:00",
+      "expirationDate": "2025-12-04T08:33:36-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+        "origin": "https://vc.transmute.world"
+      },
+      "proof": {
+        "type": "Ed25519Signature2018",
+        "created": "2020-12-04T14:33:36.056Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..X2UvvVSxJ9MOEviQTyyut80jpDYm5yGCpkgJgsKY446k6SmS5qOVNHSenNAEFH3a6l1UlzUiCBo616BH8zBiCA",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld"
+      ],
+      "issuer": "did:web:vc.transmute.world",
+      "issuanceDate": "2020-12-04T08:33:36-06:00",
+      "expirationDate": "2025-12-04T08:33:36-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:web:vc.transmute.world",
+        "origin": "https://vc.transmute.world"
+      },
+      "proof": {
+        "type": "Ed25519Signature2018",
+        "created": "2020-12-04T14:33:36.136Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..VRvn7AW9KYF6uNOVcbC48JmWTwlGK5N5NAdBxXTwJyXK5SOH8n9kxfD9IX8f-nJGxEMYnBaPfYdEpSV6yzpSBg",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld"
+      ],
+      "issuer": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
+      "issuanceDate": "2020-12-04T08:33:36-06:00",
+      "expirationDate": "2025-12-04T08:33:36-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
+        "origin": "https://vc.transmute.world"
+      },
+      "proof": {
+        "type": "Ed25519Signature2018",
+        "created": "2020-12-04T14:33:36.188Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..zTiOsvkXh3fDVCYifotwlEbmNh0271RpqeQB503MMe0pXDrglSyOqOm0kLnmZDWyE3qlv6swtkiaChiE8P0BDw",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld"
+      ],
+      "issuer": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+      "issuanceDate": "2020-12-04T08:33:36-06:00",
+      "expirationDate": "2025-12-04T08:33:36-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+        "origin": "https://vc.transmute.world"
+      },
+      "proof": {
+        "type": "Ed25519Signature2018",
+        "created": "2020-12-04T14:33:36.240Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0TY5pKhJcKaWaHcxV738KBm9zsER-W5okoF7bQ7Un8sS5LaKsHf9iVAosufCpWz900RdFDemkRRGPHmRgEy4Dw",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY"
+      }
+    }
+  ]
+}
