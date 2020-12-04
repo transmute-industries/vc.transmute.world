@@ -9,7 +9,7 @@ import citizenshipV1 from '../contexts/citizenship-v1.json';
 import v1 from '../contexts/v1.json';
 import didv011 from '../contexts/did-v0.11.json';
 import sidetreev01 from '../contexts/sidetree-v0.1.json';
-import didConfig from '../contexts/did-configuration-v0.0.json';
+import didConfig from '../contexts/did-configuration-v0.2.json';
 
 import d0 from '../did-documents/d0.json';
 import d1 from '../did-documents/d1.json';
@@ -29,7 +29,7 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'https://w3id.org/citizenship/v1': citizenshipV1,
     'https://w3id.org/veres-one/v1': v1,
     'https://w3id.org/did/v0.11': didv011,
-    'https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld': didConfig,
+    'https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld': didConfig,
   })
   .addResolver({
     'did:key:z6': {

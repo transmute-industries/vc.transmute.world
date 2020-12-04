@@ -1,10 +1,10 @@
 import supertest, { SuperTest } from 'supertest';
 
-import { getTestServer } from '../server';
-import { keys } from '../keys';
 import moment from 'moment';
 import fs from 'fs';
 import path from 'path';
+import { keys } from '../keys';
+import { getTestServer } from '../server';
 
 let api: SuperTest<any>;
 let server: any;
@@ -18,11 +18,11 @@ afterAll(async () => {
   await server.close();
 });
 
-let origin = 'https://vc.transmute.world';
+const origin = 'https://vc.transmute.world';
 
 const config: any = {
   '@context':
-    'https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld',
+    'https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld',
   linked_dids: [],
 };
 describe('can generate did config', () => {
@@ -32,7 +32,7 @@ describe('can generate did config', () => {
         credential: {
           '@context': [
             'https://www.w3.org/2018/credentials/v1',
-            'https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld',
+            'https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld',
           ],
           issuer: k.controller,
           issuanceDate: moment().format(),
