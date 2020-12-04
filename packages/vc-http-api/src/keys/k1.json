@@ -1,7 +1,7 @@
 {
-    "id": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-    "type": "Ed25519VerificationKey2018",
-    "controller": "did:web:vc.transmute.world",
-    "privateKeyBase58": "3X9WCEbjyVZMYMfB45vFpTqx3YCULX2AtEUsqqQ7HwgooXscme1fzNHrwUkP2nCp4WNdZjciDdzGGfSZPsrUMdUL",
-    "publicKeyBase58": "DqS5F3GVe3rCxucgi4JBNagjv4dKoHc8TDLDw9kR58Pz"
-},
+  "id": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+  "type": "Ed25519VerificationKey2018",
+  "controller": "did:web:vc.transmute.world",
+  "privateKeyBase58": "3X9WCEbjyVZMYMfB45vFpTqx3YCULX2AtEUsqqQ7HwgooXscme1fzNHrwUkP2nCp4WNdZjciDdzGGfSZPsrUMdUL",
+  "publicKeyBase58": "DqS5F3GVe3rCxucgi4JBNagjv4dKoHc8TDLDw9kR58Pz"
+}

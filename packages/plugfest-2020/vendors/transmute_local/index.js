@@ -17,7 +17,7 @@ module.exports = {
   issuers: [
     {
       name: "Issuer 1",
-      endpoint: "http://localhost:8080/v0.0.0/credentials/issueCredential",
+      endpoint: "http://localhost:8080/v0.1.0/issue/credentials",
       options: [
         {
           issuer: "did:web:vc.transmute.world",

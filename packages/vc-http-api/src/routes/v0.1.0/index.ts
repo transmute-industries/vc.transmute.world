@@ -172,11 +172,15 @@ export default (server: any, _opts: any, done: any) => {
       },
     },
     async (request: any, reply: any) => {
-      const result = await server.vc.verifyPresentation(
-        request.body.verifiablePresentation,
-        request.body.options
-      );
-      return reply.send(result);
+      try {
+        const result = await server.vc.verifyPresentation(
+          request.body.verifiablePresentation,
+          request.body.options
+        );
+        return reply.send(result);
+      } catch (e) {
+        return reply.status(400).send({});
+      }
     }
   );
 
