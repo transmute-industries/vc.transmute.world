@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/main --include-dependencies",
+    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/master --include-dependencies",
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream",
     "postinstall": "lerna link && lerna bootstrap",
@@ -11,7 +11,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "lerna run lint --since origin/main"
+      "pre-push": "lerna run lint --since origin/master"
     }
   },
   "devDependencies": {
