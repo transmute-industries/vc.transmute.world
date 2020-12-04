@@ -4,18 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint \"**/*.js\" --fix",
-    "test": "jest",
-    "test:all": "jest",
-    "test:dock": "INTEROP_FOCUS=dock npm run test",
-    "test:digital_bazaar": "INTEROP_FOCUS=digital_bazaar npm run test",
-    "test:transmute": "INTEROP_FOCUS=transmute npm run test",
-    "test:trustbloc": "INTEROP_FOCUS=trustbloc npm run test",
-    "test:mavennet": "INTEROP_FOCUS=mavennet npm run test",
-    "test:danubetech": "INTEROP_FOCUS=danubetech npm run test",
-    "test:factom": "INTEROP_FOCUS=factom npm run test",
-    "test:sicpa": "INTEROP_FOCUS=sicpa npm run test"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
