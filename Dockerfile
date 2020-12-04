@@ -8,5 +8,5 @@ COPY ./packages/vc-http-api ./packages/vc-http-api
 WORKDIR /usr/src/app/packages/vc-http-api
 
 RUN [ "npm", "install"]
-RUN [ "npm", "build" ]
+RUN [ "npm", "run", "build" ]
 CMD [ "npm", "run", "start" ]
