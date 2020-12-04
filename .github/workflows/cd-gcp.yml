@@ -14,16 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Build and Deploy to Cloud Run
+name: CD
 
 on:
   push:
     branches:
-    - master
+      - main
 
 # Environment variables available to all jobs and steps in this workflow
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
+  RUN_SA_EMAIL: ${{ secrets.RUN_SA_EMAIL}}
+  RUN_SA_KEY: ${{ secrets.RUN_SA_KEY}}
   RUN_REGION: us-central1
   SERVICE_NAME: vc-http-api
 
@@ -34,27 +36,34 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          version: '282.0.0'
-          service_account_email: ${{ secrets.RUN_SA_EMAIL }}
-          service_account_key: ${{ secrets.RUN_SA_KEY}}
+          version: "290.0.1"
+          service_account_key: ${{ env.RUN_SA_KEY }}
+          project_id: ${{ env.PROJECT_ID }}
 
       # Configure gcloud CLI
       - name: gcloud Set up
         run: |
           gcloud config set project $PROJECT_ID
+
       # Build and push image to Google Container Registry
       - name: Build
         run: |
-          gcloud builds submit -t gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA
+          gcloud builds submit \
+            --quiet \
+            --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
+            --timeout=20m
+
       # Deploy image to Cloud Run
       - name: Deploy
         run: |
-          gcloud run deploy $SERVICE_NAME \
-            --region $RUN_REGION \
-            --image gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA \
-            --platform managed
+          gcloud run deploy "$SERVICE_NAME" \
+            --quiet \
+            --region "$RUN_REGION" \
+            --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
+            --platform "managed" \
+            --allow-unauthenticated
