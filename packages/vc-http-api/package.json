@@ -52,6 +52,7 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "jest-test-server": "1.0.0",
     "@transmute/ed25519-signature-2018": "^0.1.1-unstable.12",
     "@transmute/jsonld-document-loader": "^0.2.0",
     "@transmute/vc.js": "^0.1.1-unstable.12",

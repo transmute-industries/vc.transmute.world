@@ -13,5 +13,7 @@ module.exports = sanitizeAllResults = (allResults) => {
     });
   });
 
-  return clean;
+  return clean.sort((a, b) =>
+    JSON.stringify(a).localeCompare(JSON.stringify(b))
+  );
 };
