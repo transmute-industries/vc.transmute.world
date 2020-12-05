@@ -17,6 +17,7 @@
   "dependencies": {
     "fastify": "^3.9.1",
     "fastify-cors": "^5.0.0",
-    "fastify-swagger": "^3.5.0"
+    "fastify-swagger": "^3.5.0",
+    "node-fetch": "^2.6.1"
   }
 }
