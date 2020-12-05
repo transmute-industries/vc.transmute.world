@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>VC HTTP API Test Suite</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      defer="defer"
+      class="remove"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
+    <script class="remove">
+      // See https://github.com/w3c/respec/wiki/ for how to configure ReSpec
+      var respecConfig = {
+        specStatus: "ED",
+        shortName: "vc-http-api-test-suite",
+        group: "did",
+        github: {
+          repoURL: "https://github.com/w3c/vc-http-api/",
+          branch: "master",
+        },
+        editors: [
+          {
+            name: "Orie Steele",
+            url: "https://www.linkedin.com/in/or13b/",
+            company: "Transmute",
+            companyURL: "https://www.transmute.industries/",
+            w3cid: 109171,
+          },
+        ],
+        noRecTrack: "true",
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p></p>
+    </section>
+    <section id="sotd">
+      <p></p>
+    </section>
+
+    <section id="terminal-report">
+      <h2>Terminal</h2>
+      <div id="terminal"></div>
+      <script>
+        var term = new Terminal({
+          convertEol: true,
+        });
+
+        function b64DecodeUnicode(str) {
+          // Going backwards: from bytestream, to percent-encoding, to original string.
+          return decodeURIComponent(
+            atob(str)
+              .split("")
+              .map(function (c) {
+                return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+              })
+              .join("")
+          );
+        }
+        let encodedReport =
+          "G1s5OTlEG1tLG1swbRtbN20bWzFtG1szMm0gUEFTUyAbWzM5bRtbMjJtG1syN20bWzBtIBtbMm10ZXN0LXN1aXRlLWEvG1syMm0bWzFtdGVzdC1zdWl0ZS1hLnNwZWMuanMbWzIybQogIHRlc3Qtc3VpdGUtYQogICAgG1szMm3inJMbWzM5bSAbWzJtc3VpdGUgY29uZmlnIHNob3VsZCBoYXZlIGNvcnJlY3QgbmFtZSAoMiBtcykbWzIybQogICAgG1szMm3inJMbWzM5bSAbWzJtYSBzaG91bGQgYmUgMRtbMjJtCiAgICAbWzMybeKckxtbMzltIBtbMm1iIHNob3VsZCBiZSAyG1syMm0KChtbOTk5RBtbSxtbMW1UZXN0IFN1aXRlczogG1syMm0bWzFtG1szMm0xIHBhc3NlZBtbMzltG1syMm0sIDEgdG90YWwKG1sxbVRlc3RzOiAgICAgICAbWzIybRtbMW0bWzMybTMgcGFzc2VkG1szOW0bWzIybSwgMyB0b3RhbAobWzFtU25hcHNob3RzOiAgIBtbMjJtMCB0b3RhbAobWzFtVGltZTobWzIybSAgICAgICAgMC44MTkgcywgZXN0aW1hdGVkIDEgcwobWzJtUmFuIGFsbCB0ZXN0IHN1aXRlcxtbMjJtG1sybS4bWzIybQobWzk5OUQbW0sbWzBtG1s3bRtbMW0bWzMybSBQQVNTIBtbMzltG1syMm0bWzI3bRtbMG0gG1sybXRlc3Qtc3VpdGUtYi8bWzIybRtbMW10ZXN0LXN1aXRlLWIuc3BlYy5qcxtbMjJtCiAgdGVzdC1zdWl0ZS1iCiAgICAbWzMybeKckxtbMzltIBtbMm1zdWl0ZSBjb25maWcgc2hvdWxkIGhhdmUgY29ycmVjdCBuYW1lG1syMm0KICAgIBtbMzJt4pyTG1szOW0gG1sybXggc2hvdWxkIGJlIDMbWzIybQogICAgG1szMm3inJMbWzM5bSAbWzJteSBzaG91bGQgYmUgNCAoMSBtcykbWzIybQoKG1s5OTlEG1tLG1sxbVRlc3QgU3VpdGVzOiAbWzIybRtbMW0bWzMybTEgcGFzc2VkG1szOW0bWzIybSwgMSB0b3RhbAobWzFtVGVzdHM6ICAgICAgIBtbMjJtG1sxbRtbMzJtMyBwYXNzZWQbWzM5bRtbMjJtLCAzIHRvdGFsChtbMW1TbmFwc2hvdHM6ICAgG1syMm0wIHRvdGFsChtbMW1UaW1lOhtbMjJtICAgICAgICAwLjE2MSBzLCBlc3RpbWF0ZWQgMSBzChtbMm1SYW4gYWxsIHRlc3Qgc3VpdGVzG1syMm0bWzJtLhtbMjJtCg==";
+        term.open(document.getElementById("terminal"));
+        term.write(b64DecodeUnicode(encodedReport));
+      </script>
+    </section>
+
+    <section id="conformance"></section>
+  </body>
+</html>
