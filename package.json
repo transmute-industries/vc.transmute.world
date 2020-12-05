@@ -14,10 +14,12 @@
       "pre-push": "lerna run lint --since origin/master"
     }
   },
+  "peerDependencies": {
+    "husky": "^4.2.5"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "husky": "^4.2.5",
     "lerna": "^3.22.1"
   }
 }
