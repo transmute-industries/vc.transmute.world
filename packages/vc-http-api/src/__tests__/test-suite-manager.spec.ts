@@ -19,7 +19,7 @@ afterAll(async () => {
 });
 
 it('can generate report with jest-test-server', async () => {
-  let response = await api
+  const response = await api
     .post('/test-suite-manager/generate-report')
     .send(suitesInput);
 
