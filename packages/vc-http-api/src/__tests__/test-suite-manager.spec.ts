@@ -4,7 +4,7 @@ import supertest, { SuperTest } from 'supertest';
 // import path from 'path';
 import { getTestServer } from '../server';
 
-const { suitesInput, suitesOutput } = require('jest-test-server');
+const { suitesInput } = require('jest-test-server');
 
 let api: SuperTest<any>;
 let server: any;
@@ -23,6 +23,14 @@ it('can generate report with jest-test-server', async () => {
     .post('/test-suite-manager/generate-report')
     .send(suitesInput);
 
-  expect(response.body.suitesReportJson).toEqual(suitesOutput.suitesReportJson);
+  // fs.writeFileSync(
+  //   path.resolve(__dirname, '../__fixtures__/expected-suite-output.json'),
+  //   JSON.stringify(response.body.suitesReportJson, null, 2)
+  // );
+
   // note that suitesReportTerminal will differ, because of paths
+  expect(response.body.suitesReportJson).toEqual(
+    // eslint-disable-next-line global-require
+    require('../__fixtures__/expected-suite-output.json')
+  );
 });

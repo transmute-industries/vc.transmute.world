@@ -28,8 +28,8 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2020-12-04T14:17:01.833Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..UMzFeX67DD7RK35BDV0Jnl_W_1huDU6W9tEhEh3XX-Sd-aG_KOBlT4d3qAF0Sy3jSM7993UYWvIzRKpJxL0ADg",
+        "created": "2021-01-10T21:59:43.813Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..5SiJvqV7fsG-WW5jXoArGwgecUF8Nig43bbpiqcI7E5zoN-A5DBdm-m2jB5BmEgmUtilqbYUK8fM4TOaGuLrAg",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
       }
@@ -37,10 +37,10 @@
   ],
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2020-12-04T14:17:01.921Z",
+    "created": "2021-01-10T21:59:44.009Z",
     "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
     "domain": "issuer.example.com",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Ctu5xZH7sbIG0jPTM6ZUfOEekOnzLfiKjHBS9qpJGP6JgX2QfAmzOjbQm8rhiAQHqIo0ptdxw-mx6ruv8_v4DA",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..wOZ7puAOhvdGiZ83qS3s9BAnYWzf4i00dUHPzv80nuIAfKgwT_C-5QQp_RgKDprQVWVcHb3WlzlEn5zDze1rAg",
     "proofPurpose": "authentication",
     "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
   }
