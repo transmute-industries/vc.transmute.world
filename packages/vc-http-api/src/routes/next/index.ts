@@ -9,7 +9,7 @@ export default (server: any, _opts: any, done: any) => {
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Issue credential',
         body: {
           type: 'object',
@@ -55,7 +55,7 @@ export default (server: any, _opts: any, done: any) => {
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Prove presentation',
         body: {
           type: 'object',
@@ -99,7 +99,7 @@ export default (server: any, _opts: any, done: any) => {
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Verify credential',
         body: {
           type: 'object',
@@ -143,7 +143,7 @@ export default (server: any, _opts: any, done: any) => {
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Verify presentation',
         body: {
           type: 'object',

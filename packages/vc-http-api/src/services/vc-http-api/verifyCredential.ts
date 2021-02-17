@@ -23,7 +23,9 @@ export const verifyCredential = async (
         errors: [],
       };
     }
+    console.warn(result);
   } catch (e) {
+    console.warn(e);
     // no op
   }
 
