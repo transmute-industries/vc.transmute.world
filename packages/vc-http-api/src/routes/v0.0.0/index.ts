@@ -1,6 +1,6 @@
-import credential from '../../data/c.json';
-import verifiableCredential from '../../data/vc.json';
-import verifiablePresentation from '../../data/vp.json';
+// import credential from '../../data/c.json';
+// import verifiableCredential from '../../data/vc.json';
+// import verifiablePresentation from '../../data/vp.json';
 
 export default (server: any, _opts: any, done: any) => {
   server.post(
@@ -15,7 +15,7 @@ export default (server: any, _opts: any, done: any) => {
           properties: {
             credential: {
               type: 'object',
-              example: credential,
+              // example: credential,
             },
             options: {
               type: 'object',
@@ -61,7 +61,7 @@ export default (server: any, _opts: any, done: any) => {
           properties: {
             verifiableCredential: {
               type: 'object',
-              example: verifiableCredential,
+              // example: verifiableCredential,
             },
             options: {
               type: 'object',
@@ -101,7 +101,7 @@ export default (server: any, _opts: any, done: any) => {
           properties: {
             verifiablePresentation: {
               type: 'object',
-              example: verifiablePresentation,
+              // example: verifiablePresentation,
             },
             options: {
               type: 'object',
