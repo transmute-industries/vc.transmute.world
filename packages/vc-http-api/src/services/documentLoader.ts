@@ -10,6 +10,8 @@ import v1 from '../contexts/v1.json';
 import didv011 from '../contexts/did-v0.11.json';
 import sidetreev01 from '../contexts/sidetree-v0.1.json';
 import didConfig from '../contexts/did-configuration-v0.2.json';
+import vaccinationV1 from '../contexts/vaccination-v1.json';
+import traceabilityV1 from '../contexts/traceability-v1.json';
 
 import d0 from '../did-documents/d0.json';
 import d1 from '../did-documents/d1.json';
@@ -30,6 +32,8 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'https://w3id.org/veres-one/v1': v1,
     'https://w3id.org/did/v0.11': didv011,
     'https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld': didConfig,
+    'https://w3id.org/vaccination/v1': vaccinationV1,
+    'https://w3id.org/traceability/v1': traceabilityV1,
   })
   .addResolver({
     'did:key:z6': {

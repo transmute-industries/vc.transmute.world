@@ -6,8 +6,6 @@ jobs:
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
-      - run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
 
       - name: Use Node 12
         uses: actions/setup-node@v1
@@ -15,10 +13,10 @@ jobs:
           node-version: 12.x
 
       - name: Install
-        run: npm run install:ci
+        run: npm install
 
       - name: Lint
-        run: npm run lint -- --since origin/master
+        run: npm run lint
 
       - name: Test
-        run: npm run test -- --since origin/master --concurrency 1
+        run: npm run test

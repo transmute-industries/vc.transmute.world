@@ -5,11 +5,11 @@ import verifiablePresentation from '../../data/vp.json';
 
 export default (server: any, _opts: any, done: any) => {
   server.post(
-    '/issue/credentials',
+    '/credentials/issue',
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Issue credential',
         body: {
           type: 'object',
@@ -51,11 +51,44 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/prove/presentations',
+    '/credentials/derive',
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
+        summary: 'Derive credential',
+        body: {
+          type: 'object',
+          properties: {
+            credential: {
+              type: 'object',
+              // example: credential,
+            },
+            options: {
+              type: 'object',
+            },
+          },
+        },
+        response: {
+          200: {
+            description: 'Success',
+            type: 'object',
+            additionalProperties: true,
+          },
+        },
+      },
+    },
+    async (_request: any, reply: any) => {
+      return reply.status(501).send({ message: 'not implemented' });
+    }
+  );
+
+  server.post(
+    '/presentations/prove',
+    {
+      schema: {
+        description: '',
+        tags: ['next'],
         summary: 'Prove presentation',
         body: {
           type: 'object',
@@ -95,11 +128,11 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/verify/credentials',
+    '/credentials/verify',
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Verify credential',
         body: {
           type: 'object',
@@ -139,11 +172,11 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/verify/presentations',
+    '/presentations/verify',
     {
       schema: {
         description: '',
-        tags: ['v0.1.0'],
+        tags: ['next'],
         summary: 'Verify presentation',
         body: {
           type: 'object',

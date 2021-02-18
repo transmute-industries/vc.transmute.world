@@ -4,10 +4,11 @@ import { documentLoader } from '../documentLoader';
 
 export const verifyCredential = async (
   verifiableCredential: any,
-  options: any
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _options: any
 ) => {
   // eslint-disable-next-line no-console
-  console.warn('not handling options', options);
+  // console.warn('not handling options', options);
   try {
     const result = await vc.verifyCredential({
       credential: verifiableCredential,
@@ -22,7 +23,11 @@ export const verifyCredential = async (
         errors: [],
       };
     }
+    // eslint-disable-next-line no-console
+    console.warn(result);
   } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn(e);
     // no op
   }
 
