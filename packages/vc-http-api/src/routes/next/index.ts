@@ -51,6 +51,39 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
+    '/credentials/derive',
+    {
+      schema: {
+        description: '',
+        tags: ['next'],
+        summary: 'Derive credential',
+        body: {
+          type: 'object',
+          properties: {
+            credential: {
+              type: 'object',
+              // example: credential,
+            },
+            options: {
+              type: 'object',
+            },
+          },
+        },
+        response: {
+          200: {
+            description: 'Success',
+            type: 'object',
+            additionalProperties: true,
+          },
+        },
+      },
+    },
+    async (_request: any, reply: any) => {
+      return reply.status(501).send({ message: 'not implemented' });
+    }
+  );
+
+  server.post(
     '/presentations/prove',
     {
       schema: {
