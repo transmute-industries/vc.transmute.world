@@ -7,8 +7,8 @@
         "https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld"
       ],
       "issuer": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
-      "issuanceDate": "2021-02-17T17:42:11-06:00",
-      "expirationDate": "2026-02-17T17:42:11-06:00",
+      "issuanceDate": "2021-02-17T18:22:56-06:00",
+      "expirationDate": "2026-02-17T18:22:56-06:00",
       "type": [
         "VerifiableCredential",
         "DomainLinkageCredential"
@@ -19,8 +19,8 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2021-02-17T23:42:11.928Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..fjSnU9Y85B5Lh4S9fUN_krmHk_7IDGicE9hXFuPXt-LSZTzGXEwE-vYave-x07Q0WRIZVVww5JflFRQXlqciCg",
+        "created": "2021-02-18T00:22:56.936Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Rc3i-HRnYxNhotiIGW7eGqy5hIudTp0Ly0qjRwcPg3NDYbgi3Q1VsVlk5PMuy7d4mgT95ax6Se4JyyZmIWXZDg",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
       }
@@ -31,8 +31,8 @@
         "https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld"
       ],
       "issuer": "did:web:vc.transmute.world",
-      "issuanceDate": "2021-02-17T17:42:12-06:00",
-      "expirationDate": "2026-02-17T17:42:12-06:00",
+      "issuanceDate": "2021-02-17T18:22:57-06:00",
+      "expirationDate": "2026-02-17T18:22:57-06:00",
       "type": [
         "VerifiableCredential",
         "DomainLinkageCredential"
@@ -43,8 +43,8 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2021-02-17T23:42:12.017Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..5vf2pqW7WQBUImJNIddIyxTIWObhNt0XNQ81bFRs-dsf17mndyhp2T-YMe-6bLshHuLIYiThptvfunem7weABA",
+        "created": "2021-02-18T00:22:57.068Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..w6b8SGeAQF3tIiY2W2J-sAzRMvE9iaaFPjI40No7gz5aar9CielxlQVs50lI_KcRFMVLRzmEjGWymFZuSqZnBw",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
       }
@@ -55,8 +55,8 @@
         "https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld"
       ],
       "issuer": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg",
-      "issuanceDate": "2021-02-17T17:42:12-06:00",
-      "expirationDate": "2026-02-17T17:42:12-06:00",
+      "issuanceDate": "2021-02-17T18:22:57-06:00",
+      "expirationDate": "2026-02-17T18:22:57-06:00",
       "type": [
         "VerifiableCredential",
         "DomainLinkageCredential"
@@ -67,8 +67,8 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2021-02-17T23:42:12.058Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..nFOTRUYvHqrDTD9qNej4Wdd5J4UgiQfdtGSVGVnVkvuXRHahKL5n6WiZuPoFROrxJ0JZzNO9ZXW-UrztY8J4Dg",
+        "created": "2021-02-18T00:22:57.165Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..-6maRwmxSGpqS2bYsWdU5tx0LDB_pxXaiDn1XXJsCNVFa-SqYEJUufsrQhRJNiT8ve-52B0cOcQvS979rlofCA",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg#xqc3gS1gz1vch7R3RvNebWMjLvBOY-n_14feCYRPsUo"
       }
@@ -79,8 +79,8 @@
         "https://identity.foundation/.well-known/contexts/did-configuration-v0.2.jsonld"
       ],
       "issuer": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
-      "issuanceDate": "2021-02-17T17:42:12-06:00",
-      "expirationDate": "2026-02-17T17:42:12-06:00",
+      "issuanceDate": "2021-02-17T18:22:57-06:00",
+      "expirationDate": "2026-02-17T18:22:57-06:00",
       "type": [
         "VerifiableCredential",
         "DomainLinkageCredential"
@@ -91,8 +91,8 @@
       },
       "proof": {
         "type": "Ed25519Signature2018",
-        "created": "2021-02-17T23:42:12.125Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..6vb6FHEmTwYb4nj558TRIBUn6TpI5RpVUDphKSlf8YiIgeeB1Lee9RlwRR9zYcNHzUUfEp-IwRS9wHW4D63GCw",
+        "created": "2021-02-18T00:22:57.266Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..hD4ioQ2e7hi_8OQodWM1yKI0_S9uTwKHyM4fCBxVPqE1y04suRVt0k3D6Sw16E_RrT5L-m7HSMvYlVCy2y7vAw",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY"
       }
