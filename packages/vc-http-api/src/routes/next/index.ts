@@ -84,50 +84,6 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/presentations/prove',
-    {
-      schema: {
-        description: '',
-        tags: ['next'],
-        summary: 'Prove presentation',
-        body: {
-          type: 'object',
-          properties: {
-            presentation: {
-              type: 'object',
-              // example: presentation,
-            },
-            options: {
-              type: 'object',
-              example: {
-                domain: 'issuer.example.com',
-                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
-                proofPurpose: 'authentication',
-                verificationMethod:
-                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
-              },
-            },
-          },
-        },
-        response: {
-          200: {
-            description: 'Success',
-            type: 'object',
-            additionalProperties: true,
-          },
-        },
-      },
-    },
-    async (request: any, reply: any) => {
-      const result = await server.vc.signPresentation(
-        request.body.presentation,
-        request.body.options
-      );
-      return reply.send(result);
-    }
-  );
-
-  server.post(
     '/credentials/verify',
     {
       schema: {
@@ -167,6 +123,50 @@ export default (server: any, _opts: any, done: any) => {
       if (result.errors.length) {
         return reply.status(400).send(result);
       }
+      return reply.send(result);
+    }
+  );
+
+  server.post(
+    '/presentations/prove',
+    {
+      schema: {
+        description: '',
+        tags: ['next'],
+        summary: 'Prove presentation',
+        body: {
+          type: 'object',
+          properties: {
+            presentation: {
+              type: 'object',
+              // example: presentation,
+            },
+            options: {
+              type: 'object',
+              example: {
+                domain: 'issuer.example.com',
+                challenge: '99612b24-63d9-11ea-b99f-4f66f3e4f81a',
+                proofPurpose: 'authentication',
+                verificationMethod:
+                  'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
+              },
+            },
+          },
+        },
+        response: {
+          200: {
+            description: 'Success',
+            type: 'object',
+            additionalProperties: true,
+          },
+        },
+      },
+    },
+    async (request: any, reply: any) => {
+      const result = await server.vc.signPresentation(
+        request.body.presentation,
+        request.body.options
+      );
       return reply.send(result);
     }
   );
