@@ -23,8 +23,10 @@ export const verifyCredential = async (
         errors: [],
       };
     }
+    // eslint-disable-next-line no-console
     console.warn(result);
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.warn(e);
     // no op
   }
