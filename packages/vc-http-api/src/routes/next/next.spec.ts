@@ -57,9 +57,9 @@ const challenge = '99612b24-63d9-11ea-b99f-4f66f3e4f81a';
 const verificationMethod =
   'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd';
 
-describe('POST /next/issue/credentials', () => {
+describe('POST /next/credentials/issue', () => {
   it('should issue a verifiable credential', async () => {
-    const response = await api.post('/next/issue/credentials').send({
+    const response = await api.post('/next/credentials/issue').send({
       credential: {
         ...credentialTemplate,
         issuer: 'did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd',
@@ -70,9 +70,9 @@ describe('POST /next/issue/credentials', () => {
   });
 });
 
-describe('POST /next/prove/presentations', () => {
+describe('POST /next/presentations/prove', () => {
   it('should prove a verifiable credential', async () => {
-    const response = await api.post('/next/prove/presentations').send({
+    const response = await api.post('/next/presentations/prove').send({
       presentation: {
         '@context': ['https://www.w3.org/2018/credentials/v1'],
         type: ['VerifiablePresentation'],
@@ -91,9 +91,9 @@ describe('POST /next/prove/presentations', () => {
   });
 });
 
-describe('POST /next/verify/credentials', () => {
+describe('POST /next/credentials/verify', () => {
   it('should verify a verifiable credential', async () => {
-    const response = await api.post('/next/verify/credentials').send({
+    const response = await api.post('/next/credentials/verify').send({
       verifiableCredential,
       options: {
         checks: ['proof'],
@@ -107,9 +107,9 @@ describe('POST /next/verify/credentials', () => {
   });
 });
 
-describe('POST /next/verify/presentations', () => {
+describe('POST /next/presentations/verify', () => {
   it('should verify a verifiable presentation', async () => {
-    const response = await api.post('/next/verify/presentations').send({
+    const response = await api.post('/next/presentations/verify').send({
       verifiablePresentation,
       options: {
         domain,

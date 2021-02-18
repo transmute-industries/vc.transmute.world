@@ -5,7 +5,7 @@ import verifiablePresentation from '../../data/vp.json';
 
 export default (server: any, _opts: any, done: any) => {
   server.post(
-    '/issue/credentials',
+    '/credentials/issue',
     {
       schema: {
         description: '',
@@ -51,7 +51,7 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/prove/presentations',
+    '/presentations/prove',
     {
       schema: {
         description: '',
@@ -95,7 +95,7 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/verify/credentials',
+    '/credentials/verify',
     {
       schema: {
         description: '',
@@ -139,7 +139,7 @@ export default (server: any, _opts: any, done: any) => {
   );
 
   server.post(
-    '/verify/presentations',
+    '/presentations/verify',
     {
       schema: {
         description: '',
