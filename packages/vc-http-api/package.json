@@ -49,24 +49,25 @@
     "eslint-plugin-jest": "^24.1.0",
     "size-limit": "^4.9.0",
     "supertest": "^4.0.2",
+    "ts-jest": "^26.5.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
-    "typescript": "4.0.5",
-    "ts-jest": "^26.5.1"
+    "typescript": "4.0.5"
   },
   "dependencies": {
-    "@mattrglobal/jsonld-signatures-bbs": "^0.7.0",
+    "@mattrglobal/jsonld-signatures-bbs": "^0.7.1-unstable.83d3170",
     "@transmute/did-key-bls12381": "^0.2.1-unstable.35",
     "@transmute/ed25519-signature-2018": "^0.1.1-unstable.12",
     "@transmute/jsonld-document-loader": "^0.2.0",
-    "@transmute/vc.js": "^0.1.1-unstable.12",
+    "@transmute/vc.js": "^0.2.1-unstable.7",
     "fastify": "^3.9.1",
     "fastify-cors": "^5.0.0",
     "fastify-plugin": "^3.0.0",
     "fastify-swagger": "^3.5.0",
+    "jest": "^26.6.3",
     "jest-html-reporters": "^2.1.2",
+    "node-fetch": "^2.6.1",
     "require-all": "^3.0.0",
-    "slugify": "^1.4.7",
-    "jest": "^26.6.3"
+    "slugify": "^1.4.7"
   }
 }

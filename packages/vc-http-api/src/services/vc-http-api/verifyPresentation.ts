@@ -1,18 +1,41 @@
 import { ld as vc } from '@transmute/vc.js';
 import { Ed25519Signature2018 } from '@transmute/ed25519-signature-2018';
+import {
+  BbsBlsSignature2020,
+  BbsBlsSignatureProof2020,
+} from '@mattrglobal/jsonld-signatures-bbs';
 import { documentLoader } from '../documentLoader';
+
+const suiteMap = {
+  Ed25519Signature2018,
+  BbsBlsSignature2020,
+  BbsBlsSignatureProof2020,
+};
 
 export const verifyPresentation = async (
   verifiablePresentation: any,
   options: any
 ) => {
-  const result = await vc.verify({
-    presentation: verifiablePresentation,
-    domain: options.domain,
-    challenge: options.challenge,
-    suite: new Ed25519Signature2018(),
+  let verifyOptions: any = {
+    suiteMap,
     documentLoader,
-  });
+  };
+
+  if (verifiablePresentation.proof) {
+    verifyOptions = {
+      ...verifyOptions,
+      presentation: verifiablePresentation,
+      domain: options.domain,
+      challenge: options.challenge,
+    };
+  } else {
+    verifyOptions = {
+      ...verifyOptions,
+      unsignedPresentation: verifiablePresentation,
+    };
+  }
+
+  const result = await vc.verify(verifyOptions);
 
   if (result.verified) {
     return {

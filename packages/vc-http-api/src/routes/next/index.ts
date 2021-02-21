@@ -78,52 +78,15 @@ export default (server: any, _opts: any, done: any) => {
         },
       },
     },
-    async (_request: any, reply: any) => {
-      return reply.status(501).send({ message: 'not implemented' });
-    }
-  );
-
-  server.post(
-    '/credentials/verify',
-    {
-      schema: {
-        description: '',
-        tags: ['next'],
-        summary: 'Verify credential',
-        body: {
-          type: 'object',
-          properties: {
-            verifiableCredential: {
-              type: 'object',
-              // example: verifiableCredential,
-            },
-            options: {
-              type: 'object',
-              example: {
-                checks: ['proof'],
-              },
-            },
-          },
-        },
-        response: {
-          200: {
-            description: 'Success',
-            type: 'object',
-            additionalProperties: true,
-          },
-        },
-      },
-    },
     async (request: any, reply: any) => {
-      const result = await server.vc.verifyCredential(
-        request.body.verifiableCredential,
-        request.body.options
-      );
-
-      if (result.errors.length) {
-        return reply.status(400).send(result);
-      }
-      return reply.send(result);
+      return reply
+        .status(200)
+        .send(
+          await server.vc.deriveCredential(
+            request.body.verifiableCredential,
+            request.body.frame
+          )
+        );
     }
   );
 
@@ -212,6 +175,8 @@ export default (server: any, _opts: any, done: any) => {
         );
         return reply.send(result);
       } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error(e);
         return reply.status(400).send({});
       }
     }
