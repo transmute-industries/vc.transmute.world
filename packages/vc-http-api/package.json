@@ -26,7 +26,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "augment-report": "node ./src/augment-report.js"
+    "augment-report": "node ./scripts/augment-report.js"
   },
   "prettier": {
     "printWidth": 80,

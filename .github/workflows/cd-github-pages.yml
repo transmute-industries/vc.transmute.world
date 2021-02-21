@@ -25,10 +25,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
-        run: npm run test
+      - name: Compile test suites
+        run: npm run compile:suites
 
-      - name: Deploy test report
+      - name: Generate report
+        run: npm run test:report
+
+      - name: Deploy report
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
