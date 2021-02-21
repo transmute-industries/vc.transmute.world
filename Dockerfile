@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 
 COPY package.json package.json
 COPY lerna.json lerna.json
-COPY ./packages/jest-test-server ./packages/jest-test-server
 COPY ./packages/vc-http-api ./packages/vc-http-api
 
 RUN [ "npm", "install" ]
