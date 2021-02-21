@@ -33,7 +33,7 @@ describe('POST /next/presentations/verify', () => {
   });
 
   it('should verify a verifiable presentation without a proof', async () => {
-    let vpWithoutProof = { ...vp };
+    const vpWithoutProof = { ...vp };
     delete vpWithoutProof.proof;
     delete vpWithoutProof.holder;
     const response = await api.post('/next/presentations/verify').send({
@@ -63,7 +63,7 @@ describe('POST /next/presentations/verify', () => {
   });
 
   it('should fail to verify an unsigned presentation with tampered verifiable credentials', async () => {
-    let vpWithoutProof = { ...vp };
+    const vpWithoutProof = { ...vp };
     delete vpWithoutProof.proof;
     delete vpWithoutProof.holder;
     vpWithoutProof.verifiableCredential[0].name = 'bar';

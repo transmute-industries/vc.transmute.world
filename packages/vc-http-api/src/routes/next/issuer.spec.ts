@@ -14,7 +14,7 @@ afterAll(async () => {
   await server.close();
 });
 
-let credentialTemplate = require('../../__interop__/credentials/case-1.json');
+const credentialTemplate = require('../../__interop__/credentials/case-1.json');
 
 describe('POST /next/credentials/issue', () => {
   it('should issue a verifiable credential', async () => {

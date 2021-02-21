@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import supertest, { SuperTest } from 'supertest';
 
 import { getTestServer } from '../../server';
@@ -14,7 +15,7 @@ afterAll(async () => {
   await server.close();
 });
 
-let verifiableCredential = [
+const verifiableCredential = [
   require('../../__interop__/verifiableCredentials/case-1.json'),
   require('../../__interop__/verifiableCredentials/case-2.json'),
   require('../../__interop__/verifiableCredentials/case-3.json'),
