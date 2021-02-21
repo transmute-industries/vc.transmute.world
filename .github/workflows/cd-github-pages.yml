@@ -20,15 +20,21 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: npm ci
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
 
       - name: Build
         run: npm run build
 
-      - name: Compile test suites
+      - name: Compile Suites
         run: npm run compile:suites
 
-      - name: Generate report
+      - name: Typescript Test
+        run: npm run test
+
+      - name: Conformance Tests
         run: npm run test:report
 
       - name: Deploy report
