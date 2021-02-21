@@ -1,6 +1,9 @@
 "use strict";
-exports.__esModule = true;
 /* eslint-disable global-require */
+exports.__esModule = true;
+var credentials_1 = require("../../__interop__/credentials");
+var verifiableCredentials_1 = require("../../__interop__/verifiableCredentials");
+var verifiablePresentations_1 = require("../../__interop__/verifiablePresentations");
 exports["default"] = {
     name: 'Transmute',
     issueCredentialConfiguration: [
@@ -30,7 +33,7 @@ exports["default"] = {
     verifyPresentationConfiguration: {
         endpoint: 'https://vc.transmute.world/next/presentations/verify'
     },
-    credentials: require('../../__interop__/credentials'),
-    verifiableCredentials: require('../../__interop__/verifiableCredentials'),
-    verifiablePresentations: require('../../__interop__/verifiablePresentations').map(function (item) { return item.data; })
+    credentials: credentials_1["default"],
+    verifiableCredentials: verifiableCredentials_1["default"],
+    verifiablePresentations: verifiablePresentations_1["default"].map(function (item) { return item.data; })
 };

@@ -1,4 +1,9 @@
 /* eslint-disable global-require */
+
+import credentials from '../../__interop__/credentials';
+import verifiableCredentials from '../../__interop__/verifiableCredentials';
+import verifiablePresentations from '../../__interop__/verifiablePresentations';
+
 export default {
   name: 'Transmute',
   issueCredentialConfiguration: [
@@ -31,9 +36,9 @@ export default {
   verifyPresentationConfiguration: {
     endpoint: 'https://vc.transmute.world/next/presentations/verify',
   },
-  credentials: require('../../__interop__/credentials'),
-  verifiableCredentials: require('../../__interop__/verifiableCredentials'),
-  verifiablePresentations: require('../../__interop__/verifiablePresentations').map(
+  credentials,
+  verifiableCredentials,
+  verifiablePresentations: verifiablePresentations.map(
     (item: any) => item.data
   ),
 };
