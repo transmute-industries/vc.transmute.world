@@ -1,6 +1,6 @@
 # Verifiable Credentials API
 
-![CI](https://github.com/transmute-industries/vc.transmute.world/workflows/CI/badge.svg)
+![CI](https://github.com/transmute-industries/vc.transmute.world/workflows/CI/badge.svg) [![Google Cloud Run](https://github.com/transmute-industries/vc.transmute.world/actions/workflows/cd-gcp.yml/badge.svg)](https://github.com/transmute-industries/vc.transmute.world/actions/workflows/cd-gcp.yml)
 
 ## https://test.did.ai
 

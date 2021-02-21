@@ -20,11 +20,13 @@
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
     "test": "tsdx test",
     "test:report": "node ./runSuites.js",
-    "compile:suites": "tsc ./src/suites/suite-a/suite-a.test.ts --outDir ./suites",
+    "posttest:report": "npm run augment-report",
+    "compile:suites": "tsc ./src/suites/**/*  --outDir .",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "augment-report": "node ./src/augment-report.js"
   },
   "prettier": {
     "printWidth": 80,

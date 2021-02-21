@@ -1,4 +1,4 @@
-import defaultSuiteConfig from './vendors/transmute';
+import defaultSuiteConfig from '../vendors/transmute';
 
 import * as httpClient from '../../services/httpClient';
 import * as utilities from '../../services/utilities';
@@ -6,7 +6,7 @@ import * as utilities from '../../services/utilities';
 const suiteConfig: any = (global as any).suiteConfig || defaultSuiteConfig;
 
 if (suiteConfig.verifyPresentationConfiguration) {
-  describe.skip('Verify Presentation API', () => {
+  describe('Verify Presentation API', () => {
     // Load in the static test fixtures
     let { verifiablePresentations } = suiteConfig;
 
