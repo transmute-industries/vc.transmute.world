@@ -1,0 +1,17 @@
+title: Decentralized Identifiers and Verifiable Credentials powered by Transmute.
+description: W3C Specification Conformance Test Results
+url: "https://test.did.ai"
+
+github:
+  private: false
+  license:
+    name: Apache-2.0
+  source:
+    branch: "gh-pages"
+    path: "/"
+  repository_url: "https://github.com/transmute-industries/vc.transmute.world"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
