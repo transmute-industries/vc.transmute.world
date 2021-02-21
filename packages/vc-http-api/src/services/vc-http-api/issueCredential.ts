@@ -1,5 +1,10 @@
 import { ld as vc } from '@transmute/vc.js';
 import { Ed25519Signature2018 } from '@transmute/ed25519-signature-2018';
+import {
+  BbsBlsSignature2020,
+  Bls12381G2KeyPair,
+} from '@mattrglobal/jsonld-signatures-bbs';
+
 import { Ed25519KeyPair } from '@transmute/did-key-ed25519';
 import { documentLoader } from '../documentLoader';
 
@@ -14,14 +19,28 @@ export const issueCredential = async (
   }
 
   // use options to look up key.
-  const k = getKeyPairById(options.assertionMethod || k0.id);
+  const k: any = getKeyPairById(options.assertionMethod || k0.id);
 
   if (!k) {
     throw new Error('unsupported assertionMethod');
   }
-  const suite = new Ed25519Signature2018({
-    key: await Ed25519KeyPair.from(k),
-  });
+  let suite: any;
+
+  if (k.type === 'Bls12381G2Key2020') {
+    suite = new BbsBlsSignature2020({
+      key: await Bls12381G2KeyPair.from(k),
+    });
+  }
+
+  if (
+    k.type === 'Ed25519VerificationKey2018' ||
+    (k.publicKeyJwk && k.publicKeyJwk.crv === 'Ed25519')
+  ) {
+    suite = new Ed25519Signature2018({
+      key: await Ed25519KeyPair.from(k),
+    });
+  }
+
   const verifiableCredential = await vc.issue({
     credential: { ...credential },
     suite,

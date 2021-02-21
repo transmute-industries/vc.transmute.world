@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": { "*": ["src/*", "node_modules/*", "src/test-suite-runner/*"] },
+    "paths": { "*": ["src/*", "node_modules/*", "src/suites/vc-http-api/*"] },
     "resolveJsonModule": true,
     "rootDir": "./src",
     "sourceMap": true,
