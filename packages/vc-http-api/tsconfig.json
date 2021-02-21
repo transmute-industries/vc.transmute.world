@@ -1,4 +1,3 @@
-
 {
   "include": ["src"],
   "compilerOptions": {
@@ -16,7 +15,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": { "*": ["src/*", "node_modules/*"] },
+    "paths": { "*": ["src/*", "node_modules/*", "src/test-suite-runner/*"] },
     "resolveJsonModule": true,
     "rootDir": "./src",
     "sourceMap": true,

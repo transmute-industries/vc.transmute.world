@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: CD
+name: Google Cloud Run
 
 on:
   push:

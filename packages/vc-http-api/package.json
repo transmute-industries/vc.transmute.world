@@ -19,6 +19,8 @@
     "build": "tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
     "test": "tsdx test",
+    "test:report": "node ./runSuites.js",
+    "compile:suites": "tsc ./src/suites/suite-a/suite-a.test.ts --outDir ./suites",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -44,13 +46,17 @@
     "@size-limit/preset-small-lib": "^4.9.0",
     "@types/supertest": "^2.0.10",
     "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-plugin-jest": "^24.1.0",
     "size-limit": "^4.9.0",
     "supertest": "^4.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
-    "typescript": "4.0.5"
+    "typescript": "4.0.5",
+    "ts-jest": "^26.5.1"
   },
   "dependencies": {
+    "@mattrglobal/jsonld-signatures-bbs": "^0.7.0",
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.35",
     "@transmute/ed25519-signature-2018": "^0.1.1-unstable.12",
     "@transmute/jsonld-document-loader": "^0.2.0",
     "@transmute/vc.js": "^0.1.1-unstable.12",
@@ -58,7 +64,9 @@
     "fastify-cors": "^5.0.0",
     "fastify-plugin": "^3.0.0",
     "fastify-swagger": "^3.5.0",
-    "ts-jest": "^26.5.1",
-    "jest-test-server": "1.0.0"
+    "jest-html-reporters": "^2.1.2",
+    "require-all": "^3.0.0",
+    "slugify": "^1.4.7",
+    "jest": "^26.6.3"
   }
 }

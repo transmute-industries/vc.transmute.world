@@ -1,0 +1,7 @@
+{
+  "id": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+  "type": "Bls12381G1Key2020",
+  "controller": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt",
+  "publicKeyBase58": "7eJpPkXrvVUiRhAjYZnCqAtDxZa4ESTdp7iJbgBawhZWgjnszP1QtDKbspHH6iCWvL",
+  "privateKeyBase58": "57TAfNXQk8fYE271uxAp6BVU4vFHFXUZywcVS28XSWPL"
+}
