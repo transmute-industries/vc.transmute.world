@@ -1,10 +1,10 @@
 # Verifiable Credentials API
 
-![CD](https://github.com/transmute-industries/vc.transmute.world/workflows/CD/badge.svg)
+![CI](https://github.com/transmute-industries/vc.transmute.world/workflows/CI/badge.svg)
 
-## https://vc.transmute.world/api/docs
+## https://test.did.ai
 
-WARNING: This is for demo purposes only and is NOT meant for production use as the keys are exposed in the public config.
+WARNING: This is for demo purposes only and is NOT meant for production... private keys are intentionally exposed for education purposes..
 
 See the Specifications in the W3C CCG:
 
