@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Transmute",
+    "results": {
+      "testResults": {
+        "numFailedTests": 0,
+        "numPassedTests": 1,
+        "numTotalTests": 3,
+        "testResults": [
+          {
+            "numFailingTests": 0,
+            "numPassingTests": 1,
+            "testResults": [
+              {
+                "ancestorTitles": [
+                  "suite a"
+                ],
+                "failureDetails": [],
+                "failureMessages": [],
+                "fullName": "suite a expect success",
+                "status": "passed",
+                "title": "expect success"
+              },
+              {
+                "ancestorTitles": [
+                  "suite a"
+                ],
+                "failureDetails": [],
+                "failureMessages": [],
+                "fullName": "suite a expect failure",
+                "status": "pending",
+                "title": "expect failure"
+              },
+              {
+                "ancestorTitles": [
+                  "suite a"
+                ],
+                "failureDetails": [],
+                "failureMessages": [],
+                "fullName": "suite a expect todo",
+                "status": "todo",
+                "title": "expect todo"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
