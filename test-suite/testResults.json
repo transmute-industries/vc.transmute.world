@@ -9,6 +9,26 @@
         "testResults": [
           {
             "numFailingTests": 0,
+            "numPassingTests": 0,
+            "testResults": []
+          },
+          {
+            "numFailingTests": 0,
+            "numPassingTests": 0,
+            "testResults": []
+          },
+          {
+            "numFailingTests": 0,
+            "numPassingTests": 0,
+            "testResults": []
+          },
+          {
+            "numFailingTests": 0,
+            "numPassingTests": 0,
+            "testResults": []
+          },
+          {
+            "numFailingTests": 0,
             "numPassingTests": 1,
             "testResults": [
               {
