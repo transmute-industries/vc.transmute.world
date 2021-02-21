@@ -5,7 +5,7 @@ import * as httpClient from '../../services/httpClient';
 const suiteConfig: any = (global as any).suiteConfig || defaultSuiteConfig;
 
 if (suiteConfig.provePresentationConfiguration) {
-  describe.skip('Prove Presentation API - Conformance', () => {
+  describe('Prove Presentation API - Conformance', () => {
     // Load in the static test fixtures
 
     // Deal with possible polymorphic issuer configuration

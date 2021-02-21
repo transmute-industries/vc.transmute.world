@@ -6,7 +6,7 @@ import * as httpClient from '../../services/httpClient';
 const suiteConfig: any = (global as any).suiteConfig || defaultSuiteConfig;
 
 if (suiteConfig.deriveCredentialConfiguration) {
-  describe.skip('Derive Credential API - Conformance', () => {
+  describe('Derive Credential API - Conformance', () => {
     // Load in the static test fixtures
     const { verifiableCredentials } = suiteConfig;
 

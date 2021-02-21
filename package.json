@@ -2,12 +2,12 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/master --include-dependencies",
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream",
     "postinstall": "lerna link && lerna bootstrap",
     "test": "lerna run test --stream",
-    "test:report": "lerna run test:report --stream"
+    "test:report": "lerna run test:report --stream",
+    "compile:suites": "lerna run compile:suites --stream"
   },
   "husky": {
     "hooks": {

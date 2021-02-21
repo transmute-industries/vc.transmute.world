@@ -18,5 +18,14 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Test
+      - name: Build
+        run: npm run build
+
+      - name: Compile Suites
+        run: npm run compile:suites
+
+      - name: Typescript Test
         run: npm run test
+
+      - name: Conformance Tests
+        run: npm run test:report
