@@ -1,7 +1,7 @@
 import MyCustomReporter from 'jest-html-reporters';
 import fs, { promises } from 'fs';
 
-export default async (directory, name, results) => {
+export default async (directory: string, name: string, results: any) => {
   if (!fs.existsSync(directory)) {
     await promises.mkdir(directory, { recursive: true });
   }

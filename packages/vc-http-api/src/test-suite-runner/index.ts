@@ -1,3 +1,3 @@
-import runCLI from './jest/cli';
+import testRunner from './jest/testRunner';
 
-export { runCLI };
+export { testRunner };

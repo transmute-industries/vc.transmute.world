@@ -1,38 +1,37 @@
+/* eslint-disable no-param-reassign */
+import fs, { promises } from 'fs';
+import path from 'path';
+import slugify from 'slugify';
 import runJestCli from './cli';
 import generateTestReport from './testReporter';
 import extractTestSummary from './utilities';
 
-import fs, { promises } from 'fs';
-import path from 'path';
-import slugify from 'slugify';
-
 const TEST_RESULTS_DIRECTORY = path.resolve(
   __dirname,
-  '../../../../docs/test-suite'
+  '../../../docs/test-suite'
 );
+
 const TEST_FILE_JSON = 'testResults.json';
 
-async function capture(fn, p) {
+async function capture(fn: any, p: any) {
   const originalWrite = p.write;
   let output = '';
   try {
-    p.write = chunk => {
+    p.write = (chunk: any) => {
       if (typeof chunk === 'string') {
         output += chunk;
       }
       return true;
     };
     await fn();
-  } catch (e) {
-    throw e;
   } finally {
     p.write = originalWrite;
   }
   return output;
 }
 
-export default async config => {
-  let results = [];
+export default async (config: any) => {
+  const results: any = [];
   const run = async () => {
     if (Array.isArray(config)) {
       await Promise.all(

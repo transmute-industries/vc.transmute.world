@@ -19,6 +19,8 @@
     "build": "tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
     "test": "tsdx test",
+    "test:report": "node ./runSuites.js",
+    "compile:suites": "tsc ./src/suites/suite-a/suite-a.test.ts --outDir ./suites",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -62,6 +64,7 @@
     "fastify-plugin": "^3.0.0",
     "fastify-swagger": "^3.5.0",
     "jest-html-reporters": "^2.1.2",
+    "require-all": "^3.0.0",
     "slugify": "^1.4.7",
     "ts-jest": "^26.5.1"
   }

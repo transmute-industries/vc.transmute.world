@@ -1,1 +1,1 @@
-declare module 'jest-test-server';
+declare module 'jest-html-reporters';

@@ -6,7 +6,8 @@
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream",
     "postinstall": "lerna link && lerna bootstrap",
-    "test": "lerna run test --stream"
+    "test": "lerna run test --stream",
+    "test:report": "lerna run test:report --stream"
   },
   "husky": {
     "hooks": {
