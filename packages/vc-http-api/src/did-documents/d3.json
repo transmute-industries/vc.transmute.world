@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    {
+      "@base": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt"
+    }
+  ],
+  "id": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt",
+  "verificationMethod": [
+    {
+      "id": "#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+      "type": "Bls12381G1Key2020",
+      "controller": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt",
+      "publicKeyBase58": "7eJpPkXrvVUiRhAjYZnCqAtDxZa4ESTdp7iJbgBawhZWgjnszP1QtDKbspHH6iCWvL"
+    },
+    {
+      "id": "#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ",
+      "type": "Bls12381G2Key2020",
+      "controller": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt",
+      "publicKeyBase58": "qb6Qqc8WErDieahqgXJqG7jM7izkTXPb6zAuG4TTKFoCjaiUphSFtvqsQjpsPrEnVMFVntm6W3Cjybqc9nv5tndud8qaHWCKWCQ93ShrjiZpHsqrD2VbBKfeeoLxisTTHx6"
+    }
+  ],
+  "authentication": [
+    "#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+    "#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ"
+  ],
+  "assertionMethod": [
+    "#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+    "#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ"
+  ],
+  "capabilityInvocation": [
+    "#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+    "#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ"
+  ],
+  "capabilityDelegation": [
+    "#z3tEGYfMGFMmwGnaMPm3t5aaqVyvz6dnmFVWn4TmCzPS764f7TwH3QrTNm1oCdSqYkpeGG",
+    "#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ"
+  ]
+}
