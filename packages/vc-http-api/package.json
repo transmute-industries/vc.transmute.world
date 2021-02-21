@@ -21,7 +21,7 @@
     "test": "tsdx test",
     "test:report": "node ./runSuites.js",
     "posttest:report": "npm run augment-report",
-    "compile:suites": "tsc ./src/suites/suite-a/suite-a.test.ts --outDir ./suites",
+    "compile:suites": "tsc ./src/suites/**/*  --outDir .",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",

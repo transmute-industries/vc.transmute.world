@@ -1,4 +1,4 @@
-import defaultSuiteConfig from './vendors/transmute';
+import defaultSuiteConfig from '../vendors/transmute';
 
 import * as httpClient from '../../services/httpClient';
 import * as utilities from '../../services/utilities';
