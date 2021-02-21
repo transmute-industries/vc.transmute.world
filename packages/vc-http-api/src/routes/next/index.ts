@@ -60,18 +60,19 @@ export default (server: any, _opts: any, done: any) => {
         body: {
           type: 'object',
           properties: {
-            credential: {
+            verifiableCredential: {
               type: 'object',
-              // example: credential,
+              additionalProperties: true,
             },
-            options: {
+            frame: {
               type: 'object',
+              additionalProperties: true,
             },
           },
         },
         response: {
-          200: {
-            description: 'Success',
+          201: {
+            description: 'Derived credential succcessfully',
             type: 'object',
             additionalProperties: true,
           },
@@ -80,7 +81,7 @@ export default (server: any, _opts: any, done: any) => {
     },
     async (request: any, reply: any) => {
       return reply
-        .status(200)
+        .status(201)
         .send(
           await server.vc.deriveCredential(
             request.body.verifiableCredential,
@@ -117,8 +118,8 @@ export default (server: any, _opts: any, done: any) => {
           },
         },
         response: {
-          200: {
-            description: 'Success',
+          201: {
+            description: 'Created presentation successsfully',
             type: 'object',
             additionalProperties: true,
           },
@@ -130,7 +131,7 @@ export default (server: any, _opts: any, done: any) => {
         request.body.presentation,
         request.body.options
       );
-      return reply.send(result);
+      return reply.status(201).send(result);
     }
   );
 
