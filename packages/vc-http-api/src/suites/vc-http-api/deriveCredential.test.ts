@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import defaultSuiteConfig from '../vendors/transmute';
+import defaultSuiteConfig from './defaultSuiteConfig';
 
 import * as httpClient from '../../services/httpClient';
 
@@ -28,7 +28,7 @@ if (suiteConfig.deriveCredentialConfiguration) {
 
           const body = {
             verifiableCredential: firstDerivableCredential,
-            frame: require('../../__interop__/frames/case-1.json'),
+            frame: value.frame,
           };
 
           const res = await httpClient.postJson(value.endpoint, body, {});

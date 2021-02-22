@@ -21,9 +21,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Compile Suites
-        run: npm run compile:suites
-
       - name: Typescript Test
         run: npm run test
 
