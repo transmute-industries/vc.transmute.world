@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import defaultSuiteConfig from '../vendors/transmute';
+import defaultSuiteConfig from './defaultSuiteConfig';
 
 import * as httpClient from '../../services/httpClient';
 

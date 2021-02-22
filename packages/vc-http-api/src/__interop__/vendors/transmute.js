@@ -1,13 +1,11 @@
-/* eslint-disable global-require */
-
 const {
   credentials,
   frames,
   verifiableCredentials,
   verifiablePresentations,
-} = require('../../__interop__');
+} = require('../index');
 
-export default {
+module.exports = {
   name: 'Transmute',
   issueCredentialConfiguration: [
     {
@@ -42,7 +40,5 @@ export default {
   },
   credentials,
   verifiableCredentials,
-  verifiablePresentations: verifiablePresentations.map(
-    (item: any) => item.data
-  ),
+  verifiablePresentations: verifiablePresentations.map(item => item.data),
 };

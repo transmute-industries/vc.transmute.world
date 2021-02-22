@@ -1,5 +1,4 @@
-import defaultSuiteConfig from '../vendors/transmute';
-
+import defaultSuiteConfig from './defaultSuiteConfig';
 import * as httpClient from '../../services/httpClient';
 
 const suiteConfig: any = (global as any).suiteConfig || defaultSuiteConfig;
