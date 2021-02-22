@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const pathToReport = path.resolve(__dirname, '../../../docs/index.html');
+const pathToReport = path.resolve(
+  __dirname,
+  '../../../docs/vc-http-api/transmute/index.html'
+);
 
 fs.readFile(pathToReport, 'utf8', (err1, data) => {
   if (err1) {
@@ -11,7 +14,7 @@ fs.readFile(pathToReport, 'utf8', (err1, data) => {
 
   const result = data.replace(
     'https://github.com/Hazyzh/jest-html-reporters',
-    'https://github.com/transmute-industries/did-core'
+    'https://github.com/transmute-industries/vc.transmute.world'
   );
 
   return fs.writeFile(pathToReport, result, 'utf8', err2 => {

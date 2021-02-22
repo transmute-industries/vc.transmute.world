@@ -31,9 +31,6 @@ jobs:
       - name: Compile Suites
         run: npm run compile:suites
 
-      - name: Typescript Test
-        run: npm run test
-
       - name: Conformance Tests
         run: npm run test:report
 
