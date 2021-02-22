@@ -19,16 +19,16 @@
     "build": "tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
     "test": "tsdx test",
+    "precompile:suites": "rm -rf ./suites",
+    "compile:suites": "tsc --resolveJsonModule --allowJs ./src/suites/**/*  --outDir ./suites",
     "pretest:report:run": "npm run compile:suites",
     "test:report": "node ./runSuites.js",
     "posttest:report": "npm run augment-report",
-    "precompile:suites": "rm -rf ./suites",
-    "compile:suites": "tsc --resolveJsonModule --allowJs ./src/suites/**/*  --outDir ./suites",
+    "augment-report": "node ./scripts/augment-report.js",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why",
-    "augment-report": "node ./scripts/augment-report.js"
+    "analyze": "size-limit --why"
   },
   "prettier": {
     "printWidth": 80,
