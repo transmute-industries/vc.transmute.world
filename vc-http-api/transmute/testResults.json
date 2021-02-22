@@ -1,0 +1,212 @@
+{
+  "testResults": {
+    "numFailedTests": 0,
+    "numPassedTests": 14,
+    "numTotalTests": 16,
+    "testResults": [
+      {
+        "numFailingTests": 0,
+        "numPassingTests": 10,
+        "testResults": [
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
+            "status": "passed",
+            "title": "1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
+            "status": "passed",
+            "title": "2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
+            "status": "passed",
+            "title": "3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
+            "status": "passed",
+            "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
+            "status": "passed",
+            "title": "5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
+            "status": "passed",
+            "title": "7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
+            "status": "passed",
+            "title": "8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 9. The Issuer's Issue Credential HTTP API MUST must support no \"options\" in the body of the POST request.",
+            "status": "passed",
+            "title": "9. The Issuer's Issue Credential HTTP API MUST must support no \"options\" in the body of the POST request."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue Permanent Resident Card credential",
+            "status": "passed",
+            "title": "Can issue Permanent Resident Card credential"
+          }
+        ]
+      },
+      {
+        "numFailingTests": 0,
+        "numPassingTests": 1,
+        "testResults": [
+          {
+            "ancestorTitles": [
+              "Verify Presentation API",
+              "1. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are different."
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Presentation API 1. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are different. should pass",
+            "status": "passed",
+            "title": "should pass"
+          }
+        ]
+      },
+      {
+        "numFailingTests": 0,
+        "numPassingTests": 1,
+        "testResults": [
+          {
+            "ancestorTitles": [
+              "Prove Presentation API - Conformance",
+              "with holder: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Prove Presentation API - Conformance with holder: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 1. The Holder's provePresentation HTTP API MUST return a 201 HTTP response status code after successful presentation creation.",
+            "status": "passed",
+            "title": "1. The Holder's provePresentation HTTP API MUST return a 201 HTTP response status code after successful presentation creation."
+          }
+        ]
+      },
+      {
+        "numFailingTests": 0,
+        "numPassingTests": 1,
+        "testResults": [
+          {
+            "ancestorTitles": [
+              "Derive Credential API - Conformance",
+              "with holder: did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Derive Credential API - Conformance with holder: did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt 1. The Holder's deriveCredential HTTP API MUST return a 201 HTTP response status code after successful credential derivation.",
+            "status": "passed",
+            "title": "1. The Holder's deriveCredential HTTP API MUST return a 201 HTTP response status code after successful credential derivation."
+          }
+        ]
+      },
+      {
+        "numFailingTests": 0,
+        "numPassingTests": 1,
+        "testResults": [
+          {
+            "ancestorTitles": [
+              "suite a"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "suite a expect success",
+            "status": "passed",
+            "title": "expect success"
+          },
+          {
+            "ancestorTitles": [
+              "suite a"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "suite a expect failure",
+            "status": "pending",
+            "title": "expect failure"
+          },
+          {
+            "ancestorTitles": [
+              "suite a"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "suite a expect todo",
+            "status": "todo",
+            "title": "expect todo"
+          }
+        ]
+      }
+    ]
+  }
+}
