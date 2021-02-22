@@ -18,7 +18,7 @@
     "watch": "tsdx watch",
     "build": "tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
-    "test": "tsdx test",
+    "test": "tsdx test --testPathIgnorePatterns=./suites",
     "precompile:suites": "rm -rf ./suites",
     "compile:suites": "tsc --resolveJsonModule --allowJs ./src/suites/**/*  --outDir ./suites",
     "pretest:report:run": "npm run compile:suites",
