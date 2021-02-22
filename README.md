@@ -1,7 +1,9 @@
+Decentralized Identifiers and Verifiable Credentials powered by Transmute.
+
 # Test Suites
 
-- [transmute vc-http-api docs](https://vc.transmute.world/api/docs)
-- [transmute vc-http-api conformance](./test-suite/transmute)
+- [vc-http-api docs](https://github.com/transmute-industries/vc.transmute.world)
+- [vc-http-api conformance](https://test.did.ai/vc-http-api/transmute)
 
-- [transmute did-core docs](https://github.com/transmute-industries/did-core)
-- [transmute did-core conformance](https://transmute-industries.github.io/did-core/)
+- [did-core docs](https://github.com/transmute-industries/did-core)
+- [did-core conformance](https://transmute-industries.github.io/did-core/)
