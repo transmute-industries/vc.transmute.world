@@ -1,10 +1,11 @@
-/* eslint-disable global-require */
+const {
+  credentials,
+  frames,
+  verifiableCredentials,
+  verifiablePresentations,
+} = require('../index');
 
-import credentials from '../../__interop__/credentials';
-import verifiableCredentials from '../../__interop__/verifiableCredentials';
-import verifiablePresentations from '../../__interop__/verifiablePresentations';
-
-export default {
+module.exports = {
   name: 'Transmute',
   issueCredentialConfiguration: [
     {
@@ -31,6 +32,7 @@ export default {
       id:
         'did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt',
       endpoint: 'https://vc.transmute.world/next/credentials/derive',
+      frame: frames[0].data,
     },
   ],
   verifyPresentationConfiguration: {
@@ -38,7 +40,5 @@ export default {
   },
   credentials,
   verifiableCredentials,
-  verifiablePresentations: verifiablePresentations.map(
-    (item: any) => item.data
-  ),
+  verifiablePresentations: verifiablePresentations.map(item => item.data),
 };

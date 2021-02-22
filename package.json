@@ -6,8 +6,7 @@
     "lint": "lerna run lint --stream",
     "postinstall": "lerna link && lerna bootstrap",
     "test": "lerna run test --stream",
-    "test:report": "lerna run test:report --stream",
-    "compile:suites": "lerna run compile:suites --stream"
+    "test:report": "lerna run compile:suites --stream && lerna run test:report --stream"
   },
   "husky": {
     "hooks": {

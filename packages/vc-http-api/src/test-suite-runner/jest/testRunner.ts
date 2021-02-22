@@ -8,7 +8,7 @@ import extractTestSummary from './utilities';
 
 const TEST_RESULTS_DIRECTORY = path.resolve(
   __dirname,
-  '../../../docs/test-suite'
+  '../../../docs/vc-http-api'
 );
 
 const TEST_FILE_JSON = 'testResults.json';
