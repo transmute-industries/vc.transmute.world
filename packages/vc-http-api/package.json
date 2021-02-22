@@ -21,7 +21,7 @@
     "test": "tsdx test --testPathIgnorePatterns=./suites",
     "test:report": "node ./runSuites.js",
     "posttest:report": "npm run augment-report",
-    "compile:suites": "tsc --resolveJsonModule ./src/suites/**/*  --outDir .",
+    "compile:suites": "rm -rf ./suites && tsc --resolveJsonModule ./src/suites/**/*  --outDir .",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
