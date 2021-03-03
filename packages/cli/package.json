@@ -1,0 +1,41 @@
+{
+  "name": "vc-http-api-cli",
+  "version": "1.0.0",
+  "description": "CLI for vc-http-api implementation",
+  "main": "src/index.js",
+  "bin": {
+    "vc-util": "dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"This CLI for the moment relies solely on the tests in the main services\" && exit 0",
+    "dev": "ts-node src/index.ts",
+    "lint": "tsdx lint src --fix",
+    "build": "npx tsc; npm link; npm install"
+  },
+  "keywords": [
+    "cli",
+    "vc",
+    "did",
+    "verifiable credentials",
+    "credentials",
+    "keys"
+  ],
+  "author": "mprorock@mesur.io",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/yargs": "^16.0.0",
+    "ts-node": "^9.1.1",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.35",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.35",
+    "@transmute/did-key-secp256k1": "^0.2.1-unstable.35",
+    "@transmute/did-key-web-crypto": "^0.2.1-unstable.35",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.35",
+    "crypto": "^1.0.1",
+    "yargs": "^16.2.0"
+  }
+}
