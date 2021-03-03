@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 //src/index.ts - main cli entry point
+import { exception } from "console";
 import yargs from "yargs"; //unfortunately have to require or default import
 import { generateKeys } from "./keys/keys";
 
@@ -13,6 +14,19 @@ async function genKeys(keyType: string) {
     console.log("Error generating key:", keyError);
   }
 }
+async function issueCred() {
+  process.exitCode = -3;
+  throw (exception("Not yet implemented"));
+}
+async function verifyCred() {
+  process.exitCode = -3;
+  throw (exception("Not yet implemented"));
+}
+async function present() {
+  process.exitCode = -3;
+  throw (exception("Not yet implemented"));
+}
+
 
 void (async function main() {
   try {
@@ -24,7 +38,7 @@ void (async function main() {
         describe:
           "What method would you like to invoke, e.g. generate a key, issue a credential, etc.",
         default: "k",
-        choices: ["key", "k"]
+        choices: ["key", "k", "i", "issue", "v", "verify", "p", "present"]
       },
       keytype: {
         type: "string",
@@ -51,6 +65,21 @@ void (async function main() {
       case "k":
       case "key": {
         await genKeys(args["keytype"] as string);
+        break;
+      }
+      case "i":
+      case "issue": {
+        await issueCred();
+        break;
+      }
+      case "v":
+      case "verify": {
+        await verifyCred();
+        break;
+      }
+      case "p":
+      case "present": {
+        await present();
         break;
       }
       default: {
