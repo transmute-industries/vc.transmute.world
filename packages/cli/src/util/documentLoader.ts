@@ -5,15 +5,15 @@ import {
 import { driver } from "@transmute/did-key-ed25519";
 import * as bls12381 from "@transmute/did-key-bls12381";
 
-import citizenshipV1 from "../../../vc-http-api/src/contexts/citizenship-v1.json";
-import v1 from "../../../vc-http-api/src/contexts/v1.json";
-import didv011 from "../../../vc-http-api/src/contexts/did-v0.11.json";
-import sidetreev01 from "../../../vc-http-api/src/contexts/sidetree-v0.1.json";
-import didConfig from "../../../vc-http-api/src/contexts/did-configuration-v0.2.json";
-import vaccinationV1 from "../../../vc-http-api/src/contexts/vaccination-v1.json";
-import traceabilityV1 from "../../../vc-http-api/src/contexts/traceability-v1.json";
-import bbsV1 from "../../../vc-http-api/src/contexts/bbs-v1.json";
-import secV3 from "../../../vc-http-api/src/contexts/sec-v3.json";
+import citizenshipV1 from "../contexts/citizenship-v1.json";
+import v1 from "../contexts/v1.json";
+import didv011 from "../contexts/did-v0.11.json";
+import sidetreev01 from "../contexts/sidetree-v0.1.json";
+import didConfig from "../contexts/did-configuration-v0.2.json";
+import vaccinationV1 from "../contexts/vaccination-v1.json";
+import traceabilityV1 from "../contexts/traceability-v1.json";
+import bbsV1 from "../contexts/bbs-v1.json";
+import secV3 from "../contexts/sec-v3.json";
 
 const documentLoader = documentLoaderFactory.pluginFactory
   .build({
