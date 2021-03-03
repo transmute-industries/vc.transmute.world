@@ -16,17 +16,16 @@ async function genKeys(keyType: string) {
 }
 async function issueCred() {
   process.exitCode = -3;
-  throw (exception("Not yet implemented"));
+  throw exception("Not yet implemented");
 }
 async function verifyCred() {
   process.exitCode = -3;
-  throw (exception("Not yet implemented"));
+  throw exception("Not yet implemented");
 }
 async function present() {
   process.exitCode = -3;
-  throw (exception("Not yet implemented"));
+  throw exception("Not yet implemented");
 }
-
 
 void (async function main() {
   try {
@@ -48,6 +47,22 @@ void (async function main() {
         default: "ed25519",
         choices: ["ed25519", "x25519", "bls12381", "p-256", "secp256k1"]
       },
+      input: {
+        type: "string",
+        demandOption: true,
+        alias: "i",
+        describe:
+          "Specify an input file to issue a credential on, etc.  In most cases this will be in json-ld or json format",
+        default: "./test.json"
+      },
+      inkey: {
+        type: "string",
+        demandOption: true,
+        alias: "ik",
+        describe:
+          "Specify an file to use as the key for operations that require it",
+        default: "./test.json"
+      },
       debug: {
         type: "boolean",
         demandOption: false,
@@ -57,7 +72,7 @@ void (async function main() {
     }).argv;
 
     if (args["debug"]) {
-      console.log("Got argumentss:\n", args, "\n\n");
+      console.log("Got arguments:\n", args, "\n\n");
     }
 
     process.exitCode = 0;
