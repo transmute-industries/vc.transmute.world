@@ -55,6 +55,13 @@ void (async function main() {
           "Specify an input file to issue a credential on, etc.  In most cases this will be in json-ld or json format",
         default: "./test.json"
       },
+      output: {
+        type: "string",
+        demandOption: true,
+        alias: "o",
+        describe: "Specify an output file to write to.",
+        default: "./test.json"
+      },
       inkey: {
         type: "string",
         demandOption: true,
