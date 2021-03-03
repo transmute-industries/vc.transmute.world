@@ -4,7 +4,6 @@ import {
 } from "@transmute/jsonld-document-loader";
 import { driver } from "@transmute/did-key-ed25519";
 import * as bls12381 from "@transmute/did-key-bls12381";
-
 import citizenshipV1 from "../contexts/citizenship-v1.json";
 import v1 from "../contexts/v1.json";
 import didv011 from "../contexts/did-v0.11.json";
