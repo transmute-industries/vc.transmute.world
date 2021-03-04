@@ -9,31 +9,19 @@ export const verifyCredential = async (
 ) => {
   // eslint-disable-next-line no-console
   // console.warn('not handling options', options);
-  try {
-    const result = await vc.verifyCredential({
-      credential: verifiableCredential,
-      suite: new Ed25519Signature2018(),
-      documentLoader,
-    });
+  const result = await vc.verifyCredential({
+    credential: verifiableCredential,
+    suite: new Ed25519Signature2018(),
+    documentLoader,
+  });
 
-    if (result.verified) {
-      return {
-        checks: ['proof'],
-        warnings: [],
-        errors: [],
-      };
-    }
-    // eslint-disable-next-line no-console
-    console.warn(result);
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn(e);
-    // no op
+  if (result.verified) {
+    return {
+      checks: ['proof'],
+      warnings: [],
+      errors: [],
+    };
   }
 
-  return {
-    checks: ['proof'],
-    warnings: [],
-    errors: ['proof'],
-  };
+  throw new Error(JSON.stringify(result, null, 2));
 };

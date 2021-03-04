@@ -45,8 +45,9 @@ describe('POST /next/credentials/derive', () => {
         },
       },
     });
-    expect(response.body.proof.type).toBe('BbsBlsSignatureProof2020');
+
     // console.log(JSON.stringify(response.body, null, 2));
+    expect(response.body.proof.type).toBe('BbsBlsSignatureProof2020');
   });
 });
 

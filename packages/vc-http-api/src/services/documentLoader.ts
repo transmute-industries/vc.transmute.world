@@ -2,6 +2,8 @@ import {
   documentLoaderFactory,
   contexts,
 } from '@transmute/jsonld-document-loader';
+import axios from 'axios';
+
 import { driver } from '@transmute/did-key-ed25519';
 import * as bls12381 from '@transmute/did-key-bls12381';
 
@@ -17,7 +19,6 @@ import bbsV1 from '../contexts/bbs-v1.json';
 import secV3 from '../contexts/sec-v3.json';
 
 import d0 from '../did-documents/d0.json';
-import d1 from '../did-documents/d1.json';
 import d2 from '../did-documents/d2.json';
 import d3 from '../did-documents/d3.json';
 
@@ -64,9 +65,11 @@ const documentLoader = documentLoaderFactory.pluginFactory
         return d0;
       },
     },
-    'did:web:vc.transmute.world': {
-      resolve: async () => {
-        return d1;
+    'did:web:': {
+      resolve: async iri => {
+        const url = `https://did-web.web.app/api/v1/identifiers/${iri}`;
+        const resp = await axios.get(url);
+        return resp.data;
       },
     },
     'did:elem:ropsten:EiBJJPdo-ONF0jxqt8mZYEj9Z7FbdC87m2xvN0_HAbcoEg': {
@@ -77,6 +80,14 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt': {
       resolve: async () => {
         return d3;
+      },
+    },
+
+    'did:v1:test:nym': {
+      resolve: async iri => {
+        const url = `https://dev.uniresolver.io/1.0/identifiers/${iri}`;
+        const resp = await axios.get(url);
+        return resp.data.didDocument;
       },
     },
   })

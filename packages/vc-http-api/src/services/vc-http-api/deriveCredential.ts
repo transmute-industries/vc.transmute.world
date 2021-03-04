@@ -12,11 +12,17 @@ export const deriveCredential = async (
   if (verifiableCredential.proof.type !== 'BbsBlsSignature2020') {
     throw new Error('BbsBlsSignature2020 is required for derviveCredential');
   }
-  const suite = new BbsBlsSignatureProof2020();
-  const result = await deriveProof(verifiableCredential, frame, {
-    suite,
-    documentLoader,
-  });
+  try {
+    const suite = new BbsBlsSignatureProof2020();
+    const result = await deriveProof(verifiableCredential, frame, {
+      suite,
+      documentLoader,
+    });
 
-  return result;
+    return result;
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
+    return { message: e.message };
+  }
 };
