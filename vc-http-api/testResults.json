@@ -3,8 +3,8 @@
     "name": "Transmute",
     "results": {
       "testResults": {
-        "numFailedTests": 0,
-        "numPassedTests": 14,
+        "numFailedTests": 1,
+        "numPassedTests": 13,
         "numTotalTests": 16,
         "testResults": [
           {
@@ -158,18 +158,37 @@
             ]
           },
           {
-            "numFailingTests": 0,
-            "numPassingTests": 1,
+            "numFailingTests": 1,
+            "numPassingTests": 0,
             "testResults": [
               {
                 "ancestorTitles": [
                   "Derive Credential API - Conformance",
                   "with holder: did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt"
                 ],
-                "failureDetails": [],
-                "failureMessages": [],
+                "failureDetails": [
+                  {
+                    "actual": "",
+                    "error": {
+                      "matcherResult": {
+                        "actual": 500,
+                        "expected": 201,
+                        "name": "toBe",
+                        "pass": false
+                      }
+                    },
+                    "expected": "",
+                    "matcherName": "",
+                    "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
+                    "passed": false,
+                    "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at call (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:70:52)\n    at step (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:33:23)\n    at Object.next (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:14:53)\n    at fulfilled (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:5:58)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+                  }
+                ],
+                "failureMessages": [
+                  "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at call (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:70:52)\n    at step (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:33:23)\n    at Object.next (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:14:53)\n    at fulfilled (/home/runner/work/vc.transmute.world/vc.transmute.world/packages/vc-http-api/suites/vc-http-api/deriveCredential.test.js:5:58)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+                ],
                 "fullName": "Derive Credential API - Conformance with holder: did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt 1. The Holder's deriveCredential HTTP API MUST return a 201 HTTP response status code after successful credential derivation.",
-                "status": "passed",
+                "status": "failed",
                 "title": "1. The Holder's deriveCredential HTTP API MUST return a 201 HTTP response status code after successful credential derivation."
               }
             ]
