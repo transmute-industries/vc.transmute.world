@@ -24,3 +24,4 @@ cp -vn ./packages/vc-http-api/src/keys/*.json ./local/keys/
 cp -vn ./packages/vc-http-api/src/contexts/*.json ./local/contexts/
 cp -vn ./packages/vc-http-api/src/data/didDocument.json ./local/wellknown/
 cp -vn ./packages/vc-http-api/src/data/did-configuration.json ./local/wellknown/
+cp -vr ./packages/vc-http-api/src/config ./local/

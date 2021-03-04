@@ -10,6 +10,7 @@ COPY lerna.json lerna.json
 COPY ./packages/vc-http-api ./packages/vc-http-api
 COPY ./local/keys ./packages/vc-http-api/src/keys/
 COPY ./local/contexts ./packages/vc-http-api/src/contexts/
+COPY ./local/config ./packages/vc-http-api/src/config/
 COPY ./local/wellknown ./packages/vc-http-api/src/data/
 
 # get all dependencies for building
