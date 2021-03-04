@@ -3,13 +3,18 @@
 //src/index.ts - main cli entry point
 //quiet down a wasm warning from mattr
 import { exception } from "console";
-import { CliOptions } from './options/cliOptions';
+import { CliOptions } from "./options/cliOptions";
 import { generateKeys } from "./keys/keys";
 
 process.env.NODE_NO_WARNINGS = "1";
 process.removeAllListeners("warning");
 
-async function genKeys(keyType: string, didType: string, domain: string, multiKey: boolean = false) {
+async function genKeys(
+  keyType: string,
+  didType: string,
+  domain: string,
+  multiKey: boolean = false
+) {
   try {
     let genKey: any[] = await generateKeys(keyType);
     let results: any[] = [];
@@ -26,10 +31,10 @@ async function genKeys(keyType: string, didType: string, domain: string, multiKe
       }
       if (k.id) {
         let prefix = "did:" + didType + ":";
-        if (didType == "web") {
+        if (didType === "web") {
           k.id = prefix + domain + k.id;
           k.controller = prefix + domain;
-        } else if (didType == "key") {
+        } else if (didType === "key") {
           k.id = k.controller + k.id;
         }
       }
