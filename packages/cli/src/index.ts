@@ -1,14 +1,43 @@
 #!/usr/bin/env node
 
 //src/index.ts - main cli entry point
+//quiet down a wasm warning from mattr
+process.env.NODE_NO_WARNINGS = "1";
+process.removeAllListeners('warning');
+
 import { exception } from "console";
 import yargs from "yargs"; //unfortunately have to require or default import
 import { generateKeys } from "./keys/keys";
 
-async function genKeys(keyType: string) {
+async function genKeys(keyType: string, multiKey: boolean = false) {
   try {
-    let genKey = await generateKeys(keyType);
-    console.log(genKey, "\n");
+    let genKey: any[] = await generateKeys(keyType);
+    let results: any[] = [];
+    for (let k of genKey) {
+      if (k.publicKeyBuffer) {
+        let pk = k.publicKeyBuffer.toString('hex')
+        delete k.publicKeyBuffer;
+        k['publicKeyBase58'] = pk;
+      }
+      if (k.privateKeyBuffer) {
+        let pk = k.privateKeyBuffer.toString('hex')
+        delete k.privateKeyBuffer;
+        k['privateKeyBase58'] = pk;
+      }
+      if (k.id) {
+        if (k.id.startsWith('#')) {
+          k.id = k.controller + k.id;
+        }
+      }
+      results.push(k)
+    }
+    let r: any;
+    if (multiKey) {
+      r = results;
+    } else {
+      r = results[0];
+    }
+    console.log(JSON.stringify(r, null, 4));
   } catch (keyError) {
     process.exitCode = -1;
     console.log("Error generating key:", keyError);
@@ -69,6 +98,12 @@ void (async function main() {
         describe:
           "Specify an file to use as the key for operations that require it",
         default: "./test.json"
+      },
+      multiKey: {
+        type: "boolean",
+        demandOption: false,
+        alias: "mk",
+        describe: "enable multi key returns"
       },
       debug: {
         type: "boolean",

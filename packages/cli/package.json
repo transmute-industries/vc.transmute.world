@@ -11,7 +11,8 @@
     "test": "echo \"This CLI for the moment relies solely on the tests in the main services\" && exit 0",
     "dev": "ts-node src/index.ts",
     "lint": "tsdx lint src --fix",
-    "build": "npx tsc; npm link; npm install"
+    "build": "npx tsc; npm link; npm install",
+    "vc-util": "dist/index.js"
   },
   "keywords": [
     "cli",
