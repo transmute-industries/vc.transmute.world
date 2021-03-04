@@ -3,13 +3,13 @@
 //src/index.ts - main cli entry point
 //quiet down a wasm warning from mattr
 import { exception } from "console";
-import yargs from "yargs"; //unfortunately have to require or default import
+import { CliOptions } from './options/cliOptions';
 import { generateKeys } from "./keys/keys";
 
 process.env.NODE_NO_WARNINGS = "1";
 process.removeAllListeners("warning");
 
-async function genKeys(keyType: string, multiKey: boolean = false) {
+async function genKeys(keyType: string, didType: string, domain: string, multiKey: boolean = false) {
   try {
     let genKey: any[] = await generateKeys(keyType);
     let results: any[] = [];
@@ -25,7 +25,11 @@ async function genKeys(keyType: string, multiKey: boolean = false) {
         k["privateKeyBase58"] = pk;
       }
       if (k.id) {
-        if (k.id.startsWith("#")) {
+        let prefix = "did:" + didType + ":";
+        if (didType == "web") {
+          k.id = prefix + domain + k.id;
+          k.controller = prefix + domain;
+        } else if (didType == "key") {
           k.id = k.controller + k.id;
         }
       }
@@ -58,60 +62,7 @@ async function present() {
 
 void (async function main() {
   try {
-    const args = yargs.options({
-      method: {
-        type: "string",
-        demandOption: true,
-        alias: "m",
-        describe:
-          "What method would you like to invoke, e.g. generate a key, issue a credential, etc.",
-        default: "k",
-        choices: ["key", "k", "i", "issue", "v", "verify", "p", "present"]
-      },
-      keytype: {
-        type: "string",
-        demandOption: true,
-        alias: "t",
-        describe: "Desired key type",
-        default: "ed25519",
-        choices: ["ed25519", "x25519", "bls12381", "p-256", "secp256k1"]
-      },
-      input: {
-        type: "string",
-        demandOption: true,
-        alias: "i",
-        describe:
-          "Specify an input file to issue a credential on, etc.  In most cases this will be in json-ld or json format",
-        default: "./test.json"
-      },
-      output: {
-        type: "string",
-        demandOption: true,
-        alias: "o",
-        describe: "Specify an output file to write to.",
-        default: "./test.json"
-      },
-      inkey: {
-        type: "string",
-        demandOption: true,
-        alias: "ik",
-        describe:
-          "Specify an file to use as the key for operations that require it",
-        default: "./test.json"
-      },
-      multiKey: {
-        type: "boolean",
-        demandOption: false,
-        alias: "mk",
-        describe: "enable multi key returns"
-      },
-      debug: {
-        type: "boolean",
-        demandOption: false,
-        alias: "d",
-        describe: "Turn on some additional debugging output"
-      }
-    }).argv;
+    const args = CliOptions.argv;
 
     if (args["debug"]) {
       console.log("Got arguments:\n", args, "\n\n");
@@ -121,7 +72,11 @@ void (async function main() {
     switch (args["method"]) {
       case "k":
       case "key": {
-        await genKeys(args["keytype"] as string);
+        await genKeys(
+          args["keyType"] as string,
+          args["didType"] as string,
+          args["domain"] as string
+        );
         break;
       }
       case "i":
