@@ -42,6 +42,7 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'https://w3id.org/vaccination/v1': vaccinationV1,
     'https://w3id.org/traceability/v1': traceabilityV1,
     'https://w3id.org/security/v3-unstable': secV3,
+    'https://w3id.org/security/bbs/v1': bbsV1,
   })
   .addResolver({
     'did:key:z6': {
@@ -52,7 +53,7 @@ const documentLoader = documentLoaderFactory.pluginFactory
         return didDocument;
       },
     },
-    'did:key:z5Tc': {
+    'did:key:zUC7': {
       resolve: async uri => {
         const { didDocument } = await bls12381.driver.resolve(uri, {
           accept: 'application/did+ld+json',

@@ -29,7 +29,7 @@ const verificationMethod =
 describe('POST /next/credentials/derive', () => {
   it('should derive a verifiable credential', async () => {
     const response = await api.post('/next/credentials/derive').send({
-      verifiableCredential: require('../../__interop__/verifiableCredentials/case-2.json'),
+      verifiableCredential: require('../../__interop__/verifiableCredentials/case-16.json'),
       frame: {
         '@context': [
           'https://www.w3.org/2018/credentials/v1',
