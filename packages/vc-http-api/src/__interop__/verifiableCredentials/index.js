@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 const fixtures = require('require-all')({
   dirname: __dirname,
   filter: /.json$/,
