@@ -16,3 +16,39 @@ To create a local build environment that allows overriding of key values in the 
 Keys may be generated for the local container using: `./scripts/local_gen_keys.sh`.  nb: the cli utility located in `./packages/cli` must be installed for this script to run.
 
 `./scripts/local_bundle.sh` is a quick shortcut to build the container using the local dockerfile: `Dockerfile.local`
+
+An example folder layout for local can be seen below
+
+```
+local
+├── build
+├── config
+│   └── index.ts
+├── contexts
+│   ├── bbs-v1.json
+│   ├── citizenship-v1.json
+│   ├── cmtr-v0.2.json
+│   ├── did-configuration-v0.2.json
+│   ├── did-v0.11.json
+│   ├── sec-v3.json
+│   ├── sidetree-v0.1.json
+│   ├── traceability-v1.json
+│   ├── v1.json
+│   └── vaccination-v1.json
+├── fs
+│   └── etc
+│       └── vc-http-api
+│           └── oauth
+│               └── oauth.json
+├── keys
+│   ├── k0.json
+│   ├── k1.json
+│   ├── k2.json
+│   ├── k3.json
+│   ├── k4.json
+│   └── k5.json
+├── scripts
+└── wellknown
+    ├── did-configuration.json
+    └── didDocument.json
+```
