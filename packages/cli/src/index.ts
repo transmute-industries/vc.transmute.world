@@ -2,12 +2,12 @@
 
 //src/index.ts - main cli entry point
 //quiet down a wasm warning from mattr
-process.env.NODE_NO_WARNINGS = "1";
-process.removeAllListeners('warning');
-
 import { exception } from "console";
 import yargs from "yargs"; //unfortunately have to require or default import
 import { generateKeys } from "./keys/keys";
+
+process.env.NODE_NO_WARNINGS = "1";
+process.removeAllListeners("warning");
 
 async function genKeys(keyType: string, multiKey: boolean = false) {
   try {
@@ -15,21 +15,21 @@ async function genKeys(keyType: string, multiKey: boolean = false) {
     let results: any[] = [];
     for (let k of genKey) {
       if (k.publicKeyBuffer) {
-        let pk = k.publicKeyBuffer.toString('hex')
+        let pk = k.publicKeyBuffer.toString("hex");
         delete k.publicKeyBuffer;
-        k['publicKeyBase58'] = pk;
+        k["publicKeyBase58"] = pk;
       }
       if (k.privateKeyBuffer) {
-        let pk = k.privateKeyBuffer.toString('hex')
+        let pk = k.privateKeyBuffer.toString("hex");
         delete k.privateKeyBuffer;
-        k['privateKeyBase58'] = pk;
+        k["privateKeyBase58"] = pk;
       }
       if (k.id) {
-        if (k.id.startsWith('#')) {
+        if (k.id.startsWith("#")) {
           k.id = k.controller + k.id;
         }
       }
-      results.push(k)
+      results.push(k);
     }
     let r: any;
     if (multiKey) {
