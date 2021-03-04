@@ -5,6 +5,7 @@
 import { exception } from "console";
 import { CliOptions } from "./options/cliOptions";
 import { generateKeys } from "./keys/keys";
+import { encode as bs58encode } from "bs58";
 
 process.env.NODE_NO_WARNINGS = "1";
 process.removeAllListeners("warning");
@@ -20,12 +21,12 @@ async function genKeys(
     let results: any[] = [];
     for (let k of genKey) {
       if (k.publicKeyBuffer) {
-        let pk = k.publicKeyBuffer.toString("hex");
+        let pk = bs58encode(k.publicKeyBuffer);
         delete k.publicKeyBuffer;
         k["publicKeyBase58"] = pk;
       }
       if (k.privateKeyBuffer) {
-        let pk = k.privateKeyBuffer.toString("hex");
+        let pk = bs58encode(k.privateKeyBuffer);
         delete k.privateKeyBuffer;
         k["privateKeyBase58"] = pk;
       }
