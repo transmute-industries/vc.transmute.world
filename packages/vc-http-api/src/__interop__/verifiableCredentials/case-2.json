@@ -1,34 +1,24 @@
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://w3id.org/citizenship/v1",
-    "https://w3id.org/bbs/v1"
+    "https://www.w3.org/2018/credentials/examples/v1"
   ],
-  "type": ["VerifiableCredential", "PermanentResidentCard"],
-  "identifier": "83627465",
-  "name": "Permanent Resident Card",
-  "description": "Government of Example Permanent Resident Card.",
-  "issuanceDate": "2020-04-22T10:37:22Z",
+  "id": "http://example.gov/credentials/3732",
+  "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+  "issuer": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+  "issuanceDate": "2020-03-10T04:24:12.164Z",
   "credentialSubject": {
-    "id": "did:key:z6Mkte9e5E2GRozAgYyhktX7eTt9woCR4yJLnaqC88FQCSyY",
-    "type": ["PermanentResident", "Person"],
-    "givenName": "JOHN",
-    "familyName": "SMITH",
-    "gender": "Male",
-    "image": "data:image/png;base64,iVBORw0KGgo...kJggg==",
-    "residentSince": "2015-01-01",
-    "lprCategory": "C09",
-    "lprNumber": "000-000-204",
-    "commuterClassification": "C1",
-    "birthCountry": "Bahamas",
-    "birthDate": "1958-08-17"
+    "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
   },
-  "issuer": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt",
   "proof": {
-    "type": "BbsBlsSignature2020",
-    "created": "2021-02-21T18:44:32Z",
+    "type": "Ed25519Signature2018",
+    "created": "2020-04-10T21:35:35Z",
+    "verificationMethod": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
     "proofPurpose": "assertionMethod",
-    "proofValue": "ppYEPhnH8uotfsDm/A+rnYuU0KRuC2eCpgU2YRweDSJPpWHc7Danu1fS1f0KKHtLXu4VVBNLKvGFo7VgIGhO8tF2eIT5vH6WRABdeA9aIt1wj8Wi4PnMN8wf3MSjR4Cd3klz+H21fqSnyNkeqtiPMA==",
-    "verificationMethod": "did:key:z5TcF9K5jTimwCWUpfkkPzdvF9xSPjRcvdMqeYWy6grZhbm8CoAdR1vos6rQzrLjm1oCjD7hoxknNk2BMrpoC8iUpAZswGm2BrkoxsNUqVFtfoNBdCtFCXduzeYZZDs5sJzdsgktZzPRfRLRGnwCV4trjYqpRZa4TYQeWG2e6HqpLynmcx3SJLuEZ2YnCdJHznRA3Ayyt#zUC75ReHuHnjbU5w4XNgrU13ZR6GN1JxVVwWyNkijuvG49A19Bg7XMqQhNoYZjB7v9nRdZfNqJcusvkhvUZjK4FoikAdRUjgF9Komr6XwfLjDfhgenBTHxfhM85d7z5rJRcKnZQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..l9d0YHjcFAH2H4dB9xlWFZQLUpixVCWJk0eOt4CXQe1NXKWZwmhmn9OQp6YxX0a2LffegtYESTCJEoGVXLqWAA"
   }
 }
