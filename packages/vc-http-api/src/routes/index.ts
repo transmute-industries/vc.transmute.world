@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify';
+import { docs } from './docs';
 import wellKnown from './.well-known';
 import v010 from './v0.1.0';
 import v000 from './v0.0.0';
@@ -25,9 +26,11 @@ export const registerRoutes = (server: FastifyInstance) => {
       },
     },
     async (_request: any, reply: any) => {
-      return reply.redirect('/api/docs');
+      //return reply.redirect('/docs/index.html');
+      return reply.type('text/html').send(docs)
     }
   );
+
 
   server.register(wellKnown, { prefix: '/.well-known' });
   server.register(next, { prefix: '/next' });
