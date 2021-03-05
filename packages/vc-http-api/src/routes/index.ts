@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify';
+import { docs } from './docs';
 import config from '../config';
 import wellKnown from './.well-known';
 import v010 from './v0.1.0';
@@ -26,7 +27,8 @@ export const registerRoutes = (server: FastifyInstance) => {
       },
     },
     async (_request: any, reply: any) => {
-      return reply.redirect('/api/docs');
+      // return reply.redirect('/docs/index.html');
+      return reply.type('text/html').send(docs);
     }
   );
   if (!config.routes.disabled.includes('wellKnown')) {

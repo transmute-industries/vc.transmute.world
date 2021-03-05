@@ -2,6 +2,24 @@ import fastifySwagger from 'fastify-swagger';
 
 export const registerSwagger = (server: any, config: any) => {
   server.register(fastifySwagger, {
+    routePrefix: 'api/docs',
+    exposeRoute: true,
+    openapi: {
+      info: {
+        title: 'Verifiable Credentials',
+        description: 'Reference implementation of the vc-http-api spec',
+        version: config.version,
+      },
+      components: {
+        // securitySchemes: {
+        //   apiKey: {
+        //     type: 'apiKey',
+        //     name: 'apiKey',
+        //     in: 'header'
+        //   }
+        // }
+      },
+    },
     swagger: {
       info: {
         title: `Verifiable Credentials`,
@@ -16,9 +34,15 @@ export const registerSwagger = (server: any, config: any) => {
         },
       },
       basePath: '',
-      definitions: [],
+      definitions: {
+        // securityDefinitions: {
+        //   apiKey: {
+        //     type: 'apiKey',
+        //     name: 'apiKey',
+        //     in: 'header'
+        //   }
+        // }
+      },
     },
-    routePrefix: 'api/docs',
-    exposeRoute: true,
   });
 };
