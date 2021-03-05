@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { docs } from './docs';
+import { docs, rapidoc } from './docs';
 import config from '../config';
 import wellKnown from './.well-known';
 import v010 from './v0.1.0';
@@ -9,6 +9,7 @@ import next from './next';
 import testSuiteManager from './test-suite-manager';
 
 export const registerRoutes = (server: FastifyInstance) => {
+  // redoc
   server.get(
     '/',
     {
@@ -31,6 +32,51 @@ export const registerRoutes = (server: FastifyInstance) => {
       return reply.type('text/html').send(docs);
     }
   );
+  // rapidoc
+  server.get(
+    '/rapidoc',
+    {
+      schema: {
+        hide: true,
+        description: '',
+        tags: ['DID'],
+        summary: 'DID Web Endpoint',
+        response: {
+          200: {
+            description: 'Success',
+            type: 'object',
+            additionalProperties: true,
+          },
+        },
+      },
+    },
+    async (_request: any, reply: any) => {
+      return reply.type('text/html').send(rapidoc);
+    }
+  );
+  // swagger
+  server.get(
+    '/swagger',
+    {
+      schema: {
+        hide: true,
+        description: '',
+        tags: ['DID'],
+        summary: 'DID Web Endpoint',
+        response: {
+          200: {
+            description: 'Success',
+            type: 'object',
+            additionalProperties: true,
+          },
+        },
+      },
+    },
+    async (_request: any, reply: any) => {
+      return reply.redirect('/docs/index.html');
+    }
+  );
+
   if (!config.routes.disabled.includes('wellKnown')) {
     server.register(wellKnown, { prefix: '/.well-known' });
   }
