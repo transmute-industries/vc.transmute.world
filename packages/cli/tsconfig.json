@@ -1,11 +1,32 @@
 {
+  "include": [
+    "src",
+    "src/**/*",
+    "dist/index.d.ts",
+  ],
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES2017",
+    "target": "esnext",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "*": [
+        "src/*",
+        "node_modules/*",
+      ]
+    },
   }
 }

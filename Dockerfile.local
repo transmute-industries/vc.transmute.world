@@ -1,0 +1,27 @@
+FROM node:12
+
+EXPOSE 8080
+
+WORKDIR /usr/src/app
+
+# pre build and setup
+COPY package.json package.json
+COPY lerna.json lerna.json
+COPY ./packages/vc-http-api ./packages/vc-http-api
+COPY ./local/keys ./packages/vc-http-api/src/keys/
+COPY ./local/contexts ./packages/vc-http-api/src/contexts/
+COPY ./local/config ./packages/vc-http-api/src/config/
+COPY ./local/wellknown ./packages/vc-http-api/src/data/
+
+# get all dependencies for building
+RUN [ "npm", "install" ]
+# postinstall setup
+RUN [ "npm", "run", "postinstall" ]
+
+# copy over any remaining assets from local
+COPY ./local/scripts /usr/local/bin/
+COPY ./local/fs /
+
+WORKDIR /usr/src/app/packages/vc-http-api
+
+CMD [ "npm", "run", "start" ]
