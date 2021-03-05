@@ -18,7 +18,7 @@ export const registerSwagger = (server: any, config: any) => {
         //     in: 'header'
         //   }
         // }
-      }
+      },
     },
     swagger: {
       info: {

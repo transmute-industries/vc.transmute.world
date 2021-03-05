@@ -26,11 +26,10 @@ export const registerRoutes = (server: FastifyInstance) => {
       },
     },
     async (_request: any, reply: any) => {
-      //return reply.redirect('/docs/index.html');
-      return reply.type('text/html').send(docs)
+      // return reply.redirect('/docs/index.html');
+      return reply.type('text/html').send(docs);
     }
   );
-
 
   server.register(wellKnown, { prefix: '/.well-known' });
   server.register(next, { prefix: '/next' });
