@@ -75,13 +75,7 @@ export const registerRoutes = (server: FastifyInstance) => {
     if (!config.routes.disabled.includes(o.name)) {
       if (config.security.allow_unauthenticated) {
         // eslint-disable-next-line no-console
-        console.log(
-          o,
-          '\n\nDynamically Enabling route:',
-          o.name,
-          'at:',
-          o.prefix
-        );
+        console.log('Dynamically Enabling Route:', o.name, 'at:', o.prefix);
         server.register(o.obj, { prefix: o.prefix });
       }
     }

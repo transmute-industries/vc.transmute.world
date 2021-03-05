@@ -1,8 +1,8 @@
-import wellKnown from "../routes/.well-known";
-import next from "../routes/next";
-import v000 from "../routes/v0.0.0";
-import v010 from "../routes/v0.1.0";
-import testSuiteManager from "../routes/test-suite-manager";
+import wellKnown from '../routes/.well-known';
+import next from '../routes/next';
+import v000 from '../routes/v0.0.0';
+import v010 from '../routes/v0.1.0';
+import testSuiteManager from '../routes/test-suite-manager';
 
 const config = {
   version: '0.0.0',
