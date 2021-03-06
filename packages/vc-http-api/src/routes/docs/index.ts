@@ -31,6 +31,9 @@ export const rapidoc = `<!doctype html> <!-- Important: must specify -->
 <body>
   <rapi-doc 
     spec-url = "/api/docs/json"
+    api-key-name = "api_key"
+    api-key-location = "header"
+    api-key-value = "-"
     render-style = "read" 
   > </rapi-doc>
 </body> 
