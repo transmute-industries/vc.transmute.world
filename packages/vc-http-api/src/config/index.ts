@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import wellKnown from '../routes/.well-known';
 import next from '../routes/next';
 import anext from '../routes/next';
@@ -10,7 +11,7 @@ import testSuiteManager from '../routes/test-suite-manager';
 const config = {
   version: '0.0.0',
   server: {
-    debug: true
+    debug: true,
   },
   routes: {
     configured: [
@@ -23,19 +24,19 @@ const config = {
         name: 'next',
         prefix: '/next',
         obj: next,
-        aobj: anext //this second is a total work around deep cloning issues in JS/TS
+        aobj: anext, // this second is a total work around deep cloning issues in JS/TS
       },
       {
         name: 'v010',
         prefix: '/v0.1.0',
         obj: v010,
-        aobj: av010
+        aobj: av010,
       },
       {
         name: 'v000',
         prefix: '/v0.0.0',
         obj: v000,
-        aobj: av000
+        aobj: av000,
       },
       {
         name: 'testSuiteManager',
@@ -55,12 +56,12 @@ const config = {
     allow_unauthenticated: true,
     auth0_enabled: true,
     options: {
-      //please note that these are set to env vars for demonstration
-      //for production please use a secrets manager
-      domain: process.env["VC_AUTH_DOMAIN"],
-      audience: process.env["VC_AUTH_AUDIENCE"],
-      client: process.env["VC_AUTH_CLIENT"],
-      secret: process.env["VC_AUTH_SECRET"]
+      // please note that these are set to env vars for demonstration
+      // for production please use a secrets manager
+      domain: process.env.VC_AUTH_DOMAIN,
+      audience: process.env.VC_AUTH_AUDIENCE,
+      client: process.env.VC_AUTH_CLIENT,
+      secret: process.env.VC_AUTH_SECRET,
     },
   },
 };
