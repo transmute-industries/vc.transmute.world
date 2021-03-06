@@ -49,19 +49,24 @@ const config = {
       // 'v010',
       // 'v000'
     ],
-    oauth: ['next'],
+    oauth: [
+      // to enable auth on a route include it in this array
+      // 'next',
+      'disabled',
+    ],
   },
   security: {
     auth_prefix: '/auth',
     allow_unauthenticated: true,
-    auth0_enabled: true,
+    auth0_enabled: false,
     options: {
       // please note that these are set to env vars for demonstration
       // for production please use a secrets manager
-      domain: process.env.VC_AUTH_DOMAIN,
-      audience: process.env.VC_AUTH_AUDIENCE,
-      client: process.env.VC_AUTH_CLIENT,
-      secret: process.env.VC_AUTH_SECRET,
+      // domain: process.env.VC_AUTH_DOMAIN,
+      // audience: process.env.VC_AUTH_AUDIENCE,
+      // client: process.env.VC_AUTH_CLIENT,
+      // secret: process.env.VC_AUTH_SECRET,
+      domain: 'example.org',
     },
   },
 };
