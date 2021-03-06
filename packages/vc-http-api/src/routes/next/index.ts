@@ -2,6 +2,10 @@ export default (server: any, _opts: any, done: any) => {
   server.post(
     '/credentials/issue',
     {
+      // if you wish to explicity attach authentication
+      // to a route, and authentication is enabled
+      // the following will force authentication
+      // preValidation: server.authenticate,
       schema: {
         description: '',
         tags: ['next'],

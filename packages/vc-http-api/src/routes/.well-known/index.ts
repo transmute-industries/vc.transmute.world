@@ -1,5 +1,6 @@
 import didDocument from '../../data/didDocument.json';
 import didConfig from '../../data/did-configuration.json';
+
 export default (server: any, _opts: any, done: any) => {
   server.get(
     '/did.json',
