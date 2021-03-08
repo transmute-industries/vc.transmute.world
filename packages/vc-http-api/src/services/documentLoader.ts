@@ -18,7 +18,8 @@ import traceabilityV1 from '../contexts/traceability-v1.json';
 import bbsV1 from '../contexts/bbs-v1.json';
 import secV3 from '../contexts/sec-v3.json';
 import rlv1 from '../contexts/rl-v1.json';
-
+import schemaorg from '../contexts/schema-org.json';
+import mavV1 from '../contexts/mav-v1.json';
 import d0 from '../did-documents/d0.json';
 import d2 from '../did-documents/d2.json';
 import d3 from '../did-documents/d3.json';
@@ -45,6 +46,8 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'https://w3id.org/security/v3-unstable': secV3,
     'https://w3id.org/security/bbs/v1': bbsV1,
     'https://w3id.org/vc-revocation-list-2020/v1': rlv1,
+    'https://schema.org/': schemaorg,
+    'https://mavennet.github.io/contexts/crude-inspection-v1.0.jsonld': mavV1,
   })
   .addResolver({
     'did:key:z6': {
