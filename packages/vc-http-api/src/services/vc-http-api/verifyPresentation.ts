@@ -1,4 +1,5 @@
 import { ld as vc } from '@transmute/vc.js';
+import { checkStatus } from '@transmute/vc-status-rl-2020';
 import { Ed25519Signature2018 } from '@transmute/ed25519-signature-2018';
 import {
   BbsBlsSignature2020,
@@ -19,6 +20,7 @@ export const verifyPresentation = async (
   let verifyOptions: any = {
     suiteMap,
     documentLoader,
+    checkStatus,
   };
 
   if (verifiablePresentation.proof) {

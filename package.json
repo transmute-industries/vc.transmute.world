@@ -2,11 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna run build --stream",
-    "lint": "lerna run lint --stream",
     "postinstall": "lerna link && lerna bootstrap",
+    "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
-    "test:report": "lerna run compile:suites --stream && lerna run test:report --stream"
+    "build": "lerna run build --stream"
   },
   "husky": {
     "hooks": {

@@ -1,5 +1,6 @@
 import { ld as vc } from '@transmute/vc.js';
 import { Ed25519Signature2018 } from '@transmute/ed25519-signature-2018';
+import { checkStatus } from '@transmute/vc-status-rl-2020';
 import { documentLoader } from '../documentLoader';
 
 export const verifyCredential = async (
@@ -12,6 +13,7 @@ export const verifyCredential = async (
   const result = await vc.verifyCredential({
     credential: verifiableCredential,
     suite: new Ed25519Signature2018(),
+    checkStatus,
     documentLoader,
   });
 
