@@ -18,11 +18,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
-
-      - name: Typescript Test
+      - name: Test
         run: npm run test
 
-      - name: Conformance Tests
-        run: npm run test:report
+      - name: Build
+        run: npm run build
