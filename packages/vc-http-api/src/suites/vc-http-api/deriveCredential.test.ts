@@ -1,9 +1,20 @@
-/* eslint-disable global-require */
 import defaultSuiteConfig from './defaultSuiteConfig';
-
 import * as httpClient from '../../services/httpClient';
 
+import { getTestServer } from '../../server';
+
 const suiteConfig: any = (global as any).suiteConfig || defaultSuiteConfig;
+
+let server: any;
+
+beforeAll(async () => {
+  server = await getTestServer();
+  await server.listen(8080);
+});
+
+afterAll(async () => {
+  await server.close();
+});
 
 if (suiteConfig.deriveCredentialConfiguration) {
   describe('Derive Credential API - Conformance', () => {

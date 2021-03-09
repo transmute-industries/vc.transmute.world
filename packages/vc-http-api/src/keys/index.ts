@@ -14,3 +14,9 @@ export const getKeyPairById = (id: string) => {
     return k.id === id;
   });
 };
+
+export const getKeyForIssuer = (id: string) => {
+  return keys.find((k: any) => {
+    return k.controller === id && k.type !== 'Bls12381G1Key2020';
+  });
+};
