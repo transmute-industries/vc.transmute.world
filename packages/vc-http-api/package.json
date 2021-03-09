@@ -17,7 +17,7 @@
     "prestart": "npm run build",
     "start": "node run.js",
     "watch": "tsdx watch",
-    "build": "tsdx build",
+    "build": "NODE_OPTIONS=--max_old_space_size=8192 tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
     "test": "tsdx test",
     "lint": "tsdx lint src --fix",
