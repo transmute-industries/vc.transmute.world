@@ -16,7 +16,7 @@ afterAll(async () => {
 
 it('case', async () => {
   // eslint-disable-next-line global-require
-  const vc = require('../__interop__/verifiableCredentials/case-2.json');
+  const vc = require('../__interop__/verifiableCredentials/case-12.json');
   const response = await api.post('/next/credentials/verify').send({
     verifiableCredential: vc,
     options: {
