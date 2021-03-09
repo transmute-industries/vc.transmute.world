@@ -1,17 +1,12 @@
 {
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "baseUrl": "./",
     "declaration": true,
     "esModuleInterop": true,
     "importHelpers": true,
     "jsx": "react",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -21,11 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "*": [
-        "src/*",
-        "node_modules/*",
-        "src/suites/vc-http-api/*"
-      ]
+      "*": ["src/*", "node_modules/*", "src/suites/vc-http-api/*"]
     },
     "resolveJsonModule": true,
     "rootDir": "./src",
