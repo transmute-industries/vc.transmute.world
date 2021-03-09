@@ -33,6 +33,9 @@ export const issueCredential = async (credential: any, options: any = {}) => {
     suite = new BbsBlsSignature2020({
       key: await Bls12381G2KeyPair.from(k),
     });
+    if (!credential['@context'].includes('https://w3id.org/security/bbs/v1')) {
+      credential['@context'].push('https://w3id.org/security/bbs/v1');
+    }
   } else if (
     k.type === 'Ed25519VerificationKey2018' ||
     (k.publicKeyJwk && k.publicKeyJwk.crv === 'Ed25519')
