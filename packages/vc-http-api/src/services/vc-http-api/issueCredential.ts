@@ -8,18 +8,21 @@ import {
 import { Ed25519KeyPair } from '@transmute/did-key-ed25519';
 import { documentLoader } from '../documentLoader';
 
-import { getKeyPairById, k0 } from '../../keys';
+import { getKeyPairById, getKeyForIssuer } from '../../keys';
 
-export const issueCredential = async (
-  credential: any,
-  options: any = { proofPurpose: 'assertionMethod', assertionMethod: k0.id }
-) => {
+export const issueCredential = async (credential: any, options: any = {}) => {
   if (options.proofPurpose && options.proofPurpose !== 'assertionMethod') {
     throw new Error('unsupported proofPurpose');
   }
 
-  // use options to look up key.
-  const k: any = getKeyPairById(options.assertionMethod || k0.id);
+  const issuer =
+    typeof credential.issuer === 'string'
+      ? credential.issuer
+      : credential.issuer.id;
+
+  const k: any = options.assertionMethod
+    ? getKeyPairById(options.assertionMethod)
+    : getKeyForIssuer(issuer);
 
   if (!k) {
     throw new Error('unsupported assertionMethod');
@@ -30,9 +33,7 @@ export const issueCredential = async (
     suite = new BbsBlsSignature2020({
       key: await Bls12381G2KeyPair.from(k),
     });
-  }
-
-  if (
+  } else if (
     k.type === 'Ed25519VerificationKey2018' ||
     (k.publicKeyJwk && k.publicKeyJwk.crv === 'Ed25519')
   ) {

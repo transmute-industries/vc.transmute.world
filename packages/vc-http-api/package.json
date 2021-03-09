@@ -19,7 +19,7 @@
     "watch": "tsdx watch",
     "build": "NODE_OPTIONS=--max_old_space_size=8192 tsdx build",
     "pretest": "export TS_JEST_DISABLE_VER_CHECKER=true",
-    "test": "tsdx test",
+    "test": "tsdx test --runInBand",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
