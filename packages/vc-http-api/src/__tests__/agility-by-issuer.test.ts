@@ -17,7 +17,6 @@ afterAll(async () => {
 it('case bbs', async () => {
   // eslint-disable-next-line global-require
   const credential = require('../__interop__/verifiableCredentials/case-12.json');
-  credential['@context'].push('https://w3id.org/security/bbs/v1');
   delete credential.proof;
   const response = await api.post('/next/credentials/issue').send({
     credential: {
