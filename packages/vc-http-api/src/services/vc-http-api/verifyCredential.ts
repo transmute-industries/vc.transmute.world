@@ -22,12 +22,9 @@ export const verifyCredential = async (
     credential: verifiableCredential,
     suite: suiteMap[verifiableCredential.proof.type],
     documentLoader,
-    checkStatus: () => {
-      return true;
-    },
   };
 
-  if (options.checks.credentialStatus) {
+  if (verifiableCredential.credentialStatus) {
     opts = { ...opts, checkStatus };
   }
   const result = await vc.verifyCredential({
@@ -36,9 +33,16 @@ export const verifyCredential = async (
 
   if (result.verified) {
     return {
-      checks: ['proof'],
+      checks: options.checks,
       warnings: [],
       errors: [],
+    };
+  }
+  if (!result.statusResult) {
+    return {
+      checks: options.checks,
+      warnings: [],
+      errors: ['credentialStatus'],
     };
   }
 

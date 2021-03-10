@@ -20,7 +20,7 @@ it('case 14', async () => {
   const response = await api.post('/next/credentials/verify').send({
     verifiableCredential: vc,
     options: {
-      checks: ['proof', 'credentialStatus'],
+      checks: ['proof'],
     },
   });
   expect(response.body).toEqual({

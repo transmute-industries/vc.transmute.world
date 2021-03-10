@@ -24,7 +24,7 @@ it('case', async () => {
     },
   });
   expect(response.body).toEqual({
-    checks: ['proof'],
+    checks: ['proof', 'credentialStatus'],
     warnings: [],
     errors: [],
   });
