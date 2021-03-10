@@ -1,6 +1,9 @@
 import { ld as vc } from '@transmute/vc.js';
 import { Ed25519Signature2018 } from '@transmute/ed25519-signature-2018';
-import { BbsBlsSignature2020 } from '@mattrglobal/jsonld-signatures-bbs';
+import {
+  BbsBlsSignature2020,
+  BbsBlsSignatureProof2020,
+} from '@mattrglobal/jsonld-signatures-bbs';
 
 import { checkStatus } from '@transmute/vc-status-rl-2020';
 import { documentLoader } from '../documentLoader';
@@ -14,37 +17,39 @@ export const verifyCredential = async (
   // console.warn('not handling options', options);
 
   const suiteMap: any = {
-    BbsBlsSignature2020: new BbsBlsSignature2020(),
     Ed25519Signature2018: new Ed25519Signature2018(),
+    BbsBlsSignature2020: new BbsBlsSignature2020(),
+    BbsBlsSignatureProof2020: new BbsBlsSignatureProof2020(),
   };
 
-  let opts: any = {
-    credential: verifiableCredential,
-    suite: suiteMap[verifiableCredential.proof.type],
-    documentLoader,
+  let result = { verified: false, statusResult: false };
+  try {
+    result = await vc.verifyCredential({
+      credential: verifiableCredential,
+      suite: suiteMap[verifiableCredential.proof.type],
+      checkStatus: options.checks.includes('credentialStatus')
+        ? checkStatus
+        : () => {
+            return Promise.resolve({ verified: true });
+          },
+      documentLoader,
+    });
+  } catch (e) {
+    console.warn(e);
+  }
+
+  const res: any = {
+    checks: options.checks,
+    warnings: [],
+    errors: [],
   };
 
-  if (verifiableCredential.credentialStatus) {
-    opts = { ...opts, checkStatus };
+  if (!result.verified) {
+    res.errors.push('proof');
   }
-  const result = await vc.verifyCredential({
-    ...opts,
-  });
-
-  if (result.verified) {
-    return {
-      checks: options.checks,
-      warnings: [],
-      errors: [],
-    };
-  }
-  if (!result.statusResult) {
-    return {
-      checks: options.checks,
-      warnings: [],
-      errors: ['credentialStatus'],
-    };
+  if (verifiableCredential.credentialStatus && !result.statusResult) {
+    res.errors.push('credentialStatus');
   }
 
-  throw new Error(JSON.stringify(result, null, 2));
+  return res;
 };

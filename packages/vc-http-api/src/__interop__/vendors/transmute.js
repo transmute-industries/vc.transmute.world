@@ -35,6 +35,17 @@ module.exports = {
       frame: frames[0].data,
     },
   ],
+
+  verifyCredentialConfiguration: {
+    endpoint: 'http://localhost:8080/next/credentials/verify',
+    didMethodsSupported: ['did:key:', 'did:web:'],
+    linkedDataProofSuitesSupported: [
+      'Ed25519Signature2018',
+      'BbsBlsSignature2020',
+      'BbsBlsSignatureProof2020',
+    ],
+  },
+
   verifyPresentationConfiguration: {
     endpoint: 'http://localhost:8080/next/presentations/verify',
   },

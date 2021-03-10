@@ -209,21 +209,12 @@ export default (server: any, _opts: any, done: any) => {
       },
     },
     async (request: any, reply: any) => {
-      try {
-        const result = await server.vc.verifyCredential(
-          request.body.verifiableCredential,
-          request.body.options
-        );
-        return reply.send(result);
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(e);
-        return reply.status(400).send({
-          checks: request.body.options.checks,
-          warnings: [],
-          errors: ['credentialStatus'],
-        });
-      }
+      const result = await server.vc.verifyCredential(
+        request.body.verifiableCredential,
+        request.body.options
+      );
+
+      return reply.status(result.errors.length ? 400 : 200).send(result);
     }
   );
 
