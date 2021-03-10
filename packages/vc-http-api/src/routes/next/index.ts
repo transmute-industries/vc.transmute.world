@@ -218,7 +218,11 @@ export default (server: any, _opts: any, done: any) => {
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error(e);
-        return reply.status(400).send({});
+        return reply.status(400).send({
+          checks: request.body.options.checks,
+          warnings: [],
+          errors: ['credentialStatus'],
+        });
       }
     }
   );

@@ -16,16 +16,13 @@ afterAll(async () => {
 
 it('case', async () => {
   // eslint-disable-next-line global-require
-  const vc = require('../__interop__/verifiableCredentials/case-12.json');
-  const response = await api.post('/next/credentials/verify').send({
+  const vc = require('../__interop__/verifiableCredentials/case-16.json');
+  const res = await api.post('/next/credentials/verify').send({
     verifiableCredential: vc,
     options: {
-      checks: ['proof', 'credentialStatus'],
+      checks: ['proof'],
     },
   });
-  expect(response.body).toEqual({
-    checks: ['proof', 'credentialStatus'],
-    warnings: [],
-    errors: [],
-  });
+  expect(res.status).toBe(200);
+  expect(res.body.checks).toEqual(['proof']);
 });
