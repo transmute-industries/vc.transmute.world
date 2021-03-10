@@ -12,7 +12,7 @@ afterAll(async () => {
   await server.close();
 });
 
-let suiteConfig = require('../__interop__/vendors/transmute');
+const suiteConfig = require('../__interop__/vendors/transmute');
 
 const httpClient = require('../services/httpClient');
 
@@ -25,8 +25,9 @@ if (suiteConfig.verifyCredentialConfiguration) {
     );
 
     const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
-    const credentialStatusesSupported =
-      suiteConfig.verifyCredentialConfiguration.credentialStatusesSupported;
+    const {
+      credentialStatusesSupported,
+    } = suiteConfig.verifyCredentialConfiguration;
 
     beforeEach(() => {
       verifiableCredentials = utilities.cloneObj(
@@ -220,7 +221,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
     });
 
     if (credentialStatusesSupported) {
-      describe(`13. The Verifier\'s Verify Credential HTTP API MAY support checking the status of a credential.`, () => {
+      describe(`13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential.`, () => {
         const fixtures = utilities.filterVerifiableCredentialsWithCredentialStatus(
           verifiableCredentials
         );
@@ -291,7 +292,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
 
   describe('Verify Credential API - Interop', () => {
     // Load in the static test fixtures
-    let verifiableCredentials = utilities.filterVerifiableCredentialsForVendorConfig(
+    const verifiableCredentials = utilities.filterVerifiableCredentialsForVendorConfig(
       suiteConfig.verifiableCredentials,
       suiteConfig.verifyCredentialConfiguration
     );
