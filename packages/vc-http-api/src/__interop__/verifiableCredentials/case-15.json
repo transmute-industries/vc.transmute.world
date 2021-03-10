@@ -5,7 +5,10 @@
     "https://w3id.org/vc-revocation-list-2020/v1"
   ],
   "id": "https://issuer.oidp.uscis.gov/credentials/83627465",
-  "type": ["VerifiableCredential", "PermanentResidentCard"],
+  "type": [
+    "VerifiableCredential",
+    "PermanentResidentCard"
+  ],
   "identifier": "83627465",
   "name": "Permanent Resident Card",
   "description": "Government of Example Permanent Resident Card.",
@@ -19,7 +22,10 @@
   },
   "credentialSubject": {
     "id": "did:example:b34ca6cd37bbf23",
-    "type": ["PermanentResident", "Person"],
+    "type": [
+      "PermanentResident",
+      "Person"
+    ],
     "givenName": "JOHN",
     "familyName": "SMITH",
     "gender": "Male",

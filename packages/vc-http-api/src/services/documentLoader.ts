@@ -46,7 +46,7 @@ const documentLoader = documentLoaderFactory.pluginFactory
     'https://w3id.org/security/v3-unstable': secV3,
     'https://w3id.org/security/bbs/v1': bbsV1,
     'https://w3id.org/vc-revocation-list-2020/v1': rlv1,
-    'https://schema.org/': schemaorg,
+    'https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/11.0/schemaorgcontext.jsonld': schemaorg,
     'https://mavennet.github.io/contexts/crude-inspection-v1.0.jsonld': mavV1,
   })
   .addResolver({
