@@ -3,6 +3,8 @@ import * as utilities from '../services/utilities';
 
 let server: any;
 
+jest.setTimeout(30 * 1000);
+
 beforeAll(async () => {
   server = await getTestServer();
   await server.listen(8080);
