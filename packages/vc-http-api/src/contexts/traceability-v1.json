@@ -1,11 +1,11 @@
 {
   "@context": {
     "@version": 1.1,
-    "name": "http://schema.org/name",
-    "description": "http://schema.org/description",
-    "identifier": "http://schema.org/identifier",
+    "name": "https://schema.org/name",
+    "description": "https://schema.org/description",
+    "identifier": "https://schema.org/identifier",
     "image": {
-      "@id": "http://schema.org/image",
+      "@id": "https://schema.org/image",
       "@type": "@id"
     },
     "id": "@id",
@@ -46,7 +46,7 @@
           "@id": "https://w3id.org/traceability?v1#Inspector"
         },
         "shipment": {
-          "@id": "https://schema.org/AgParcelDelivery"
+          "@id": "https://schema.org/ParcelDelivery"
         },
         "applicant": {
           "@id": "https://w3id.org/traceability#dfn-entities"
@@ -172,11 +172,11 @@
         }
       }
     },
-    "BillOfLadingCredential": {
-      "@id": "https://w3id.org/traceability#BillOfLadingCredential",
+    "BillOfLadingCertificate": {
+      "@id": "https://w3id.org/traceability#BillOfLadingCertificate",
       "@context": {
         "relatedLink": {
-          "@id": "https://schema.org/relatedLink"
+          "@id": "https://w3id.org/traceability#LinkRole"
         }
       }
     },
@@ -188,14 +188,6 @@
         },
         "url": {
           "@id": "https://schema.org/url"
-        }
-      }
-    },
-    "CertifidMillTestReportCredential": {
-      "@id": "https://w3id.org/traceability#CertifidMillTestReportCredential",
-      "@context": {
-        "relatedLink": {
-          "@id": "https://w3id.org/traceability#LinkRole"
         }
       }
     },
@@ -232,21 +224,50 @@
           "@id": "https://schema.org/description"
         },
         "formula": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/formula"
+          "@id": "https://purl.obolibrary.org/obo/chebi/formula"
         },
         "inchi": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/inchi"
+          "@id": "https://purl.obolibrary.org/obo/chebi/inchi"
         },
         "inchikey": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
+          "@id": "https://purl.obolibrary.org/obo/chebi/inchikey"
         }
       }
     },
-    "CommercialInvoiceCredential": {
+    "CommercialInvoice": {
       "@id": "https://w3id.org/traceability#CommercialInvoiceCredential",
       "@context": {
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "portOfEntry": {
+          "@id": "https://schema.org/address"
+        },
+        "purchaseDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "destinationCountry": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "merchandise": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        }
+      }
+    },
+    "CommercialInvoiceCertificate": {
+      "@id": "https://w3id.org/traceability#CommercialInvoiceCertificate",
+      "@context": {
         "relatedLink": {
-          "@id": "https://schema.org/relatedLink"
+          "@id": "https://w3id.org/traceability#LinkRole"
         }
       }
     },
@@ -277,10 +298,10 @@
           "@id": "https://www.gs1.org/voc/Place"
         },
         "UWI": {
-          "@id": "https://schema.org/identifier"
+          "@id": "https://schema.org/identifier?1"
         },
         "HSCode": {
-          "@id": "https://w3id.org/identifier"
+          "@id": "https://w3id.org/identifier?2"
         },
         "productionDate": {
           "@id": "https://schema.org/DateTime#v2"
@@ -741,6 +762,59 @@
         }
       }
     },
+    "Inbond": {
+      "@id": "https://w3id.org/traceability#Inbond",
+      "@context": {
+        "product": {
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "inBondNumber": {
+          "@id": "https://w3id.org/identifier?1"
+        },
+        "entryId": {
+          "@id": "https://w3id.org/identifier?3"
+        },
+        "ftzNo": {
+          "@id": "https://w3id.org/identifier?2"
+        },
+        "inBondType": {
+          "@id": "https://w3id.org/identifier?6"
+        },
+        "portOfEntry": {
+          "@id": "https://www.gs1.org/voc/Place?3"
+        },
+        "portOfDestination": {
+          "@id": "https://www.gs1.org/voc/Place?4"
+        },
+        "portOfArrival": {
+          "@id": "https://www.gs1.org/voc/Place?5"
+        },
+        "carrier": {
+          "@id": "https://w3id.org/traceability?2#Entity?1"
+        },
+        "irsNumber": {
+          "@id": "https://w3id.org/identifier?4"
+        },
+        "recipient": {
+          "@id": "https://w3id.org/traceability?2#Entity?2"
+        },
+        "billOfLadingNumber": {
+          "@id": "https://w3id.org/identifier?5"
+        },
+        "expectedDeliveryDate": {
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "valuePerItem": {
+          "@id": "https://schema.org/PriceSpecification?1"
+        },
+        "totalOrderValue": {
+          "@id": "https://schema.org/PriceSpecification"
+        }
+      }
+    },
     "InspectionReport": {
       "@id": "https://w3id.org/traceability#InspectionReport",
       "@context": {
@@ -1069,6 +1143,89 @@
         },
         "description": {
           "@id": "https://schema.org/description"
+        }
+      }
+    },
+    "MillTestReport": {
+      "@id": "https://w3id.org/traceability#MillTestReport",
+      "@context": {
+        "manufacturer": {
+          "@id": "https://schema.org/Organization"
+        },
+        "product": {
+          "@id": "https://w3id.org/traceability#SteelProduct"
+        },
+        "purchase": {
+          "@id": "https://w3id.org/traceability#Purchase"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        }
+      }
+    },
+    "MillTestReportCertificate": {
+      "@id": "https://w3id.org/traceability#MillTestReportCertificate",
+      "@context": {
+        "relatedLink": {
+          "@id": "https://w3id.org/traceability#LinkRole"
+        }
+      }
+    },
+    "NaturalGasProduct": {
+      "@id": "https://w3id.org/traceability#NaturalGasProduct",
+      "@context": {
+        "product": {
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "facility": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "UWI": {
+          "@id": "https://schema.org/identifier?1"
+        },
+        "HSCode": {
+          "@id": "https://w3id.org/identifier?2"
+        },
+        "productionDate": {
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "observation": {
+          "@id": "https://w3id.org/traceability#observation"
+        }
+      }
+    },
+    "OGBillOfLading": {
+      "@id": "https://w3id.org/traceability#OGBillOfLading",
+      "@context": {
+        "billOfLading": {
+          "@id": "https://w3id.org/traceability#BillOfLading"
+        },
+        "shippingDate": {
+          "@id": "https://schema.org/DateTime?1"
+        },
+        "arrivalDate": {
+          "@id": "https://schema.org/DateTime?2"
+        },
+        "valuePerItem": {
+          "@id": "https://www.schema.org/value?1"
+        },
+        "totalOrderValue": {
+          "@id": "https://www.schema.org/value?2"
+        },
+        "freightChargeTerms": {
+          "@id": "https://www.schema.org/value?3"
+        },
+        "batchNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "openingVolume": {
+          "@id": "https://schema.org/MeasuredValue?2"
+        },
+        "closingVolume": {
+          "@id": "https://schema.org/MeasuredValue?1"
+        },
+        "observation": {
+          "@id": "https://w3id.org/traceability#observation"
         }
       }
     },
@@ -1455,47 +1612,6 @@
         },
         "purchaseOrder": {
           "@id": "https://schema.org/identifier"
-        }
-      }
-    },
-    "QPInbond": {
-      "@id": "https://w3id.org/traceability#QPInbond",
-      "@context": {
-        "product": {
-          "@id": "https://www.gs1.org/voc/Product"
-        },
-        "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
-        "inBondNumber": {
-          "@id": "https://w3id.org/identifier?1"
-        },
-        "inBondType": {
-          "@id": "https://w3id.org/identifier"
-        },
-        "portOfEntry": {
-          "@id": "https://www.gs1.org/voc/Place?3"
-        },
-        "carrier": {
-          "@id": "https://w3id.org/traceability?2#Entity?1"
-        },
-        "irsNumber": {
-          "@id": "https://w3id.org/identifier?3"
-        },
-        "recipient": {
-          "@id": "https://w3id.org/traceability?2#Entity?2"
-        },
-        "billOfLadingNumber": {
-          "@id": "https://w3id.org/identifier?4"
-        },
-        "expectedDeliveryDate": {
-          "@id": "https://schema.org/DateTime#v2"
-        },
-        "valuePerItem": {
-          "@id": "https://schema.org/PriceSpecification?1"
-        },
-        "totalOrderValue": {
-          "@id": "https://schema.org/PriceSpecification"
         }
       }
     },
