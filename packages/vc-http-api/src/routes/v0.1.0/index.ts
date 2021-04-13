@@ -117,7 +117,7 @@ export default (server: any, _opts: any, done: any) => {
           },
         },
         response: {
-          200: {
+          201: {
             description: 'Success',
             type: 'object',
             additionalProperties: true,
@@ -134,7 +134,7 @@ export default (server: any, _opts: any, done: any) => {
       if (result.errors.length) {
         return reply.status(400).send(result);
       }
-      return reply.send(result);
+      return reply.status(201).send(result);
     }
   );
 
