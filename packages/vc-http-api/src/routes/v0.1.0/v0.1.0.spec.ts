@@ -55,6 +55,7 @@ describe('POST /v0.1.0/verify/credentials', () => {
         checks: ['proof'],
       },
     });
+    expect(response.status).toBe(201);
     expect(response.body).toEqual({
       checks: ['proof'],
       warnings: [],
