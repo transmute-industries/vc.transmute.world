@@ -11,6 +11,9 @@ import { documentLoader } from '../documentLoader';
 import { getKeyPairById, getKeyForIssuer } from '../../keys';
 
 export const issueCredential = async (credential: any, options: any = {}) => {
+  if (options.verificationMethod) {
+    throw new Error('verificationMethod not supported');
+  }
   if (options.proofPurpose && options.proofPurpose !== 'assertionMethod') {
     throw new Error('unsupported proofPurpose');
   }
