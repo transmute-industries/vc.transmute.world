@@ -17,6 +17,7 @@
 name: Google Cloud Run
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
