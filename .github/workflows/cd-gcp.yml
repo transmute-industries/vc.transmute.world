@@ -20,6 +20,7 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - '**'
       - master
 
 # Environment variables available to all jobs and steps in this workflow
