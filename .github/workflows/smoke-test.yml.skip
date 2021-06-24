@@ -1,6 +1,0 @@
-# Need to make this some script
-# to call https://github.com/w3c-ccg/vc-http-api
-# after a successful deployment
-
-
-# curl -s https://w3c-ccg.github.io/vc-http-api/test-suite/transmute/testResults.json | jq

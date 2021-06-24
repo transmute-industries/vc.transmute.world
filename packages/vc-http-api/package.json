@@ -42,7 +42,7 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.9.0",
+    "@size-limit/preset-small-lib": "^4.12.0",
     "@types/supertest": "^2.0.10",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-plugin-jest": "^24.1.0",
@@ -54,8 +54,8 @@
     "typescript": "4.0.5"
   },
   "dependencies": {
-    "@mattrglobal/bbs-signatures": "^0.5.0",
-    "@mattrglobal/jsonld-signatures-bbs": "^0.8.0",
+    "@mattrglobal/bbs-signatures": "^0.6.0",
+    "@mattrglobal/jsonld-signatures-bbs": "^0.10.0",
     "@transmute/did-key-bls12381": "^0.2.1-unstable.35",
     "@transmute/ed25519-signature-2018": "^0.1.1-unstable.12",
     "@transmute/jsonld-document-loader": "^0.2.0",
