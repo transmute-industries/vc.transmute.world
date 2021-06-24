@@ -13,4 +13,6 @@ RUN [ "npm", "run", "postinstall" ]
 
 WORKDIR /usr/src/app/packages/vc-http-api
 
-CMD [ "npm", "run", "start" ]
+RUN [ "npm", "run", "build" ]
+
+CMD [ "node", "run.js" ]
