@@ -213,9 +213,6 @@ export default (server: any, _opts: any, done: any) => {
         request.body.verifiableCredential,
         request.body.options
       );
-      console.log(request.body.verifiableCredential);
-      console.log(request.body.options);
-      console.log('result', result.errors);
 
       return reply.status(result.errors.length ? 400 : 200).send(result);
     }
